@@ -93,6 +93,8 @@ If requests hang, first compare client timestamps with server access logs and in
 
 **Explain back:** write a p95 latency and availability SLO, then present the status counts and timing that would falsify it. Distinguish concurrency limiting, queueing, batching, and rate limiting using this service's observed behavior.
 
+Next, complete standalone [Lab 17: Control Model-Serving Overload](../labs/17-model-serving-overload/README.md). Preserve its bounded-load evidence for the [inference-latency drill](../incidents/10-inference-latency/README.md) and the [Multi-Tenant Model Serving System](../projects/12-model-serving-system/README.md).
+
 ## Check yourself
 
 1. Why return 503 instead of accepting unlimited work?

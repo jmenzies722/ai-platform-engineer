@@ -50,4 +50,4 @@ Outliers saturate, accumulators overflow, unsupported operators fall back, memor
 
 ## Next
 
-Continue to [Routing, autoscaling, and overload](07-routing-autoscaling-and-overload.md).
+Continue to [Advanced serving topologies](07-routing-autoscaling-and-overload.md).

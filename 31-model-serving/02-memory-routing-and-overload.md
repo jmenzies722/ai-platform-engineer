@@ -1,44 +1,54 @@
-# Memory, routing, and overload
+# Admission, routing, and overload
 
-A serving fleet must place model state, route compatible requests, and reject work before resource exhaustion becomes an outage.
+A serving fleet must route only compatible work, reserve its worst permitted resource demand, and reject excess load before queue growth or memory exhaustion becomes an outage.
 
 ## Why it matters
 
-Model weights and per-request cache compete for finite memory. A process can be alive yet unable to admit another safe request.
+A live process is not necessarily ready for a model revision or able to accept another sequence. Cold loading, variable token counts, retries, and affinity make request rate alone a misleading capacity signal.
 
 ## How it works
 
-Capacity includes weights, runtime workspace, activations, and, for autoregressive models, a KV cache that grows with active sequence length. Routers consider model revision, tenant, locality, and replica health. Admission control applies concurrency, token, or memory budgets before enqueueing. Load shedding returns a fast explicit failure. Autoscaling reacts to queue depth and saturation, but cold model loading limits response speed.
+Routing first removes ineligible replicas by model digest, tokenizer and adapter compatibility, hardware class, context limit, tenant policy, locality, draining state, and semantic readiness. It then balances among candidates using capacity and bounded affinity. Prefix affinity can improve cache reuse, but the router must cap per-key skew and spill to another eligible replica before one hot key monopolizes service.
 
-Admission must reserve against future work, not only current bytes. A generation request declares or receives a maximum token budget; otherwise one long sequence can evict or starve many short ones. Routing affinity improves cache reuse but can create hot replicas. Health therefore includes readiness for the requested model revision and available admission budget, not merely an open socket.
+Admission happens before enqueueing. A request supplies or receives limits for prompt tokens, generated tokens, deadline, and service class. The scheduler estimates prefill work, reserves KV-cache blocks for the permitted lifetime, and charges tenant and global budgets. It admits only when all relevant constraints hold. A short bounded queue can absorb ordinary variance; load shedding rejects work whose deadline or reservation cannot be honored. Rejection carries a stable reason and is retryable only when policy can name a later condition that may succeed.
+
+Autoscaling is a slower control loop, not admission control. Useful signals include arrival token work, oldest queue age, admitted and rejected work, prefill saturation, decode slots, cache pressure, and warm capacity by revision. Scheduled or predictive headroom covers model load time. Scale-down drains, stops new admissions, waits for or cancels bounded generations, and retains failure headroom. Clients enforce one end-to-end deadline, capped backoff with jitter, and a retry budget shared across layers.
 
 ## See it yourself
 
-Assume a simplified cache cost of 0.5 MiB per token. Eight requests with 1,000 cached tokens consume about 4 GiB; the same eight at 8,000 consume 32 GiB before weights and workspace. On a replica with 24 GiB free after loading weights, the second set is impossible. A token-memory reservation should reject before allocation rather than waiting for an out-of-memory crash.
+Suppose three warm replicas each safely complete 50 requests/s. Demand rises from 100 to 300 requests/s and another three replicas need 120 seconds to load. Without shedding, backlog grows at \(300-150=150\) requests/s and reaches 18,000 requests before new capacity is ready. Even if six replicas then exactly match demand, drain rate is zero, so the backlog never recovers. This proves reactive scaling alone cannot restore a finite latency objective.
+
+Now reserve memory. A replica has 24 GiB free after weights and workspace, and this simplified model uses 0.5 MiB per cached token. Eight requests capped at 8,000 cached tokens require about 31.25 GiB. Current allocation can look safe while future permitted growth is impossible. Reserving the declared maximum rejects at admission; observing only current bytes delays the decision until allocation failure.
 
 ## Where it shows up
 
-An LLM gateway routes by revision and context capacity, then returns a retryable overload response only when another attempt has a bounded chance. Autoscaling watches queue age and admitted-token pressure, but maintains warm headroom because loading weights may take minutes. Canary routing pins request and telemetry to one digest.
+An inference gateway emits candidate count, exclusion reason, chosen replica, affinity spill, reservation, queue deadline, admission result, retry hint, and release digest. Per-tenant limits protect shared recovery reserve. Canary routing keeps assignment and telemetry tied to one complete release while health removes a failed candidate.
+
+Use [Lab 17: Control Model-Serving Overload](../labs/17-model-serving-overload/README.md) to measure offered, admitted, and completed work. The [GPU out-of-memory drill](../incidents/11-gpu-oom/README.md) tests token-memory admission, while the [retry-storm drill](../incidents/08-retry-storm/README.md) tests amplification during recovery.
 
 ## When it breaks
 
-Retries amplify overload, stale health checks route to stuck replicas, and autoscaling arrives after queues are already unrecoverable. First inspect per-replica reserved versus actual memory, active tokens, queue age, admission outcomes, and route distribution. Skew indicates routing; growing reservations indicate capacity; synchronized retry traffic indicates amplification. Preserve an explicit rejected result rather than hiding it in client timeout.
+Stale readiness routes to unloaded models, optimistic token estimates overcommit cache, affinity hotspots one replica, and per-layer retries multiply demand. CPU-based scaling may remain quiet while decode slots and memory are exhausted. First align arrival, admission, rejection, completion, oldest age, reservations, actual blocks, route skew, retry attempts, and replica lifecycle on one timeline. A rising oldest age with completion below admitted work proves instability; skew isolated to one key implicates routing; synchronized attempts beyond original requests implicate retries.
+
+Never hide shedding behind client timeout. Preserve a terminal overload record, do not retry non-idempotent work without a stable key, and do not call recovery complete until queue age declines under continued normal demand.
 
 ## Practice
 
-**Build:** simulate two replicas with weight and token-memory budgets and version-aware routing. **Break:** send long contexts to one affinity key and enable immediate retries; observe skew and amplification. **Explain back:** show why readiness, liveness, and admission capacity are separate and identify the first overload dashboard.
+**Build:** complete [Lab 17](../labs/17-model-serving-overload/README.md), then extend its simulator to two model versions, token reservations, tenant shares, bounded affinity, and a 120-second cold-start clock. **Break:** add a hot prefix and immediate retries. **Prove:** assert queue length never exceeds its configured bound, every admitted reservation is released exactly once, no incompatible revision is selected, and total attempts remain within the retry budget.
+
+Carry the evidence into the [Multi-Tenant Model Serving System](../projects/12-model-serving-system/README.md): admission contract, workload distribution, route-reason telemetry, overload runbook, and recovery trace are required project artifacts rather than optional polish.
 
 ## Check yourself
 
-1. Why is process health insufficient?
-2. What should a retry budget prevent?
-3. Which signals should scale a serving fleet?
+1. Why must admission reserve future permitted work?
+2. What evidence distinguishes routing skew from fleet-wide saturation?
+3. Why can autoscaling not replace rejection during cold start?
 
 ## Sources
 
 ### REQUIRED
 
-- [Kubernetes resource management](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)
+- [Google SRE: handling overload](https://sre.google/sre-book/handling-overload/)
 
 ### RECOMMENDED
 

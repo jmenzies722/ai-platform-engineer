@@ -52,4 +52,4 @@ Prompt injection reaches authority, secrets enter context, symlinks escape file 
 
 ## Next
 
-Continue to [Evaluation and operations](03-evaluation-and-operations.md).
+Continue to [Evaluation and trajectory evidence](03-evaluation-and-operations.md).

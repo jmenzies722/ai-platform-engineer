@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 import subprocess
 import tempfile
@@ -25,6 +26,18 @@ def main() -> None:
 
     with tempfile.TemporaryDirectory(prefix="curriculum-mermaid-") as raw_directory:
         directory = Path(raw_directory)
+        puppeteer_config = directory / "puppeteer.json"
+        puppeteer_config.write_text(
+            json.dumps(
+                {
+                    "args": [
+                        "--no-sandbox",
+                        "--disable-setuid-sandbox",
+                    ]
+                }
+            ),
+            encoding="utf-8",
+        )
         for sequence, (path, index, diagram) in enumerate(diagrams, start=1):
             source = directory / f"{sequence:04d}.mmd"
             output = directory / f"{sequence:04d}.svg"
@@ -38,6 +51,8 @@ def main() -> None:
                     str(source),
                     "--output",
                     str(output),
+                    "--puppeteerConfigFile",
+                    str(puppeteer_config),
                     "--quiet",
                 ],
                 text=True,

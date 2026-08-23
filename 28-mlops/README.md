@@ -21,11 +21,14 @@ MLOps makes data, training, evaluation, and release processes reproducible and o
 
 ## Practice
 
-- [Reproducible release lab](lab-reproducible-release.md): create content-addressed lineage, expose a stale cache, gate promotion, canary, roll back, and retire.
+1. Complete the [standalone ML reproducibility lab](../labs/15-ml-reproducibility/README.md). Keep immutable data and code hashes, environment and parameter records, split identities, validation output, deterministic comparisons, and the exact rerun command.
+2. Complete the [reproducible release lab](lab-reproducible-release.md). Extend the candidate evidence into content-addressed lineage, expose a stale cache, gate promotion, canary by immutable digest, roll back model and preprocessing together, and retire the release.
+3. Attempt the [bad rollout incident](../incidents/06-bad-rollout/README.md) before reading its solution. Use its version and business-invariant evidence to revise promotion criteria, canary slices, rollback triggers, and reconciliation of affected outcomes.
+4. Build the [Reproducible ML Training and Promotion Pipeline project](../projects/10-reproducible-ml-pipeline/README.md). A portfolio claim requires a clean-checkout reproduction, a rejected flawed candidate, complete promotion lineage, and drill evidence for rollback and retirement.
 
 ## Ready to continue
 
-You can reproduce and trace a candidate, prevent stale caches and invalid promotion, deploy an evaluated digest, detect drift without confusing it with harm, respond from evidence, govern material changes, and retire safely.
+You can reproduce and trace a candidate from immutable inputs, reject incomparable or flawed evidence, prevent stale caches and invalid promotion, deploy and roll back an evaluated digest with compatible preprocessing, distinguish drift from harm, and retire safely.
 
 ## Next
 

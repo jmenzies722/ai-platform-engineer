@@ -26,6 +26,16 @@ Begin only when you can state the user problem without naming the technology. A 
 | 14 | [**Governed Agent Runtime**](projects/14-governed-agent-runtime/README.md) | Durable tool workflows with scoped identity, approvals, budgets, audit, evaluation, and replay. |
 | 15 | [**Staff AI Platform Strategy and Design Package**](projects/15-staff-ai-platform-design/README.md) | Organization-wide architecture, economics, migration, governance, influence, and durable ownership. |
 
+## Experience paths for projects 09 through 11
+
+These projects consume earlier evidence. Starting the project does not retroactively prove the lab or incident competency.
+
+| Project | Enter with | Failure correction before integration | Evidence the project must add |
+|---|---|---|---|
+| [09 Developer Platform Control Plane](projects/09-developer-platform-control-plane/README.md) | A decision from the [platform adoption experiment](21-platform-engineering/lab-platform-adoption-experiment.md) and API, convergence, audit, and isolation proofs from the [control-plane lab](labs/14-platform-control-plane/README.md) | Diagnosis records from [retry storm](incidents/08-retry-storm/README.md) and [queue overload](incidents/12-queue-overload/README.md), reflected in retry ownership, admission, status, and support design | Real pilot outcomes, adapter and migration tests, threat-model verification, operational recovery, offboarding, and full-cost evidence |
+| [10 Reproducible ML Pipeline](projects/10-reproducible-ml-pipeline/README.md) | Immutable run identity from the [ML reproducibility lab](labs/15-ml-reproducibility/README.md) and promotion, rollback, and retirement evidence from the [release lab](28-mlops/lab-reproducible-release.md) | A [bad rollout](incidents/06-bad-rollout/README.md) diagnosis reflected in canary slices, business invariants, rollback triggers, and outcome reconciliation | Clean-checkout reproduction, challenged evaluation, complete lineage, governed promotion, monitoring response, compatible rollback, and retirement proof |
+| [11 Distributed GPU Planner](projects/11-distributed-gpu-planner/README.md) | Roofline, profile, memory, and topology evidence from the [GPU performance lab](29-gpu-systems/09-practical-gpu-systems-lab.md), plus deterministic scheduling evidence from the [GPU OOM lab](labs/16-gpu-scheduling-oom/README.md) and [cluster lab](30-ai-infrastructure/09-practical-ai-infrastructure-lab.md) | Diagnoses from [GPU OOM](incidents/11-gpu-oom/README.md) and [queue overload](incidents/12-queue-overload/README.md), reflected in admission, retry, fairness, checkpoint, and recovery models | Analytical validation, calibrated assumptions, policy comparisons under adverse workloads, uncertainty, raw event logs, and a reproducible capacity recommendation |
+
 ## Graduation Criteria
 
 A project is portfolio-grade only when another engineer can evaluate both the system and your engineering judgment.

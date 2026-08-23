@@ -12,6 +12,8 @@ A principal delegates a task-scoped capability to a run. The executor derives ru
 
 Approval is a fresh authorization event for a resolved consequence. The reviewer sees target, diff or effect, identity, policy, reversibility, and expiration. Approval cannot authorize a later changed payload. Credentials and approvals are scoped by tenant, resource, action, and time.
 
+This lesson defines approval as an authorization primitive. [Human approval, escalation, and kill-switch operation](07-evaluation-and-trajectory-observability.md) later covers reviewer workflow, denial, escalation, containment acknowledgements, and safe resume.
+
 ## See it yourself
 
 Compare `shell(command)` with `draft_issue_comment(issue_id,text)` and `publish_draft(draft_digest)`. The shell reaches unrelated files and hosts; narrow tools constrain object and action. Changing text after approval changes the digest and must invalidate approval.
@@ -50,4 +52,4 @@ Shared service accounts erase attribution, policy trusts model-provided tenant I
 
 ## Next
 
-Continue to [Durable execution and effect reconciliation](06-durable-execution-and-reconciliation.md).
+Continue to [Leases, fencing, and effect reconciliation](06-durable-execution-and-reconciliation.md).
