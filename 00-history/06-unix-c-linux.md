@@ -107,7 +107,7 @@ Unix, C, Linux, POSIX, shell, fork, exec, pipe, file descriptor, signal, PID 1, 
 
 ## References
 
-- **[REQUIRED] “The UNIX Time-Sharing System” — Dennis Ritchie and Ken Thompson.** [Bell System Technical Journal](https://www.bell-labs.com/usr/dmr/www/cacm.pdf). Primary account of Unix’s goals and design.
+- **[REQUIRED] “The UNIX Time-Sharing System” — Dennis Ritchie and Ken Thompson.** [ACM Digital Library](https://dl.acm.org/doi/10.1145/361011.361061). Primary account of Unix’s goals and design.
 - **[RECOMMENDED] “The Development of the C Language” — Dennis Ritchie.** [Bell Labs archive](https://www.bell-labs.com/usr/dmr/www/chist.html). Explains the co-evolution of C and Unix.
 - **[DEEP DIVE] “The Linux man-pages Project” — Michael Kerrisk and contributors.** [Official site](https://www.kernel.org/doc/man-pages/). Canonical userspace interface documentation.
 

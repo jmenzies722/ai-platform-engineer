@@ -115,7 +115,7 @@ Bit, Boolean logic, transistor, stored program, instruction set architecture (IS
 
 ## References
 
-- **[REQUIRED] “First Draft of a Report on the EDVAC” — John von Neumann.** [Stanford-hosted text](https://web.stanford.edu/class/cs101/files/vonNeumannFirstDraft.pdf). Defines the stored-program architecture that anchors the modern machine model.
+- **[REQUIRED] “First Draft of a Report on the EDVAC” — John von Neumann.** [Computer History Museum](https://www.computerhistory.org/revolution/birth-of-the-computer/4/88/359). Documents the stored-program architecture that anchors the modern machine model.
 - **[RECOMMENDED] “The Computer History Timeline” — Computer History Museum.** [Timeline](https://www.computerhistory.org/timeline/). Connects devices and ideas without reducing the history to one invention.
 - **[DEEP DIVE] “The Free Lunch Is Over” — Herb Sutter.** [Dr. Dobb’s archive](http://www.gotw.ca/publications/concurrency-ddj.htm). Explains why power and concurrency changed software performance assumptions.
 

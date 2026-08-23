@@ -27,7 +27,7 @@ Links favor maintainers, standards bodies, official documentation, and primary p
 ## Linux, Containers, and Kubernetes
 
 - **REQUIRED** — [Linux kernel documentation](https://docs.kernel.org/) — kernel subsystem reference.
-- **RECOMMENDED** — [systemd manual pages](https://www.freedesktop.org/software/systemd/man/latest/) — service and host lifecycle management.
+- **RECOMMENDED** — [systemd documentation](https://systemd.io/) — service and host lifecycle management.
 - **REQUIRED** — [Open Container Initiative specifications](https://opencontainers.org/) — image, runtime, and distribution standards.
 - **RECOMMENDED** — [Docker documentation](https://docs.docker.com/) — practical image, engine, build, and container guidance.
 - **REQUIRED** — [Kubernetes documentation](https://kubernetes.io/docs/) — concepts, tasks, API behavior, and operations.
