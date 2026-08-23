@@ -1,65 +1,74 @@
-# Go
+# 10 — Go
 
-> **Status:** Coming soon
+> **Status:** Scaffolded · Detailed lessons are intentionally not yet published.
 
 ## 5-Minute Orientation
 
-### What
+### What is this?
 
-This module develops the principles, mechanisms, and operating judgment required for **Go**. It will connect implementation details to production behavior rather than treating tools as isolated commands.
+Learn Go through its runtime, interfaces, error model, tooling, concurrency primitives, memory behavior, and service patterns. Use it to build compact infrastructure and control-plane components.
 
-### Why
+### Why does it matter?
 
-AI platforms inherit the failure modes of every layer beneath them. This domain is part of the dependency chain required to build, debug, operate, and design reliable systems.
+This layer exists because the previous layer alone cannot make production systems understandable, dependable, and evolvable at scale. The module will teach the mechanism before the product vocabulary and connect every abstraction to observable behavior.
 
-### Where It Fits
+### Where does it fit?
 
-This module is part of the progression from software foundations to production AI platforms. See [CURRICULUM.md](../CURRICULUM.md) for its exact position and [ROADMAP.md](../ROADMAP.md) for stage prerequisites.
+This is Module 10 of 35. It follows [Backend Engineering](../09-backend-engineering/README.md) and provides foundations used by later modules. See the [Curriculum](../CURRICULUM.md) for the complete dependency path.
 
-### Prerequisites
+### What do I need first?
 
-Complete or demonstrate equivalent competency in **01-software-foundations**.
+Complete the Minimum Competency tier for [Backend Engineering](../09-backend-engineering/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
 
-### Outcomes
+### What will I be able to explain afterward?
 
-When complete, you should be able to explain the core abstractions, build a representative system, break it deliberately, debug it from evidence, operate it under constraints, and defend design tradeoffs.
+- the everyday problems this domain solves, before using specialized vocabulary;
+- the relationships among go through its runtime, interfaces, error model, tooling, concurrency primitives, memory behavior, and service patterns;
+- where the abstraction appears in production and which lower-layer details can leak through it;
+- one common failure, the evidence that distinguishes it, and a defensible design tradeoff.
 
 ## Competency Tiers
 
 ### Minimum Competency
 
-Explain the domain vocabulary and complete guided labs without copying commands blindly.
+Explain the module’s central mental model, complete guided proofs, and solve the designated No-AI challenge. This is enough for a first pass when the domain is not yet on your critical path.
 
 ### Strong Engineer
 
-Build and debug an integrated system, identify failure boundaries, and choose appropriate operational signals.
+Build a representative system, break it safely, diagnose it from evidence, and operate it under realistic constraints. Explain the mechanism to both a new learner and a working engineer.
 
 ### Deep Dive
 
-Reason from first principles, inspect internals, quantify tradeoffs, and design for reliability, security, cost, and organizational scale.
+Inspect internals and primary sources, quantify reliability/security/cost tradeoffs, and make a design decision that accounts for adjacent layers.
 
-## Planned Scope
-
-The detailed lesson sequence will be written when this module becomes active. Track status in [PROGRESS.md](../PROGRESS.md); do not treat this scaffold as study material.
+Go deep when this domain blocks a current project, recurs in incidents, or underpins a decision you own. Otherwise earn Minimum Competency and continue.
 
 ## AI Learning Policy
 
 ### AI Tutor
 
-Use AI to ask for alternate explanations, prerequisite refreshers, and questions that expose gaps. Require it to cite authoritative sources.
+Use AI for Socratic questions, prerequisite refreshers, and alternative analogies. Verify technical claims against canonical sources.
 
-### AI Pair Programming
+### AI Pair
 
-Use AI after writing your own plan. Review every generated command and predict its effect before execution.
+Write your prediction and plan first. Read every generated command, state its expected effect, and keep ownership of tests and safety.
 
 ### AI Review
 
-Ask AI to challenge assumptions, identify missing failure modes, and review evidence. Do not accept a verdict without reproducing the reasoning.
+Ask AI to challenge assumptions, identify missing failure modes, and point out claims unsupported by evidence.
 
 ### No-AI Challenge
 
-Complete the designated challenge from documentation, local tools, and first principles before consulting AI.
+Complete the designated retrieval/build/debug task using your own model, local tools, and official documentation before consulting AI.
 
 ### Explain Back
 
-Close each study session by explaining the mechanism, one failure mode, and one design tradeoff in your own words without notes.
+Explain the concept without notes to a smart non-engineer, a junior engineer, and an interviewer. If one version collapses into jargon, revisit the intuition and mechanism.
+
+## Planned Scope
+
+No empty lesson files are created for this module. When authored, each lesson must satisfy [the lesson contract](../templates/LESSON.md), include a narratable Mermaid diagram, and end with an exact next path.
+
+## Next
+
+This scaffold is orientation, not completion. If you are following the active path, return to [START-HERE.md](../START-HERE.md). To preview the dependency that follows this module, open [Software Architecture](../11-software-architecture/README.md).

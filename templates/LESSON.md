@@ -1,103 +1,122 @@
 # Lesson Title
 
-## Why You're Learning This
+## In One Sentence
 
-State the capability this unlocks and the decisions or failures that require it.
+One plain sentence a beginner can understand. Use no unexplained jargon.
 
-## Historical Context
+## Why This Exists
 
-Describe: Before → Problem → Innovation → New abstraction → New problems → Modern connection.
+Name prerequisites with exact links. Describe the concrete real-world problem before the abstraction existed. A learner should understand the pressure without knowing the solution’s name.
 
-## Problem This Solves
+## Picture This
 
-Define the constraints, users, and failure of the previous approach.
+Use one everyday analogy or story. Do not use the engineering term until the underlying idea is visible. State where the analogy stops being accurate.
+
+## The Real Definition
+
+Introduce the engineering name, then define it precisely and gently. Establish:
+
+1. **Intuition layer** — what the idea means in plain language.
+2. **Mechanism layer** — components, state, and causality.
+3. **Engineering layer** — production behavior, failures, and tradeoffs.
 
 ## Mental Model
 
-Give a compact model that predicts behavior. State where it stops being accurate.
+```mermaid
+flowchart LR
+    Before --> Problem --> Abstraction
+    Abstraction --> Capability["New capability"]
+    Capability --> Complexity["New complexity"]
+    Complexity --> Next["Next abstraction"]
+```
 
-## Core Concepts
-
-Define the minimum concepts and their relationships.
+Explain how to narrate every arrow. State the model’s boundary.
 
 ## How It Actually Works
 
-Trace the critical path through concrete components and state transitions.
+Trace the critical path step by step. Prefer “because A changed, B happens” over disconnected facts. Include internals only when they affect a decision, symptom, or tradeoff.
 
-## Deep Dive
+## Tiny Proof
 
-Inspect internals, invariants, algorithms, resource costs, or protocol details.
+Provide the smallest safe code or command demo that makes the central claim observable.
 
-## Visual Model
+1. Ask for a prediction before execution.
+2. Show the command/code.
+3. State the expected observation.
+4. Explain what the observation proves and what it does not prove.
 
-```mermaid
-flowchart LR
-    Input --> Mechanism --> State --> Output
-    Mechanism --> Failure[Failure boundary]
-```
+## In Production
 
-## Code / Commands
+Show where this mechanism appears in real systems: Linux, cloud, Kubernetes, AI infrastructure, or another concrete environment. Connect the intuition layer to engineering consequences.
 
-Provide a minimal, safe, reproducible example. Explain expected effects.
+## How It Breaks
 
-## Practical Example
+List common failures as **symptom → likely mechanism → misleading conclusion to avoid**. Include unsafe or overloaded boundaries where relevant.
 
-Apply the mechanism to a realistic engineering task.
+## Debug It
 
-## Where This Appears in Production
+Use:
 
-Connect it to architectures, operations, and adjacent domains.
+**precise symptom → last proven boundary → falsifiable hypothesis → smallest useful evidence → controlled comparison → correction → prevention**
 
-## Common Failure Modes
+Name the first evidence to inspect and why.
 
-List symptoms, likely causes, and misleading interpretations.
+## Build / Break Exercises
 
-## Debugging Approach
+### Guided proof
 
-Use hypothesis → evidence → isolation → correction → prevention.
+Give a bounded first exercise.
 
-## Hands-On Lab
+### Build
 
-Link to a lab with observable completion evidence.
+Build a reduced version from a blank start.
 
-## Build Exercise
+### Break
 
-Build a reduced version without copying the worked example.
+Introduce one safe fault at a time. Predict, observe, explain, recover.
 
-## Break It Exercise
+### No-AI challenge
 
-Introduce a controlled fault; predict, observe, explain, recover.
+Set a task completed from the learner’s model, local tools, and primary documentation.
 
-## No-AI Challenge
+For every task, state observable success criteria.
 
-Set a bounded task completed from primary documentation and first principles.
+## Explain It to Anybody
+
+### 1. To a smart non-engineer
+
+Give a short explanation with the problem, concrete model, benefit, and no unexplained jargon.
+
+### 2. To a junior engineer
+
+Use precise vocabulary, narrate the mechanism, and include one production failure.
+
+### 3. In an interview (60–90 seconds)
+
+Define, motivate, explain the mechanism, name a tradeoff, and describe useful debugging evidence. This is a model answer to rebuild, not memorize.
 
 ## Knowledge Check
 
-Ask mechanism, tradeoff, and failure questions—not vocabulary recall alone.
-
-## Interview Questions
-
-Include progressive follow-ups that change constraints.
-
-## Explain It Yourself
-
-Provide an explain-back prompt that must be answered without notes.
-
-## Key Takeaways
-
-State durable principles and boundaries.
+Ask questions that test prediction, mechanism, transfer, failure reasoning, and design tradeoffs—not recall of the lesson’s wording. Optional answer guides should explain reasoning.
 
 ## Vocabulary
 
-Define introduced terms and link to [GLOSSARY.md](../GLOSSARY.md).
+Define only terms introduced in this lesson, in order of first use. Each gets one plain line. Add curriculum-wide terms to [GLOSSARY.md](../GLOSSARY.md) with its required four fields.
 
 ## References
 
-- **REQUIRED** — *Title* — Organization/author — canonical link — why it matters.
-- **RECOMMENDED** — *Title* — Organization/author — canonical link — why it matters.
-- **DEEP DIVE** — *Title* — Organization/author — canonical link — why it matters.
+### REQUIRED
 
-## Next Lesson
+Canonical source needed for Minimum Competency.
 
-Link forward and explain the dependency.
+### RECOMMENDED
+
+Official or primary source useful for Strong Engineer depth.
+
+### DEEP DIVE
+
+Specification, paper, source, or internals reference. Verify every URL; never invent one.
+
+## Next
+
+Give one exact next file path and explain the dependency. Never point to an unpublished file.

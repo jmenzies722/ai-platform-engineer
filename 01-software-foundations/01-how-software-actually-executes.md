@@ -1,24 +1,14 @@
 # How Software Actually Executes
 
-## Why You're Learning This
+## In One Sentence
 
-“Run this Python file” sounds like one action, but it crosses several systems. CPython parses source, produces executable runtime objects, and interprets Python bytecode. The operating system creates and schedules a process, maps virtual memory, and mediates access to files and devices. A physical CPU executes native machine instructions from the interpreter and kernel. Output finally reaches a terminal, file, pipe, or network endpoint.
+Your source code becomes running behavior only because a language runtime, the operating system, memory machinery, and the CPU cooperate to produce an observable result.
 
-This model helps you answer practical questions:
+## Why This Exists
 
-- Why is a program using memory before it handles any data?
-- Why can a process exist but do no useful work?
-- Why does printed output sometimes appear late or not at all?
-- Why can valid source code fail before its first statement runs?
-- Which evidence belongs to Python, the OS, or the hardware?
+**Prerequisite:** [Why Software Exists](../00-history/02-why-software-exists.md) gives the gentlest explanation of software as changeable instructions. [Evolution of Operating Systems](../00-history/05-evolution-of-operating-systems.md) is helpful but not required.
 
-## Historical Context
-
-Early computers were programmed directly in machine instructions and often ran one job at a time. Assemblers made symbolic instructions possible; compilers then translated higher-level languages into machine code. Time-sharing operating systems introduced protected processes, virtual memory, scheduling, and standardized I/O so multiple programs could safely share hardware.
-
-Python, first released in 1991, chose a high-level, dynamic language model. Its reference implementation, CPython, normally compiles source into an intermediate bytecode and executes that bytecode in a virtual machine. That design sits on top of decades of compiler and OS work. Modern CPython also specializes frequently executed bytecode, while the underlying C implementation is itself compiled to native code.
-
-## Problem This Solves
+Typing `python3 hello.py` feels like one action. It is actually a chain of translations and resource decisions. Without that chain, phrases such as “the code is slow,” “the process is stuck,” and “nothing printed” are too vague to debug.
 
 Without a layered execution model, “the code is slow” or “Python did not print” is too vague to debug. The source may be waiting on an import, the process may be sleeping, the scheduler may not be giving it CPU time, memory pages may be faulting in, a syscall may be blocked, or output may still be in a user-space buffer.
 
@@ -31,7 +21,24 @@ The model in this lesson turns a symptom into testable questions:
 5. Did it request an OS operation, and what happened?
 6. Where is output directed, and has buffering delayed it?
 
-## Mental Model
+## Picture This
+
+Imagine sending a handwritten recipe to a restaurant:
+
+1. the recipe must be readable;
+2. a trained cook interprets each instruction;
+3. the kitchen manager assigns a workstation and controls shared equipment;
+4. ingredients and intermediate dishes need places to live;
+5. hands and machines perform the physical work;
+6. a server carries the result to the right table.
+
+Source code is the recipe. CPython is the trained cook. The operating system is the kitchen manager. A process is this particular order in progress. Memory is its labeled workspace. The CPU performs the physical steps. Standard output is one delivery route.
+
+The analogy gives us roles. The engineering model gives us exact boundaries and evidence.
+
+## The Real Definition
+
+Software execution is a sequence of state changes performed by a physical CPU under the coordination of a language implementation and an operating system.
 
 Use this causal chain:
 
@@ -45,8 +52,6 @@ The arrows are not a one-time conveyor belt. Execution moves back and forth:
 - A read, page fault, timer, signal, or device event can change what happens next.
 
 The most important distinction is between an abstraction and its implementation. “Compiled” and “interpreted” describe useful execution strategies, not mutually exclusive language identities. Python source is commonly compiled to Python bytecode; CPython interprets that bytecode; CPython itself is compiled native code; and alternative Python implementations may use just-in-time or ahead-of-time compilation.
-
-## Core Concepts
 
 ### Program, executable, and process
 
@@ -84,6 +89,40 @@ For ordinary CPython, the CPU is executing machine instructions from the CPython
 ### File descriptors, streams, and output
 
 Linux processes conventionally begin with file descriptors `0`, `1`, and `2` for standard input, output, and error. They may point to a terminal, regular file, pipe, socket, or other object. Python’s `print` writes through a buffered text stream. That stream eventually causes one or more OS writes. A successful write means the kernel accepted bytes; it does not always mean a physical device or remote consumer has durably processed them.
+
+The three layers are:
+
+1. **Intuition:** source describes intent; several systems turn it into visible behavior.
+2. **Mechanism:** CPython parses and compiles source to bytecode, interprets that bytecode, and requests protected services from Linux.
+3. **Engineering:** process state, mappings, scheduling, syscalls, file descriptors, and buffering provide evidence when behavior differs from intent.
+
+## Mental Model
+
+```mermaid
+flowchart TD
+    A["Python source (.py)"] --> B["Tokenizer + parser"]
+    B --> C["AST + symbol analysis"]
+    C --> D["Compiler"]
+    D --> E["Code object + Python bytecode"]
+    E --> F["CPython evaluation loop"]
+    F --> G["Native CPython instructions"]
+    G --> H["CPU executes user-mode instructions"]
+    F --> I["Runtime objects in virtual memory"]
+    I <--> J["Page tables / physical memory"]
+    H --> K["System-call boundary"]
+    K --> L["Linux kernel"]
+    L --> M["Scheduler, files, pipes, terminal, devices"]
+    M --> N["Observable output"]
+    L --> H
+```
+
+The diagram separates language-level bytecode from native CPU instructions and shows that the kernel participates at controlled boundaries rather than executing every Python operation.
+
+Narrate the main path as:
+
+**Source → Runtime/Compiler → OS → Process → Memory → CPU → Output**
+
+Do not picture a one-way conveyor belt. While the program runs, the runtime repeatedly touches memory, the OS pauses and resumes threads, the CPU crosses into kernel code for protected operations, and output may wait in buffers.
 
 ## How It Actually Works
 
@@ -138,7 +177,7 @@ The CPU fetches and retires machine instructions belonging to CPython, libraries
 
 On normal completion, Python flushes standard streams, runs defined shutdown machinery, and returns an exit status. The kernel releases process resources and retains a small exit record until the parent collects it. Open file descriptors are closed; memory mappings do not survive the process.
 
-## Deep Dive
+### Boundaries that sharpen the model
 
 ### `exec` does not create a new process
 
@@ -167,67 +206,36 @@ Many Python operations are entirely in user space. Integer operations, attribute
 
 When stdout is connected to an interactive terminal it is commonly line-buffered; when redirected to a pipe or file it is commonly block-buffered. `print(..., flush=True)` or `python3 -u` requests more immediate stream behavior. Buffering explains why logs can appear promptly in a terminal but arrive late in a container pipeline.
 
-## Visual Model
+## Tiny Proof
 
-```mermaid
-flowchart TD
-    A["Python source (.py)"] --> B["Tokenizer + parser"]
-    B --> C["AST + symbol analysis"]
-    C --> D["Compiler"]
-    D --> E["Code object + Python bytecode"]
-    E --> F["CPython evaluation loop"]
-    F --> G["Native CPython instructions"]
-    G --> H["CPU executes user-mode instructions"]
-    F --> I["Runtime objects in virtual memory"]
-    I <--> J["Page tables / physical memory"]
-    H --> K["System-call boundary"]
-    K --> L["Linux kernel"]
-    L --> M["Scheduler, files, pipes, terminal, devices"]
-    M --> N["Observable output"]
-    L --> H
-```
-
-The diagram separates language-level bytecode from native CPU instructions and shows that the kernel participates at controlled boundaries rather than executing every Python operation.
-
-## Code / Commands
-
-Inspect source compilation without executing the resulting code object:
+The smallest useful proof has two parts. The first shows that Python source becomes bytecode before execution:
 
 ```bash
 python3 - <<'PY'
-import ast
 import dis
 
-source = 'message = "hello"\nprint(message.upper())\n'
-tree = ast.parse(source)
-code = compile(tree, "<demo>", "exec")
-
-print(ast.dump(tree, indent=2))
+source = 'print("hello".upper())'
+code = compile(source, "<tiny-proof>", "exec")
 dis.dis(code)
+exec(code)
 PY
 ```
 
-Inspect the current shell and a short-lived Python process:
+You should see bytecode instructions and then `HELLO`. Exact opcode names vary by Python version. The stable claim is that CPython produced a code object and executed it; the CPU did not execute the source text or Python bytecode directly.
+
+The second proves that source, executable, and process are different things:
 
 ```bash
-python3 -c 'import os, time; print(f"pid={os.getpid()}", flush=True); time.sleep(10)' &
+python3 -c 'import os, time; print(os.getpid(), flush=True); time.sleep(15)' &
 pid=$!
 ps -o pid,ppid,stat,vsz,rss,comm,args -p "$pid"
 readlink "/proc/$pid/exe"
-sed -n '1,20p' "/proc/$pid/status"
 wait "$pid"
 ```
 
-Observe standard-output buffering:
+The command line includes Python source, `/proc/.../exe` points to the Python executable, and `ps` reports one running process. That observation makes three often-confused concepts visible.
 
-```bash
-python3 -c 'import time; print("buffered"); time.sleep(2)' | sed -n '1p'
-python3 -u -c 'import time; print("unbuffered"); time.sleep(2)' | sed -n '1p'
-```
-
-Exact timing can differ by environment. Containers may restrict `/proc`, tracing, or process visibility.
-
-## Practical Example
+## In Production
 
 Suppose a worker logs `starting batch`, performs work, and logs `done`, but a dashboard shows neither line for a minute.
 
@@ -239,8 +247,6 @@ Suppose a worker logs `starting batch`, performs work, and logs `done`, but a da
 
 The source was executing correctly; output visibility was delayed between Python’s stream layer and the pipe. Adding random retries would not address the cause.
 
-## Where This Appears in Production
-
 - **Containers:** PID namespaces change which processes are visible, while cgroups constrain CPU and memory. A container is not a process model replacement.
 - **Web servers:** worker count, thread scheduling, socket syscalls, and buffering shape latency and throughput.
 - **Serverless functions:** runtime startup, module imports, page population, and connection setup contribute to cold starts.
@@ -248,7 +254,17 @@ The source was executing correctly; output visibility was delayed between Python
 - **Observability:** profiles sample user-space execution; syscall traces show kernel boundaries; process metrics summarize scheduling and memory state.
 - **Incident response:** exit codes, signals, OOM termination, blocked I/O, and file-descriptor destinations provide evidence beyond application logs.
 
-## Common Failure Modes
+Use the chain to ask better questions:
+
+| Layer | Production question |
+|---|---|
+| Source/runtime | Did parsing, import, allocation, or bytecode/native execution fail? |
+| OS/process | Does the expected process exist, and what state is it in? |
+| Memory | Is address space merely mapped, actually resident, or constrained by a cgroup? |
+| CPU | Is the thread running, runnable, throttled, or waiting? |
+| Output | Where does file descriptor `1` point, and has buffering delayed visibility? |
+
+## How It Breaks
 
 | Symptom | Likely layer | Useful evidence |
 |---|---|---|
@@ -263,7 +279,9 @@ The source was executing correctly; output visibility was delayed between Python
 
 Do not infer an OOM kill from `137` alone; an administrator or orchestrator can also send `SIGKILL`.
 
-## Debugging Approach
+The table is a starting hypothesis map, not a lookup oracle. A process can be sleeping for healthy reasons; status `137` can result from any `SIGKILL`; high virtual size is not automatically a leak.
+
+## Debug It
 
 1. **State the symptom precisely.** Include time, command, exit status, missing or present output, and environment.
 2. **Locate the last proven layer.** A syntax traceback proves parsing began; a PID proves process creation; an fd target proves output routing.
@@ -273,13 +291,15 @@ Do not infer an OOM kill from `137` alone; an administrator or orchestrator can 
 6. **Account for observation effects.** Tracing and profiling add overhead; debuggers can change scheduling.
 7. **Explain the full causal chain.** Record why the evidence supports the conclusion and what alternatives remain.
 
-## Hands-On Lab
+The transferable move is **last proven boundary**. A PID proves that the OS created an execution context. It does not prove useful work. A successful `write` proves the kernel accepted bytes. It does not prove a remote consumer processed them.
 
-Complete [Inspect a Python Process on Linux](../labs/01-software-execution/README.md). You will run a bounded Python workload, inspect its PID and parent, read selected `/proc` interfaces, map file descriptors, compare virtual and resident memory, and explain the evidence.
+## Build / Break Exercises
 
-The supplied scripts inspect only the PID you provide and the workload exits on its own. Read every command before running it.
+### Guided lab
 
-## Build Exercise
+Complete [Inspect a Python Process on Linux](../labs/01-software-execution/README.md). The lab starts from copyable commands, pauses for predictions, and ends with an explanation you can give without notes.
+
+### Build
 
 Create `execution_story.py` that:
 
@@ -291,7 +311,9 @@ Create `execution_story.py` that:
 
 Then produce a one-page evidence note connecting each observation to **Source Code → Interpreter/Compiler → OS → Process → Memory → CPU → Output**. Include at least one claim you initially made but revised after inspecting evidence.
 
-## Break It Exercise
+**Success criteria:** another learner can run your program, identify each layer from evidence, and reproduce your explanation without guessing.
+
+### Break
 
 Make one controlled change at a time:
 
@@ -302,7 +324,9 @@ Make one controlled change at a time:
 
 Do not intentionally exhaust machine memory, create an unbounded loop, inspect unrelated users’ processes, or send signals to processes you did not start.
 
-## No-AI Challenge
+**Success criteria:** for each controlled failure, record the prediction, symptom, evidence, responsible layer, correction, and one tempting but unsupported conclusion.
+
+### No-AI challenge
 
 Without an AI assistant:
 
@@ -313,6 +337,22 @@ Without an AI assistant:
 5. Predict what changes when stdout is redirected to a file, then test the prediction.
 
 Documentation and local manual pages are allowed. Save commands and outputs as evidence.
+
+## Explain It to Anybody
+
+### 1. To a smart non-engineer
+
+“A source file is a set of instructions, not a moving thing. Python reads and prepares those instructions. The operating system creates a protected running workspace and takes turns giving it the processor. The processor performs the real physical work, and the result travels through an output route such as the terminal. If nothing appears, we can inspect each handoff instead of saying only ‘the code is broken.’”
+
+### 2. To a junior engineer
+
+“With CPython, source is parsed into an AST and compiled into a code object containing Python bytecode. A Linux process runs the native CPython executable in a virtual address space. Linux schedules its threads; the CPU executes native interpreter and kernel instructions. Operations needing protected resources cross the syscall boundary. `print` passes through text encoding and buffering before bytes reach file descriptor 1.”
+
+### 3. In an interview (60–90 seconds)
+
+“When I run `python3 app.py`, the shell starts the Python executable—commonly by creating a child that calls `execve`. Linux maps the executable and libraries into a process address space. CPython initializes, reads the source, parses an AST, and compiles a code object with bytecode. Its evaluation loop implements those bytecode operations using native CPU instructions. Linux schedules the thread and maps its virtual memory pages. For protected operations, CPython enters the kernel through syscalls. `print` converts values to text, encodes and buffers bytes, and eventually writes to file descriptor 1. This layered model gives me a debugging sequence: prove parsing, process state, memory, CPU or wait state, syscall behavior, fd destination, and buffering with evidence appropriate to each boundary.”
+
+Do not memorize these scripts. Rebuild them around one concrete program such as `print("hello")`.
 
 ## Knowledge Check
 
@@ -343,7 +383,7 @@ Documentation and local manual pages are allowed. Save commands and outputs as e
 
 </details>
 
-## Interview Questions
+### Interview stretch
 
 1. Walk from `python3 app.py` to the first line appearing in a terminal.
 2. What is the difference between a program and a process?
@@ -357,28 +397,6 @@ Documentation and local manual pages are allowed. Save commands and outputs as e
 10. How would you prove that a production process was killed by a memory limit rather than merely observing status `137`?
 
 Strong answers distinguish model from implementation, name evidence, and state what cannot be concluded from one metric.
-
-## Explain It Yourself
-
-Close this lesson and explain the chain aloud using one `print("hello")` program. Your explanation must correctly use these terms: source, parser, AST, code object, bytecode, interpreter loop, process, virtual address, page, scheduler, native instruction, syscall, file descriptor, buffer, and exit status.
-
-Then answer:
-
-- Which transitions happen once at startup, and which repeat?
-- At which points can execution wait?
-- Which part is Python-specific, which is OS-specific, and which is hardware-specific?
-
-If you cannot draw the chain and predict an observable consequence at each layer, repeat the lab.
-
-## Key Takeaways
-
-- CPython commonly parses Python source, compiles it to bytecode, and interprets that bytecode.
-- “Compiled” and “interpreted” are implementation strategies, not exclusive language labels.
-- The OS runs a Python executable in a process; the `.py` file is input to that runtime.
-- A process owns a virtual address space, while pages may or may not currently be resident in physical memory.
-- Linux schedules threads; the CPU executes native interpreter, library, extension, and kernel instructions.
-- Python output crosses encoding and buffering layers before a syscall routes bytes through a file descriptor.
-- Good debugging moves across layers using evidence rather than treating every symptom as a source-code defect.
 
 ## Vocabulary
 
@@ -398,22 +416,31 @@ If you cannot draw the chain and predict an observable consequence at each layer
 - **Virtual address space:** Process-visible address range translated through page tables.
 - **VSZ:** Total virtual memory size reported for a process.
 
+Use a term only after you can point to its place in the execution chain. The curriculum-wide [Glossary](../GLOSSARY.md) includes both plain and precise definitions.
+
 ## References
 
-- [Python Language Reference — Execution model](https://docs.python.org/3/reference/executionmodel.html)
-- [Python Library Reference — `ast`](https://docs.python.org/3/library/ast.html)
-- [Python Library Reference — `dis`](https://docs.python.org/3/library/dis.html)
-- [Python Library Reference — `sys`](https://docs.python.org/3/library/sys.html)
-- [Python C API — Code objects](https://docs.python.org/3/c-api/code.html)
-- [CPython Developer Guide — Compiler design](https://devguide.python.org/internals/compiler/)
-- [CPython source — bytecodes definition](https://github.com/python/cpython/blob/main/Python/bytecodes.c)
-- [Linux man-pages — `execve(2)`](https://man7.org/linux/man-pages/man2/execve.2.html)
-- [Linux man-pages — `proc(5)`](https://man7.org/linux/man-pages/man5/proc.5.html)
-- [Linux man-pages — `proc_pid_status(5)`](https://man7.org/linux/man-pages/man5/proc_pid_status.5.html)
-- [Linux man-pages — `write(2)`](https://man7.org/linux/man-pages/man2/write.2.html)
-- [Linux kernel documentation — Process addresses](https://docs.kernel.org/mm/process_addrs.html)
-- [Linux kernel documentation — Scheduler](https://docs.kernel.org/scheduler/index.html)
+### REQUIRED
 
-## Next Lesson
+- [Python Language Reference — Execution model](https://docs.python.org/3/reference/executionmodel.html) — the language-level execution contract.
+- [Python Library Reference — `ast`](https://docs.python.org/3/library/ast.html) — the parsed tree used in the Tiny Proof.
+- [Python Library Reference — `dis`](https://docs.python.org/3/library/dis.html) — the supported way to inspect CPython bytecode.
+- [Linux man-pages — `execve(2)`](https://man7.org/linux/man-pages/man2/execve.2.html) — the process-image replacement boundary.
+- [Linux man-pages — `proc(5)`](https://man7.org/linux/man-pages/man5/proc.5.html) — the process evidence used in the lab.
+- [Linux man-pages — `write(2)`](https://man7.org/linux/man-pages/man2/write.2.html) — the kernel output boundary.
 
-**Operating Systems, Processes, and Threads** will extend this execution model into process lifecycle, thread semantics, scheduling, signals, permissions, namespaces, and resource isolation. It remains on the module roadmap and has not been published yet.
+### RECOMMENDED
+
+- [CPython Developer Guide — Compiler design](https://devguide.python.org/internals/compiler/) — source, AST, code object, and bytecode pipeline.
+- [Python C API — Code objects](https://docs.python.org/3/c-api/code.html) — precise CPython representation details.
+- [Linux kernel documentation — Process addresses](https://docs.kernel.org/mm/process_addrs.html) — virtual-memory mappings and address spaces.
+- [Linux kernel documentation — Scheduler](https://docs.kernel.org/scheduler/index.html) — how Linux shares CPUs.
+
+### DEEP DIVE
+
+- [CPython source — bytecode definitions](https://github.com/python/cpython/blob/main/Python/bytecodes.c) — implementation-level opcode behavior; version-specific by design.
+- [Linux man-pages — `proc_pid_status(5)`](https://man7.org/linux/man-pages/man5/proc_pid_status.5.html) — exact meanings and limits of process status fields.
+
+## Next
+
+Open [labs/01-software-execution/README.md](../labs/01-software-execution/README.md) and make the execution chain visible on a Linux machine. After the lab, continue to [Module 02: Python](../02-python/README.md); Module 01’s remaining lessons are intentionally not yet published.

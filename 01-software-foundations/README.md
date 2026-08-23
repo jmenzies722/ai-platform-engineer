@@ -1,83 +1,83 @@
-# Software Foundations
+# 01 — Software Foundations
 
-**Status:** In progress  
-**Orientation time:** 5 minutes
+> **Status:** In progress · **Published lesson:** 1 · **Published lab:** 1
 
-## What
+## 5-Minute Orientation
 
-This module builds a working model of the machinery beneath application code. It starts with the path from a Python file to observable output, then moves through operating systems, networking, storage, concurrency, and debugging. The emphasis is not memorizing trivia: it is learning which layer owns a behavior and what evidence that layer exposes.
+### What is this?
 
-## Why
+This module explains what actually happens between writing source code and seeing a result. Its current gold-standard lesson traces one memorable chain:
 
-Engineers lose time when they treat every failure as an application-code failure. A slow request may be waiting for CPU time, blocked on a syscall, faulting memory pages, resolving DNS, or buffering output. Understanding the execution stack makes logs, process tools, traces, and resource metrics explainable instead of mysterious.
+**Source → Runtime/Compiler → OS → Process → Memory → CPU → Output**
 
-## Where It Fits
+### Why does it matter?
 
-This is the first technical module in the curriculum. It supplies the vocabulary and causal models used later in backend engineering, distributed systems, containers, cloud platforms, observability, performance work, and AI infrastructure. Later modules assume you can move between source-level behavior and operating-system evidence.
+“The code is broken” names no mechanism. This model lets you separate syntax, runtime, process, memory, scheduling, syscall, and output problems—and choose evidence for the correct boundary.
 
-## Prerequisites
+### Where does it fit?
 
-- Basic command-line navigation (`cd`, `ls`, and running a command)
-- Ability to read and edit a small Python program
-- Access to Linux for the hands-on lab; a Linux VM, container, or WSL 2 is sufficient
-- No prior operating-systems or compiler coursework
+History explained why software and operating systems exist. This module turns that story into an inspectable Linux process. Python, Linux, containers, Kubernetes, and AI runtimes all depend on this model.
 
-## Outcomes
+### What do I need first?
 
-After this module, you should be able to:
+- [Origins of Computing](../00-history/01-origins-of-computing.md) for the state-transition model
+- [Why Software Exists](../00-history/02-why-software-exists.md) for the program/hardware distinction
+- Linux for the lab; the lesson itself requires no prior programming experience
 
-- Trace software behavior across language runtime, OS, memory, scheduler, CPU, and I/O layers.
-- Distinguish a process from a program and virtual memory from physical memory.
-- Use process and filesystem evidence to test an execution hypothesis.
-- Explain common failures at the layer that causes them.
-- Communicate a compact execution model without hiding behind “the runtime handles it.”
+### What will I be able to explain afterward?
 
-## Completed Lesson
-
-1. [How Software Actually Executes](./01-how-software-actually-executes.md) — follow Python source through CPython and Linux to CPU execution and output.
-
-## Roadmap
-
-Remaining lessons:
-
-- Operating Systems, Processes, and Threads
-- Memory, Storage, and Filesystems
-- Networking from Socket to Service
-- Concurrency, Parallelism, and Coordination
-- Debugging with Evidence
+- the difference among source code, a runtime, an executable, and a process;
+- why CPython both compiles and interprets;
+- what the operating system, virtual memory, scheduler, and CPU each do;
+- how output reaches a terminal or file and why it can appear late;
+- how to find the last proven layer when execution fails.
 
 ## Competency Tiers
 
 ### Minimum Competency
 
-You can identify the major execution layers, explain the difference between Python bytecode and CPU instructions, inspect a Linux process with `ps` and `/proc`, and locate failures in the right layer.
+Draw the seven-link chain from memory, run the Tiny Proof, complete the guided lab path, and explain the result to a non-engineer.
 
 ### Strong Engineer
 
-You can connect process state, memory mappings, scheduling, syscalls, buffering, and exit status to production symptoms. You form testable hypotheses and choose evidence before changing code.
+Inspect process state, mappings, CPU/wait behavior, and file descriptors; break one boundary safely; diagnose it from evidence; explain unsupported conclusions.
 
 ### Deep Dive
 
-You can reason from CPython implementation details and Linux kernel interfaces, qualify version-dependent behavior, and use low-level tools such as `strace`, debuggers, and profilers without confusing observations at one layer for causes at another.
+Read CPython and Linux internals sources, compare language implementations, and connect execution costs to container limits and production performance.
 
-## Learning Policy
+## AI Learning Policy
 
 ### AI Tutor
 
-Use AI to ask for alternate explanations, diagrams, or targeted questions after making your own first pass. Require it to distinguish facts from simplifications and verify low-level claims against canonical documentation.
+Ask for one question at a time or request a different analogy. Do not ask AI to answer the Knowledge Check before your first attempt.
 
-### AI Pair Programming
+### AI Pair
 
-Use AI to suggest experiments or small code changes, but predict the result before running them. Read every command, understand its scope, and keep ownership of the hypothesis being tested.
+Predict every command’s effect before running it. Use AI only after you can identify which execution layer the command inspects.
 
 ### AI Review
 
-Ask AI to challenge your explanation for missing layers, incorrect terminology, and unsupported conclusions. Treat the response as review input, not proof; resolve disagreements with runtime evidence and primary sources.
+Give AI your evidence and explanation; ask it to find leaps in inference, not to replace your explanation.
 
 ### No-AI Challenge
 
-Complete each lesson’s no-AI exercise without an assistant. Documentation, manual pages, and the program’s own output are allowed. The goal is to make the model retrievable when an assistant is unavailable.
+Repeat the process inspection using only Python, `ps`, `/proc`, shell built-ins, and official documentation.
 
 ### Explain Back
 
-After using AI, close it and explain the concept from memory using a concrete example. If you cannot predict what the OS or runtime will do next, revisit the evidence and try again.
+Use `print("hello")` to narrate the full chain at friend, junior-engineer, and interview depth without notes.
+
+## Published Path
+
+1. Read [How Software Actually Executes](./01-how-software-actually-executes.md).
+2. Complete [Inspect a Python Process on Linux](../labs/01-software-execution/README.md).
+3. Record evidence in [PROGRESS.md](../PROGRESS.md).
+
+## Planned Scope
+
+Future lessons may cover processes and threads, memory, files and I/O, concurrency, runtimes, linking, and debugging. They are intentionally not represented by empty files. The published lesson and lab are the complete current learning surface.
+
+## Next
+
+Open [01-software-foundations/01-how-software-actually-executes.md](./01-how-software-actually-executes.md).

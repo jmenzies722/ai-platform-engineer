@@ -1,12 +1,32 @@
 # Authoritative References
 
-Use the label as a reading priority, not a quality ranking:
+This is a source shelf, not an assigned reading pile. Enter through a lesson first; open a source because it answers a question the lesson made concrete.
 
-- **REQUIRED** — foundational reference for the curriculum.
-- **RECOMMENDED** — practical depth for working engineers.
-- **DEEP DIVE** — specification, paper, or internals reference for advanced study.
+- **REQUIRED** — minimum canonical source needed to verify the lesson’s model.
+- **RECOMMENDED** — official practical depth for a working engineer.
+- **DEEP DIVE** — specification, primary paper, source code, or internals reference.
 
-Links favor maintainers, standards bodies, official documentation, and primary papers. Product documentation evolves; record the version used in lab evidence.
+## Source Standard
+
+A link belongs here only when its authority is clear:
+
+1. a standards body or formal specification;
+2. official maintainer documentation;
+3. a primary or seminal paper;
+4. source code or design material from the implementing project;
+5. a historically important first-party account.
+
+SEO tutorials, link farms, uncited summaries, and interchangeable blog posts are excluded. Product documentation evolves; record the version or access date used in lab evidence. Lesson-level references are narrower than this shelf and should normally be read first.
+
+## Day 1 Shelf
+
+Do not read all of these before the lab:
+
+- **REQUIRED** — [Computer History Museum: Birth of the Computer](https://www.computerhistory.org/revolution/birth-of-the-computer/4) — historical artifacts behind the stored-program model.
+- **REQUIRED** — [Python execution model](https://docs.python.org/3/reference/executionmodel.html) — language-level behavior.
+- **RECOMMENDED** — [CPython compiler design](https://devguide.python.org/internals/compiler/) — source to AST to code object.
+- **REQUIRED** — [Linux `proc(5)`](https://man7.org/linux/man-pages/man5/proc.5.html) — the process evidence surface used in the first lab.
+- **DEEP DIVE** — [Linux process address documentation](https://docs.kernel.org/mm/process_addrs.html) — virtual-memory internals after the beginner model is stable.
 
 ## Computing History and Software Foundations
 

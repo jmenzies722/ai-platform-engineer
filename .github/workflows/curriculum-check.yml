@@ -43,30 +43,22 @@ jobs:
           )
 
           headings=(
-            "## Why You're Learning This"
-            "## Historical Context"
-            "## Problem This Solves"
+            "## In One Sentence"
+            "## Why This Exists"
+            "## Picture This"
+            "## The Real Definition"
             "## Mental Model"
-            "## Core Concepts"
             "## How It Actually Works"
-            "## Deep Dive"
-            "## Visual Model"
-            "## Code / Commands"
-            "## Practical Example"
-            "## Where This Appears in Production"
-            "## Common Failure Modes"
-            "## Debugging Approach"
-            "## Hands-On Lab"
-            "## Build Exercise"
-            "## Break It Exercise"
-            "## No-AI Challenge"
+            "## Tiny Proof"
+            "## In Production"
+            "## How It Breaks"
+            "## Debug It"
+            "## Build / Break Exercises"
+            "## Explain It to Anybody"
             "## Knowledge Check"
-            "## Interview Questions"
-            "## Explain It Yourself"
-            "## Key Takeaways"
             "## Vocabulary"
             "## References"
-            "## Next Lesson"
+            "## Next"
           )
 
           for file in "${files[@]}"; do
@@ -78,4 +70,35 @@ jobs:
               (( line > previous )) || { echo "$file heading out of order: $heading"; exit 1; }
               previous="$line"
             done
+          done
+
+          root_docs=(
+            README.md
+            START-HERE.md
+            HOW-TO-LEARN.md
+            CONCEPT-INDEX.md
+            TEACH-BACK.md
+            CURRICULUM.md
+            ROADMAP.md
+            PROGRESS.md
+            GLOSSARY.md
+            REFERENCES.md
+            INTERVIEW-MAP.md
+            PROJECTS.md
+            templates/LESSON.md
+          )
+
+          for file in "${root_docs[@]}"; do
+            test -s "$file" || { echo "Missing or empty: $file"; exit 1; }
+          done
+
+          for module in {00..35}; do
+            readme="$(find "${module}-"* -maxdepth 1 -name README.md -print -quit)"
+            test -n "$readme" || { echo "Missing README for module $module"; exit 1; }
+            awk '$0 == "## 5-Minute Orientation" { found=1 } END { exit !found }' "$readme" ||
+              { echo "$readme missing 5-Minute Orientation"; exit 1; }
+            awk '$0 == "## Competency Tiers" { found=1 } END { exit !found }' "$readme" ||
+              { echo "$readme missing Competency Tiers"; exit 1; }
+            awk '$0 == "## AI Learning Policy" { found=1 } END { exit !found }' "$readme" ||
+              { echo "$readme missing AI Learning Policy"; exit 1; }
           done

@@ -1,96 +1,83 @@
-# AI Platform Engineer — Zero to Staff
+# AI Platform Engineer — Learn the Stack from First Principles
 
-A long-horizon engineering curriculum for developing deep competency from software foundations through AI Platform Engineering. This repository is a study system—not a web application and not a collection of tool tutorials. It connects history, internals, implementation, failure analysis, operations, and design so that each abstraction can be understood from the layers beneath it.
+This is a GitHub-native curriculum for learning why modern systems exist, how they work, how they fail, and how to design them. It begins with a single instruction changing machine state and ends with governed AI and agent platforms.
 
-The target is not “familiar with Kubernetes” or “has called an LLM API.” The target is an engineer who can explain why a system exists, build a small version, break it intentionally, debug it from evidence, operate it under constraints, and design the next version with explicit tradeoffs.
+The goal is not to finish files. The goal is to **explain, build, break, debug, operate, and design**.
 
-## Progression
+## Start Here in 10 Minutes
+
+1. Open [START-HERE.md](START-HERE.md).
+2. Learn the study loop in [HOW-TO-LEARN.md](HOW-TO-LEARN.md).
+3. Read [Origins of Computing](00-history/01-origins-of-computing.md) through **Tiny Proof**.
+4. Predict the output, run it, and explain what changed.
+
+At minute 10, you should be able to say: **a computer repeatedly follows encoded instructions to transform stored state; every higher layer organizes that physical work.**
+
+## The Journey
 
 ```mermaid
 flowchart LR
-    H[History] --> P[Programming]
-    P --> S[Systems]
-    S --> L[Linux]
-    L --> N[Networking]
-    N --> B[Backend]
-    B --> C[Cloud]
-    C --> D[DevOps]
-    D --> T[Terraform]
-    T --> CT[Containers]
-    CT --> K[Kubernetes]
-    K --> DS[Distributed Systems]
-    DS --> O[Observability + SRE]
-    O --> SEC[Security]
-    SEC --> PE[Platform Engineering]
-    PE --> AI[AI Foundations]
-    AI --> LLM[LLM Systems]
-    LLM --> GPU[GPU Systems]
-    GPU --> AII[AI Infrastructure]
-    AII --> AIP[AI Platform Engineering]
-    AIP --> AG[Agentic Infrastructure]
-    AG --> SS[Senior / Staff]
+    A["00–02<br/>Why computation and software exist"] --> B["03–11<br/>Machine, OS, code, network, data"]
+    B --> C["12–20<br/>Cloud, delivery, containers, reliability, security"]
+    C --> D["21–23<br/>Platforms and control planes"]
+    D --> E["24–27<br/>AI, ML, transformers, LLM apps"]
+    E --> F["28–33<br/>MLOps, GPUs, serving, AI platforms, agents"]
+    F --> G["34–35<br/>System design and staff leadership"]
 ```
 
-This is a dependency graph, not a race. Use prior experience to test out of material only when you can demonstrate the competency—not merely recognize the vocabulary.
+This is a dependency path, not a race. Experienced engineers may test out of a tier only with evidence, not vocabulary recognition.
 
-## Current Position
+## Current Stage / Next Lesson
 
-| Signal | Current value |
+| Curriculum state | Path |
 |---|---|
-| Current stage | **History — In progress** |
-| Current lesson | [Origins of Computing](00-history/01-origins-of-computing.md) |
-| Projects completed | **0 / 15** |
-| Labs completed | **0** |
-| Major skills | Establishing historical causality and systems vocabulary |
-| Next recommended lesson | [Software Foundations 01: How Software Actually Executes](01-software-foundations/01-how-software-actually-executes.md) after completing Module 00 |
+| Gold-standard teaching spine | [Module 00: History](00-history/README.md) — all 20 lessons |
+| Model technical lesson | [How Software Actually Executes](01-software-foundations/01-how-software-actually-executes.md) |
+| First hands-on proof | [Inspect a Python Process on Linux](labs/01-software-execution/README.md) |
+| Modules 02–35 | Honest orientation scaffolds; detailed lessons intentionally unpublished |
+| Your next file | **[Origins of Computing](00-history/01-origins-of-computing.md)** |
 
-Update this snapshot only at meaningful milestones. Use [PROGRESS.md](PROGRESS.md) for evidence-backed competency tracking.
-
-## How to Use This Repository
-
-Use the same loop for every domain:
-
-1. **Lesson** — read actively; redraw the mental model and follow primary references.
-2. **Lab** — predict each observation before running a command.
-3. **Build** — create a small working system without copying the lesson.
-4. **Break** — introduce a controlled failure and record symptoms.
-5. **Explain** — teach the mechanism and failure chain without notes.
-6. **Interview** — answer design and debugging questions under constraints.
+## How to Study
 
 ```mermaid
-flowchart TD
-    Lesson --> Lab --> Build --> Break --> Explain --> Interview
-    Interview -->|gap found| Lesson
-    Break -->|evidence| Debug[Debug systematically]
-    Debug --> Explain
+flowchart LR
+    Why --> What --> How --> Internals --> Build --> Break --> Debug --> Operate --> Design
+    Debug -->|model gap| Why
 ```
 
-Do not mark a domain competent because its reading is complete. Store lab evidence, incident analysis, design decisions, and explain-back notes in your own working branch or linked project repository.
+For every concept:
 
-## Start Here
+1. begin with the human problem and an analogy;
+2. earn the precise vocabulary;
+3. narrate the causal diagram;
+4. predict and run the Tiny Proof;
+5. build and break one bounded version;
+6. debug from the last proven boundary;
+7. explain it to a friend, a junior engineer, and an interviewer.
 
-1. Read the [Roadmap](ROADMAP.md) to understand stage dependencies.
-2. Begin [Module 00: History](00-history/README.md); focus on why each abstraction became necessary.
-3. Continue to [How Software Actually Executes](01-software-foundations/01-how-software-actually-executes.md).
-4. Complete the [software execution lab](labs/01-software-execution/README.md).
-5. Record demonstrated skills in [PROGRESS.md](PROGRESS.md).
+[How to Learn](HOW-TO-LEARN.md) defines the complete method, No-AI rules, and when Minimum Competency is enough.
 
-## Repository Guides
+## How You Know You Are Competent
 
-- [ROADMAP.md](ROADMAP.md) — career progression, stages, prerequisites, and exit evidence
-- [CURRICULUM.md](CURRICULUM.md) — complete numbered module catalog and status
-- [PROGRESS.md](PROGRESS.md) — Explain / Build / Debug / Operate / Design competency matrix
-- [GLOSSARY.md](GLOSSARY.md) — concise vocabulary with first-use and deeper-reading links
-- [REFERENCES.md](REFERENCES.md) — authoritative documentation, standards, and papers
-- [INTERVIEW-MAP.md](INTERVIEW-MAP.md) — domain-to-interview-theme mapping
-- [PROJECTS.md](PROJECTS.md) — fifteen portfolio targets and graduation criteria
-- [CONTRIBUTING.md](CONTRIBUTING.md) — GitHub-native study and contribution workflow
+| Dimension | Evidence |
+|---|---|
+| Explain | You can teach the idea accurately at three depths without notes. |
+| Build | You can produce a small working version from a blank start. |
+| Debug | You can isolate a controlled failure from evidence, not hints. |
+| Operate | You can define health, limits, recovery, and safe change. |
+| Design | You can defend tradeoffs when requirements change. |
 
-## Operating Principles
+Reading is evidence of exposure, not competency. Track proof in [PROGRESS.md](PROGRESS.md) and use the [Teach-Back rubric](TEACH-BACK.md).
 
-- Prefer mechanisms over product memorization.
-- Prefer primary sources, standards, official documentation, and seminal papers.
-- Treat debugging as hypothesis → evidence → isolation → correction → prevention.
-- Make reliability, security, cost, and operability part of design—not cleanup work.
-- Use AI to accelerate feedback, never to outsource understanding.
-- Keep unfinished modules honest: a clear scaffold is better than shallow generated lessons.
+## Find Your Way
+
+- [START-HERE.md](START-HERE.md) — exact first five files and Day 1 finish line
+- [CONCEPT-INDEX.md](CONCEPT-INDEX.md) — any major term → gentlest entry → deeper path
+- [CURRICULUM.md](CURRICULUM.md) — numbered modules 00–35 and publication state
+- [ROADMAP.md](ROADMAP.md) — capability gates and stage dependencies
+- [GLOSSARY.md](GLOSSARY.md) — plain definition, precise definition, first lesson, one-breath explanation
+- [REFERENCES.md](REFERENCES.md) — canonical documentation, standards, and primary papers
+- [INTERVIEW-MAP.md](INTERVIEW-MAP.md) — convert built competence into interview answers
+- [PROJECTS.md](PROJECTS.md) — portfolio systems and graduation evidence
+
+Serious learning can be warm and clear. No tribal knowledge is assumed; no hard mechanism is hidden.
