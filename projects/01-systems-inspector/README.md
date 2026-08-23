@@ -39,7 +39,7 @@ Unit-test parsers using captured malformed and disappearing entries; property-te
 
 Emit collection duration, skipped sources, parser errors, and snapshot age without phoning home. Threat-model hostile procfs strings, symlink races, terminal escape injection, and accidental sensitive output. Set a target below 1% CPU while sampling a 1,000-process host and publish measured overhead; ongoing infrastructure cost should be zero.
 
-## Success rubric
+## Explicit success rubric
 
 | Evidence | Pass condition |
 |---|---|
