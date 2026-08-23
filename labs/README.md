@@ -27,15 +27,29 @@ Start with the smallest environment you have. "Local" means no cloud account; so
 | [17. Control Model-Serving Overload](17-model-serving-overload/README.md) | Model serving | Python, loopback | 60 to 90 minutes | Tail latency, admission, rejection, retry amplification |
 | [18. Verify AI Platform Tenancy](18-ai-platform-tenancy/README.md) | AI platform | Python, SQLite | 75 to 105 minutes | Isolation tests, cache keys, usage idempotency |
 | [19. Bound an Agent Runtime](19-agent-runtime-safety/README.md) | Agent safety | Python, mocked tools | 75 to 105 minutes | Policy denials, budgets, approvals, audit chain |
+| [20. Operate an AWS-Native Delivery Path](20-aws-native-delivery/README.md) | AWS delivery | Authorized AWS sandbox | 75 to 105 minutes | Pipeline gates, ECR digest, deployment, rollback, audit |
+| [21. Operate a CloudFormation Resource Lifecycle](21-cloudformation-lifecycle/README.md) | AWS infrastructure as code | Local review and authorized AWS sandbox | 60 to 120 minutes | Change set, replacement, rollback, drift, StackSets boundary |
+| [22. Review AWS Organization Governance and Audit Controls](22-aws-org-governance-and-audit/README.md) | AWS governance and audit | Local fixture; optional organization sandbox | 45 to 90 minutes | SCP reasoning, delegated administration, centralized audit, tamper denial |
+| [23. Operate a Small AWS Fleet and Bounded Event Remediation](23-aws-fleet-and-event-remediation/README.md) | AWS fleet operations | Local fixture; optional authorized AWS sandbox | 45 to 150 minutes | SSM inventory, Config drift, durable events, idempotent remediation |
+| [24. Deploy One Immutable Workload to Lambda and ECS Fargate](24-aws-deployment-targets/README.md) | AWS deployment targets | Authorized AWS sandbox | 75 to 120 minutes | Shared image digest, target-specific failure, recovery |
+| [25. Measure AWS Backup Recovery and Tabletop Multi-Region Failover](25-aws-recovery-and-backup/README.md) | AWS resilience | Authorized AWS sandbox and local tabletop | 45 to 90 minutes | Restore, measured RTO/RPO, DNS behavior, failback gates |
+| [26. Build and Diagnose a Bounded AWS Telemetry Pipeline](26-aws-telemetry-pipeline/README.md) | AWS observability | Local fixture or authorized AWS sandbox | 60 to 90 minutes | Encrypted logs, metric filter, query, alarm, missing telemetry, cost |
+| [27. Route and Triage Bounded AWS Security Findings](27-aws-security-findings/README.md) | AWS security operations | Authorized empty AWS sandbox | 60 to 90 minutes | Synthetic findings, constrained routing, triage, expiring suppression |
 
 ## Suggested paths
 
 - Foundations and diagnosis: 01, 02, 04, 06, 11, 12
-- Delivery and infrastructure: 03, 08, 09, 10, 14
+- Delivery and infrastructure: 03, 08, 09, 10, 14, then 20 through 27 for AWS product practice
 - Data and cloud: 05, 07, 13
 - ML and AI systems: 15, 16, 17, 18, 19
 
 The numbering provides a stable inventory, not a strict prerequisite chain. Each lab lists its own requirements and stop conditions.
+
+## AWS DOP-C02 gap labs
+
+Labs 20 through 27 are bounded product exercises for the [DOP-C02 overlay](../certs/aws-dop-c02.md). They extend the canonical AWS, DevOps, Terraform, observability, and security material; they do not form a separate certification course. Start with each lab's local or static path when available. Run account-backed steps only in the identity and sandbox boundary that the lab specifies.
+
+Organization-level evidence in lab 22 requires an existing, explicitly authorized organization sandbox. An ordinary AWS account cannot supply that evidence, and the lab does not instruct you to create or dismantle an organization.
 
 ## Working rules
 

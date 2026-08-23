@@ -2,6 +2,10 @@
 
 Begin with one working model of computation and one observed program. You need Python 3 for the first lesson and Linux for the first lab. Prior systems experience is not required.
 
+## You can begin today
+
+Follow the Day 1 path below: Origins of Computing, How Software Executes, then the process lab. After that first evidence, use the [AI Platform Engineer track](tracks/ai-platform-engineer.md) to see the role-focused path without skipping its prerequisites.
+
 ## Read these first
 
 Open these exact files in order:

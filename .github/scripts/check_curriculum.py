@@ -313,8 +313,8 @@ for target, documents in discovery_references.items():
         )
 
 lab_dirs = sorted(path for path in (ROOT / "labs").glob("[0-9][0-9]-*") if path.is_dir())
-if len(lab_dirs) < 19:
-    fail("labs", f"expected at least 19 guided labs; found {len(lab_dirs)}")
+if len(lab_dirs) < 27:
+    fail("labs", f"expected at least 27 guided labs; found {len(lab_dirs)}")
 for lab in lab_dirs:
     if not (lab / "README.md").is_file():
         fail(lab.relative_to(ROOT), "lab directory is missing README.md")

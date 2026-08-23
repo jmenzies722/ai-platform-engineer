@@ -56,7 +56,7 @@ For Rework, retain passed claims and name the smallest fresh proof required. For
 | [Backend Engineering](09-backend-engineering/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Operate a tested API with persistence, auth, telemetry, and overload limits |
 | [Go](10-go/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Build a cancellable concurrent service and investigate its profile |
 | [Software Architecture](11-software-architecture/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Defend an ADR with quality attributes, alternatives, and revisit triggers |
-| [AWS](12-aws/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Review identity, network, data, failure-domain, and cost boundaries |
+| [AWS](12-aws/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Review identity, network, data, failure-domain, and cost boundaries; use the [AWS product labs](labs/README.md#aws-dop-c02-gap-labs) for bounded delivery and operations evidence |
 | [DevOps](13-devops/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Demonstrate a delivery path with provenance, promotion, rollback, and feedback |
 | [Terraform](14-terraform/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Review a plan, recover drift safely, and explain state ownership |
 | [Containers](15-containers/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Build and inspect an image; diagnose isolation or resource behavior |
