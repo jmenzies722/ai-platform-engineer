@@ -49,7 +49,7 @@ Extend the program with two windows and a release gate:
 fast = [("a", True)] * 4_950 + [("b", True)] * 4_950 + [("b", False)] * 100
 slow = baseline * 5 + fast
 fast_report, slow_report = summarize(fast), summarize(slow)
-page = fast_report["burn"] > 14 and slow_report["burn"] > 6
+page = fast_report["burn"] > 8 and slow_report["burn"] > 2
 print("fast", fast_report)
 print("slow", slow_report)
 print("release_allowed", not page)
