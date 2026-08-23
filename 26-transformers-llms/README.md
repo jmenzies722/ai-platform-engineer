@@ -19,7 +19,7 @@ Transformers model sequences with attention and large-scale pretraining. This mo
 7. [Inference mechanics and efficiency](07-inference-mechanics-and-efficiency.md)
 8. [Evaluating language models](08-evaluating-language-models.md)
 
-## Practical lab
+## Practice
 
 - [Transformer internals lab](lab-transformer-internals.md): implement causal attention and sampling, introduce a mask fault, and calculate cache growth.
 

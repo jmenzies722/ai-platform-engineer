@@ -20,7 +20,7 @@ AI systems turn data and objectives into uncertain predictions. This module buil
 7. [Statistical estimation and uncertainty](07-statistical-estimation.md)
 8. [Decision-centered evaluation](08-decision-centered-evaluation.md)
 
-## Practical lab
+## Practice
 
 - [Foundations evidence lab](lab-foundations-evidence.md): train a tiny classifier, trigger numerical failure, and connect probability estimates to a cost-aware threshold.
 

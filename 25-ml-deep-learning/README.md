@@ -20,7 +20,7 @@ This module connects classical supervised learning to neural networks, showing h
 7. [Architectures and inductive bias](07-architectures-and-inductive-bias.md)
 8. [Systematic ML debugging](08-systematic-ml-debugging.md)
 
-## Practical lab
+## Practice
 
 - [Model debugging lab](lab-model-debugging.md): build a baseline and isolate shuffled labels, memorization, and train-serving skew.
 

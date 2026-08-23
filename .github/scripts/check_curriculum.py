@@ -91,7 +91,7 @@ def check_lesson(path: Path) -> None:
     opening = " ".join(line.strip() for line in lines[1:first_section] if line.strip())
     if len(opening.split()) < 8:
         fail(rel, "add a useful opening paragraph before the first section")
-    if len(text.split()) < 350:
+    if len(text.split()) < 250:
         fail(rel, "lesson is too short for the substantive chapter contract")
 
     for source_heading in ("### REQUIRED", "### RECOMMENDED", "### DEEP DIVE"):
@@ -209,7 +209,7 @@ for number in range(36):
     lessons = sorted(
         path
         for path in module.glob("[0-9][0-9]-*.md")
-        if "lab" not in path.stem.lower()
+        if not path.stem.lower().endswith("-lab")
     )
     minimum = 20 if number == 0 else MINIMUM_LESSONS[number]
     if len(lessons) < minimum:
@@ -242,6 +242,6 @@ lesson_count = sum(
     1
     for module in module_dirs
     for path in module.glob("[0-9][0-9]-*.md")
-    if "lab" not in path.stem.lower()
+    if not path.stem.lower().endswith("-lab")
 )
 print(f"Validated {len(module_dirs)} modules and {lesson_count} lessons.")

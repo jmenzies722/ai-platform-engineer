@@ -19,7 +19,7 @@ MLOps makes data, training, evaluation, and release processes reproducible and o
 7. [Model monitoring and response](07-model-monitoring-and-response.md)
 8. [Governance and lifecycle controls](08-governance-and-lifecycle-controls.md)
 
-## Practical lab
+## Practice
 
 - [Reproducible release lab](lab-reproducible-release.md): create content-addressed lineage, expose a stale cache, gate promotion, canary, roll back, and retire.
 

@@ -19,7 +19,7 @@ LLM engineering turns a probabilistic model into a bounded application with cont
 7. [LLM application evaluations](07-llm-application-evaluations.md)
 8. [Operating LLM applications](08-operating-llm-applications.md)
 
-## Practical lab
+## Practice
 
 - [Safe assistant lab](lab-safe-assistant.md): enforce retrieval ACLs, structured output, approval, action budgets, idempotency, and redacted traces around a mock model.
 
