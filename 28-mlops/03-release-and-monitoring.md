@@ -50,4 +50,4 @@ Feedback loops alter data, outcomes arrive late, canary traffic is unrepresentat
 
 ## Next
 
-Continue to [GPU Systems](../29-gpu-systems/README.md).
+Continue to [Data versioning and contracts](04-data-versioning-and-contracts.md).

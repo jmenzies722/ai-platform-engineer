@@ -1,26 +1,31 @@
 # 18 — Observability
 
-Observability is the ability to answer questions about a system from its outputs, including questions you did not predict when instrumenting it.
+Observability is the engineering discipline of producing enough trustworthy evidence to explain system behavior while controlling collection cost and data risk.
 
 ## What you will learn
 
-- Select metrics, logs, and traces for distinct diagnostic jobs.
-- Carry context across service boundaries with OpenTelemetry.
-- Control cardinality, sampling, retention, and telemetry cost.
+- Model telemetry around operational questions and signal semantics.
+- Understand OpenTelemetry context, SDK, Collector, and export paths.
+- Design metrics, logs, traces, sampling, and cardinality deliberately.
+- Instrument, diagnose, and govern telemetry as a production product.
 
 ## Lessons
 
-1. [Signals and useful telemetry](01-signals-and-questions.md)
-2. [Context propagation and OpenTelemetry](02-context-and-opentelemetry.md)
-3. [Cardinality, sampling, and diagnosis](03-cardinality-and-diagnosis.md)
+1. [Telemetry as an evidence model](01-telemetry-model.md)
+2. [OpenTelemetry context and pipeline internals](02-opentelemetry-internals.md)
+3. [Metrics, distributions, and alertable semantics](03-metrics.md)
+4. [Structured logs and event design](04-logs.md)
+5. [Traces, causality, and sampling](05-traces-and-sampling.md)
+6. [Cardinality, retention, and telemetry cost](06-cardinality-and-cost.md)
+7. [Instrumentation strategy and evidence-led diagnosis](07-instrumentation-and-diagnosis.md)
 
 ## Practice
 
-Complete the [local telemetry reasoning lab](lab-telemetry.md). It uses a small log set and optional OpenTelemetry tools; no hosted backend is required.
+Complete [diagnose a telemetry pipeline](lab-telemetry.md). Keep the prediction, baseline, injected failure, diagnostic evidence, correction, and production decision as an operator's record.
 
 ## Ready to continue
 
-You can choose the right signal for a question, follow one request across services, and explain why unbounded attributes damage both queryability and cost.
+You can explain the guarantees and limits in this module, calculate the small bounds that govern production behavior, design a controlled failure, diagnose it from evidence, and operate the mechanism with explicit ownership and recovery.
 
 ## Next
 

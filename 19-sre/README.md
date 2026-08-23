@@ -1,26 +1,31 @@
 # 19 — Site Reliability Engineering
 
-SRE turns reliability from an unlimited aspiration into measurable user promises, explicit tradeoffs, and disciplined operational work.
+Site Reliability Engineering turns reliability into measured user promises, controlled risk, and sustainable operational systems rather than permanent emergency effort.
 
 ## What you will learn
 
-- Define service-level indicators and objectives around user outcomes.
-- Use error budgets to govern change and reliability investment.
-- Respond to incidents, reduce toil, and plan capacity.
+- Define defensible SLIs, SLOs, and error-budget policy.
+- Run incidents for rapid mitigation, coordination, and learning.
+- Reduce toil and plan capacity from workload and bottleneck evidence.
+- Engineer availability and release resilience across failure domains.
 
 ## Lessons
 
-1. [SLIs, SLOs, and error budgets](01-slos-and-error-budgets.md)
-2. [Incidents and learning](02-incidents-and-learning.md)
-3. [Toil, capacity, and sustainable operations](03-toil-and-capacity.md)
+1. [SLIs and user-centered SLOs](01-slis-and-slos.md)
+2. [Error budgets and burn-rate control](02-error-budgets.md)
+3. [Incident response and command](03-incident-command.md)
+4. [Learning reviews and toil reduction](04-learning-and-toil.md)
+5. [Capacity planning and overload](05-capacity-and-overload.md)
+6. [Availability architecture and failure domains](06-availability-engineering.md)
+7. [Release engineering and resilience](07-release-resilience.md)
 
 ## Practice
 
-Choose one user journey. Draft a measurable availability or latency SLI, an SLO, a burn-rate alert, and a decision the error budget will control.
+Complete [operate an SLO-driven incident](lab-slo-incident.md). Keep the prediction, baseline, injected failure, diagnostic evidence, correction, and production decision as an operator's record.
 
 ## Ready to continue
 
-You can reject vanity SLIs, calculate an error budget, separate fast mitigation from later learning, and identify toil worth automating.
+You can explain the guarantees and limits in this module, calculate the small bounds that govern production behavior, design a controlled failure, diagnose it from evidence, and operate the mechanism with explicit ownership and recovery.
 
 ## Next
 

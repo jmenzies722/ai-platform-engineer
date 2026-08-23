@@ -14,7 +14,7 @@ Git hashes object type and content to name immutable blobs, trees, commits, and 
 
 ## See it yourself
 
-Predict that the commit contains `note.txt`, has one root tree, and becomes the target of the initial branch. Before committing in your own experiment, use both `git diff` and `git diff --cached` to predict the snapshot.
+**Tiny Proof:** predict that the commit contains `note.txt`, has one root tree, and becomes the target of the initial branch. Before committing in your own experiment, use both `git diff` and `git diff --cached` to predict the snapshot.
 
 ```bash
 d=$(mktemp -d); git -C "$d" init -q

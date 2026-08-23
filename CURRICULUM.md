@@ -2,7 +2,22 @@
 
 The curriculum follows the dependencies of an AI platform. Hardware and software execution come first; distributed infrastructure and platform control follow; AI workloads sit on those foundations. Use [ROADMAP.md](ROADMAP.md) to decide how much evidence you need before moving on.
 
-A module README is a map, not a lesson. Each module is expected to link substantive lessons, exercises, and sources. If those are absent, the module remains a curriculum gap rather than completed learning material.
+A module README is a map, not a lesson. Each chapter contains an ordered lesson sequence, practical evidence, failure work, and primary sources. A learner should leave with a mechanism they can explain and evidence they can inspect. If a chapter cannot support that claim, it remains a curriculum gap rather than completed learning material.
+
+## Chapter contract
+
+Every major technology is treated as an engineering system, not a vocabulary list. Its chapter should establish:
+
+- why the system exists and which constraints shaped it;
+- what contract users and neighboring systems rely on;
+- how the mechanism, state, and critical paths work;
+- which internals explain correctness, performance, security, or cost;
+- how to build a reduced version or exercise the real interface;
+- how it fails, which symptoms are ambiguous, and how to debug it;
+- how to operate, secure, scale, recover, and evolve it;
+- how to compare designs under stated requirements.
+
+Lessons use **See it yourself** for bounded proofs. Module labs combine mechanisms. [Incident drills](incidents/README.md) withhold the diagnosis. [Projects](projects/README.md) require integration and sustained engineering judgment.
 
 ## Foundations
 
@@ -61,3 +76,15 @@ A module README is a map, not a lesson. Each module is expected to link substant
 ## How to use it
 
 Study dependencies in order when a subject is new. Skip ahead only when you can produce the prerequisite evidence: a correct explanation, a working build, and diagnosis of a relevant failure. Deepen the modules that support your work; return to earlier ones when an abstraction leaks.
+
+The module numbers provide the dependable first pass. Real work is less linear. Once you can program and inspect a system, it is reasonable to study an application track alongside its infrastructure track. The [ROADMAP.md](ROADMAP.md) stage gates state the evidence needed before later platform claims are credible.
+
+Use the full learning loop:
+
+1. read the chapter orientation and record a prediction;
+2. work the lessons in order, running the smallest useful proofs;
+3. complete the module lab without copying unexplained commands;
+4. attempt a related incident before opening its solution;
+5. integrate the domain into a portfolio project;
+6. use the interview bank to explain changed constraints;
+7. record inspectable evidence in [PROGRESS.md](PROGRESS.md).

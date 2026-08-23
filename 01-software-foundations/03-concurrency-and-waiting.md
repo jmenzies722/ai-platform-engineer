@@ -14,7 +14,7 @@ The scheduler chooses runnable threads and stops them when they block or are pre
 
 ## See it yourself
 
-Predict that the three tasks finish near one sleep interval rather than three intervals, while their printed order remains unspecified. Run it several times and note that a stable order on one machine is still not a contract.
+**Tiny Proof:** predict that the three tasks finish near one sleep interval rather than three intervals, while their printed order remains unspecified. Run it several times and note that a stable order on one machine is still not a contract.
 
 ```bash
 python3 - <<'PY2'
@@ -65,4 +65,4 @@ Lost updates appear as a final counter smaller than expected; deadlock appears a
 
 ## Next
 
-Continue to [Python](../02-python/README.md).
+Continue to [Interfaces, State, and Data Flow](./04-interfaces-state-and-data-flow.md).

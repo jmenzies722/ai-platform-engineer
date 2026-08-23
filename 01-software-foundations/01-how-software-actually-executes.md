@@ -14,7 +14,7 @@ The shell first resolves `python3` and asks the kernel to replace a child proces
 
 ## See it yourself
 
-Predict that disassembly appears before `hello`, and that opcode names may differ with the installed Python version. The important result is the ordering: a code object exists before `exec` evaluates it.
+**Tiny Proof:** predict that disassembly appears before `hello`, and that opcode names may differ with the installed Python version. The important result is the ordering: a code object exists before `exec` evaluates it.
 
 ```bash
 python3 - <<'PY2'

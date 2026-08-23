@@ -6,21 +6,27 @@ AI systems turn data and objectives into uncertain predictions. This module buil
 
 - Represent examples and transformations with vectors, matrices, and functions.
 - Interpret probability, likelihood, uncertainty, and calibration.
-- Separate training objectives from real-world evaluation.
+- Trace gradients and optimization dynamics rather than treating training as a black box.
+- Separate statistical estimates, training objectives, and decision-centered evaluation.
 
 ## Lessons
 
 1. [Representations and optimization](01-representations-and-optimization.md)
 2. [Probability and uncertainty](02-probability-and-uncertainty.md)
 3. [Data, evaluation, and evidence](03-data-evaluation-and-evidence.md)
+4. [Linear algebra for models](04-linear-algebra-for-models.md)
+5. [Calculus and gradient reasoning](05-calculus-and-gradient-reasoning.md)
+6. [Optimization dynamics](06-optimization-dynamics.md)
+7. [Statistical estimation and uncertainty](07-statistical-estimation.md)
+8. [Decision-centered evaluation](08-decision-centered-evaluation.md)
 
 ## Practice
 
-Work each numerical example by hand, then reproduce it in Python. Design an evaluation for a risky classifier and state what the metric cannot establish.
+- [Foundations evidence lab](lab-foundations-evidence.md): train a tiny classifier, trigger numerical failure, and connect probability estimates to a cost-aware threshold.
 
 ## Ready to continue
 
-You can explain a gradient update, distinguish probability from confidence, identify leakage, and choose metrics that reflect asymmetric costs.
+You can calculate and check a gradient, distinguish probability from confidence, diagnose unstable optimization, quantify sampling uncertainty, identify leakage, and choose metrics that reflect asymmetric costs.
 
 ## Next
 

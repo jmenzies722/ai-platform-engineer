@@ -16,5 +16,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
       - name: Check lesson contract, links, and Mermaid fences
         run: python .github/scripts/check_curriculum.py
+      - name: Render Mermaid diagrams
+        run: python .github/scripts/render_mermaid.py

@@ -14,7 +14,7 @@ An input-size function models a chosen resource such as comparisons, allocations
 
 ## See it yourself
 
-Predict that absent membership examines every list element and that larger lists generally take longer. Expect noisy individual times, especially at small sizes, rather than exact doubling.
+**Tiny Proof:** predict that absent membership examines every list element and that larger lists generally take longer. Expect noisy individual times, especially at small sizes, rather than exact doubling.
 
 ```bash
 python3 - <<'PY2'

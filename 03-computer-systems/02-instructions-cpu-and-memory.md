@@ -14,7 +14,7 @@ An instruction-set architecture defines programmer-visible instructions, registe
 
 ## See it yourself
 
-Predict that `dis` shows Python virtual-machine operations for `add`, while `objdump`—when present—shows architecture-specific instructions from a native executable. The two listings should not use the same instruction vocabulary.
+**Tiny Proof:** predict that `dis` shows Python virtual-machine operations for `add`, while `objdump`—when present—shows architecture-specific instructions from a native executable. The two listings should not use the same instruction vocabulary.
 
 ```bash
 python3 - <<'PY2'

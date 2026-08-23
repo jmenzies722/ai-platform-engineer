@@ -56,4 +56,4 @@ Public tests leak into training, averages hide severe cases, and automated judge
 
 ## Next
 
-Continue to [LLM Engineering](../27-llm-engineering/README.md).
+Continue to [Transformer block internals](04-transformer-block-internals.md).

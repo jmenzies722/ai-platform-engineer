@@ -14,7 +14,7 @@ A contiguous array maps an integer index to an offset and gives strong locality;
 
 ## See it yourself
 
-Predict that the second `sam` assignment replaces the first value, while sorting the items creates an ordered view without changing the mapping’s key-value contract.
+**Tiny Proof:** predict that the second `sam` assignment replaces the first value, while sorting the items creates an ordered view without changing the mapping’s key-value contract.
 
 ```bash
 python3 - <<'PY2'

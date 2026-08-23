@@ -14,7 +14,7 @@ Path resolution starts at `/` for an absolute path or the process working direct
 
 ## See it yourself
 
-Predict that `chmod 600` produces `-rw-------` and numeric mode 600 for the file. Also predict that the initial mode can vary with the current umask, which is why the first `stat` is observation rather than a fixed expected number.
+**Tiny Proof:** predict that `chmod 600` produces `-rw-------` and numeric mode 600 for the file. Also predict that the initial mode can vary with the current umask, which is why the first `stat` is observation rather than a fixed expected number.
 
 ```bash
 d=$(mktemp -d)

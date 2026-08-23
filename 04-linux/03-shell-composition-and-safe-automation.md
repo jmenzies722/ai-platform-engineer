@@ -14,7 +14,7 @@ The shell parses syntax, performs expansions, applies redirections, and launches
 
 ## See it yourself
 
-Predict that `two words` remains one line inside angle brackets and that the `EXIT` trap removes the temporary directory on both normal completion and most shell-level errors. Quote removal should not appear in the printed data.
+**Tiny Proof:** predict that `two words` remains one line inside angle brackets and that the `EXIT` trap removes the temporary directory on both normal completion and most shell-level errors. Quote removal should not appear in the printed data.
 
 ```bash
 tmp=$(mktemp -d)
@@ -61,4 +61,4 @@ A release script often composes artifact lookup, checksum verification, upload, 
 
 ## Next
 
-Continue to [Git and Version Control](../05-git/README.md).
+Continue to [Users, Privilege, and Software Installation](./04-users-privilege-and-software-installation.md).

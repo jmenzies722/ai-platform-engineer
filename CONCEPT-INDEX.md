@@ -18,7 +18,7 @@ Search this file with your browser’s Find command.
 | Control plane | How does a system turn declared intent into ongoing action? | [Kubernetes](00-history/13-kubernetes.md) | [Control Planes](23-control-planes/README.md) |
 | CPU | What physically performs a program’s instructions? | [Origins of Computing](00-history/01-origins-of-computing.md) | [Computer Systems](03-computer-systems/README.md) |
 | Database | How can many users share durable, queryable records? | [Databases](00-history/08-databases.md) | [Databases](08-databases/README.md) |
-| Debugging | How do I reduce uncertainty from evidence rather than guesses? | [How Software Executes](01-software-foundations/01-how-software-actually-executes.md#debug-it) | [Observability](18-observability/README.md), [SRE](19-sre/README.md) |
+| Debugging | How do I reduce uncertainty from evidence rather than guesses? | [How Software Executes](01-software-foundations/01-how-software-actually-executes.md) | [Observability](18-observability/README.md), [SRE](19-sre/README.md) |
 | Distributed system | What changes when components communicate over an unreliable network? | [Distributed Systems](00-history/09-distributed-systems.md) | [Distributed Systems](17-distributed-systems/README.md) |
 | File descriptor | How does a process refer to an open file, pipe, terminal, or socket? | [How Software Executes](01-software-foundations/01-how-software-actually-executes.md) | [Linux](04-linux/README.md) |
 | GPU | Why are some processors better at many similar operations? | [Origins of Computing](00-history/01-origins-of-computing.md) | [GPU Systems](29-gpu-systems/README.md) |

@@ -12,21 +12,31 @@ Containers in a Pod share a network namespace and can share volumes. The schedul
 
 Deployments manage stateless rolling updates through ReplicaSets. StatefulSets provide ordered identities and volume claims, not automatic application consistency. Jobs represent finite work. Resource requests inform scheduling; limits constrain runtime. Readiness controls traffic, liveness can restart a stuck container, and startup probes protect slow starts.
 
+Scheduling separates placement from execution. The scheduler considers only Pods without a node, filters hard constraints, scores feasible nodes, and writes a binding. The kubelet admits the Pod against node resources, mounts volumes, configures networking, and asks the runtime to start containers. Init containers gate application startup; sidecars and application containers share Pod lifecycle and resource competition.
+
+Topology spread and anti-affinity distribute replicas, while taints repel Pods unless tolerated. Pod priority can preempt lower-priority work but cannot create capacity. Disruption budgets constrain voluntary eviction for selected workloads; they do not protect against node loss or prove enough Ready replicas serve correctly.
+
 ## See it yourself
 
-Compare `kubectl describe pod POD` with `kubectl get events --sort-by=.lastTimestamp`. A Pending Pod's events often name the exact failed scheduling predicate.
+Compare Pod YAML, `kubectl describe pod`, events, node allocatable resources, requests, and scheduler status. Predict placement, QoS class, and behavior under one node loss. A Pending Pod's events often name the failed scheduling constraints, but stale or aggregated events require checking current spec and nodes.
 
 ## Where it shows up
 
-Web services use Deployments, databases may use StatefulSets plus application-specific replication, and batch pipelines use Jobs or CronJobs.
+Web services use Deployments with surge and unavailable bounds, databases may use StatefulSets plus application-specific replication, and batch pipelines use Jobs with idempotent tasks, deadlines, and retry limits. DaemonSets place node agents. Production workload choice encodes identity, completion, rollout, and disruption semantics.
 
 ## When it breaks
 
-Missing requests overcommit nodes. Too-low limits cause throttling or OOM kills. Aggressive liveness probes create restart loops. A Pod remains Pending when no node satisfies all constraints.
+Missing requests overcommit nodes. Oversized requests strand capacity. Low CPU limits throttle and low memory limits OOM-kill. Aggressive liveness creates restart loops; readiness tied to every dependency removes all endpoints. Pods remain Pending from resources, affinity, taints, quota, unbound volumes, or admission. Rollouts stall because new and old replicas exceed quota or topology.
+
+Gather conditions, events, scheduler message, node pressure, requests and actual use, probes, container states, prior logs, controller strategy, PDB, quota, and volume topology before deleting Pods.
 
 ## Practice
 
-Create a Deployment with requests, limits, readiness, and topology spread. Predict behavior when one node is unavailable and when readiness fails.
+**Observe:** trace a Pod from controller template through scheduler binding, kubelet admission, runtime start, readiness, and Service endpoint.
+
+**Build:** create a Deployment with measured requests, justified limits, startup and readiness probes, topology spread, rollout bounds, and a PDB.
+
+**Break safely:** specify impossible CPU, an untolerated taint, and failing readiness in a local cluster. Completion means each Pending or unready state is distinguished and repair restores traffic without disabling safeguards.
 
 ## Check yourself
 

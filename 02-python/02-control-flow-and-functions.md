@@ -14,7 +14,7 @@ Conditionals evaluate truth and select one suite; loops repeatedly bind targets 
 
 ## See it yourself
 
-Predict `4.0` for the populated list and a handled `ValueError` for the empty list; no division should be attempted in the second case. Remove the guard in a copy and compare the new exception type and traceback location.
+**Tiny Proof:** predict `4.0` for the populated list and a handled `ValueError` for the empty list; no division should be attempted in the second case. Remove the guard in a copy and compare the new exception type and traceback location.
 
 ```bash
 python3 - <<'PY2'

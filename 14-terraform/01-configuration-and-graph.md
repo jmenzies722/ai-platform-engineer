@@ -12,6 +12,10 @@ A provider translates Terraform's resource operations into a remote API. Resourc
 
 Values may be known only after apply. Data sources read existing information, but excessive live reads can make plans slow or permission-heavy. Use `for_each` with stable semantic keys when instances have identity; numeric `count` indices can shift after deletion.
 
+Expressions evaluate variables, locals, resource attributes, functions, conditions, and collection transformations. Types and validation make module boundaries explicit. `null`, unknown, and sensitive are distinct: null can mean omission, unknown defers a value until apply, and sensitive limits display but not propagation or storage. Dynamic blocks and comprehensions can remove repetition but should not hide resource identity.
+
+Terraform infers create and destroy ordering from graph edges, then reverses relevant dependencies during deletion. `depends_on` is for behavioral dependencies that cannot be expressed through data references. Provider configuration, module calls, replacement edges, and lifecycle rules also affect the graph.
+
 ## See it yourself
 
 ```hcl
@@ -24,19 +28,25 @@ output "environment" {
 }
 ```
 
-Run `terraform init`, `terraform validate`, and `terraform plan`. The output reference establishes a graph edge without an explicit `depends_on`.
+Run `terraform init`, `terraform validate`, `terraform plan`, and `terraform graph` in a disposable directory. Predict which values are known and which vertices can execute concurrently. The output reference establishes a graph edge without an explicit `depends_on`; graph output supports the dependency claim but does not prove remote APIs honor every semantic prerequisite.
 
 ## Where it shows up
 
-Network IDs feed compute resources; role ARNs feed workload configuration; module outputs feed callers. Provider aliases support distinct Regions or accounts.
+Network IDs feed compute resources, role ARNs feed workload configuration, and module outputs feed callers. Provider aliases support distinct Regions or accounts, but child modules must declare and receive aliases deliberately. Stable keyed instances make plans intelligible when regions, tenants, or services are added and removed.
 
 ## When it breaks
 
-Hidden dependencies cause races. Broad `depends_on` serializes unrelated work and produces needless unknown values. Provider upgrades can change schemas or behavior if versions are unconstrained.
+Hidden dependencies cause races. Broad `depends_on` serializes unrelated work and produces needless unknown values. Positional indices shift identity. Unknown values prevent policy decisions until apply. Provider aliases accidentally target the wrong account or Region. Unconstrained provider upgrades change schemas or behavior.
+
+Diagnose with evaluated addresses, graph edges, provider selections, account context, planned unknowns, and API error timestamps. Never repair a graph problem by adding broad dependencies before naming the missing behavioral relationship.
 
 ## Practice
 
-Add two independent `terraform_data` resources and a third that references both. Predict the graph, then inspect it with `terraform graph`.
+**Observe:** annotate a plan with addresses, known and unknown values, create, update, replace, and destroy edges, and provider contexts.
+
+**Build:** add two independent `terraform_data` resources and a third referencing both. Use typed variables, validation, locals, and stable `for_each` keys; predict and inspect the graph.
+
+**Break safely:** remove a reference, shift a `count` list, and misroute a provider alias in disposable configuration. Completion means each risky plan is detected before apply and repaired through explicit identity or dependency.
 
 ## Check yourself
 

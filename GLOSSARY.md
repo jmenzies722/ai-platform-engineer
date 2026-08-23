@@ -16,6 +16,12 @@ Software that repeatedly looks at a situation, chooses an allowed action, and ch
 
 **Start with:** [Agentic Engineering](00-history/20-agentic-engineering.md)
 
+### API
+
+A contract through which one system asks another to perform work or expose state. An API defines valid operations, representations, errors, compatibility expectations, and often authentication and rate limits; the transport is only one part of the contract.
+
+**Start with:** [Backend Engineering](09-backend-engineering/README.md)
+
 ### Assembly language
 
 Human-readable names for the small instructions a processor understands. A symbolic representation of machine instructions and addresses translated by an assembler into machine code for an instruction-set architecture.
@@ -24,6 +30,12 @@ Human-readable names for the small instructions a processor understands. A symbo
 
 ## B
 
+### Backpressure
+
+A system’s way of preventing incoming work from outrunning its ability to complete work. Backpressure may delay, reject, shed, or reduce work, but it must remain bounded and visible to callers.
+
+**Start with:** [Distributed Systems](17-distributed-systems/README.md)
+
 ### Bytecode
 
 Compact intermediate instructions meant for a language runtime rather than directly for the physical CPU. An instruction representation for a virtual machine or interpreter; CPython code objects contain Python bytecode that native CPython code evaluates.
@@ -31,6 +43,12 @@ Compact intermediate instructions meant for a language runtime rather than direc
 **Start with:** [How Software Actually Executes](01-software-foundations/01-how-software-actually-executes.md)
 
 ## C
+
+### Cache
+
+A faster copy or computed result kept closer to expected use. A cache trades freshness, memory, invalidation complexity, and miss cost for lower latency or reduced load; it is not the source of truth unless explicitly designed as one.
+
+**Start with:** [Computer Systems](03-computer-systems/README.md)
 
 ### Compiler
 
@@ -43,6 +61,12 @@ A translator that turns one form of program into another. A system that transfor
 A standard application package run in a separated area of a shared machine. An isolated process or process group launched from an image; on Linux it uses namespaces, cgroups, mounts, capabilities, and runtime conventions while sharing the host kernel.
 
 **Start with:** [Containers](00-history/12-containers.md)
+
+### Consistency
+
+The rules governing which values an operation may observe when data has multiple copies or concurrent updates. Consistency is a family of contracts, not a single strength setting, and must be stated per operation and failure model.
+
+**Start with:** [Distributed Systems](17-distributed-systems/README.md)
 
 ### Control plane
 
@@ -80,6 +104,12 @@ A small number a process uses as a handle for an open input or output route. A p
 
 ## I
 
+### Idempotency
+
+The property that repeating an operation with the same identity has no additional intended effect after the first successful application. Implementations usually require durable deduplication state, not merely an HTTP method label.
+
+**Start with:** [Backend Engineering](09-backend-engineering/README.md)
+
 ### Interpreter
 
 A program that carries out instructions written in another program representation. A system that directly implements the semantics of an input representation, often after parsing or compiling it into an intermediate form.
@@ -108,6 +138,12 @@ A model trained on text patterns to predict the next token and generate sequence
 
 **Start with:** [Transformers and LLMs](00-history/17-transformers-and-llms.md)
 
+### Latency
+
+Elapsed time for one unit of work, measured between stated boundaries. Useful latency claims include a workload, percentile, window, and treatment of failures; an average alone hides tail behavior.
+
+**Start with:** [Observability](18-observability/README.md)
+
 ## M
 
 ### Machine code
@@ -121,6 +157,12 @@ The bit patterns a particular kind of processor can execute directly. Binary-enc
 Fitting behavior from examples instead of writing every rule by hand. Optimizing a parameterized model against data and an objective so it generalizes measured behavior to new inputs.
 
 **Start with:** [Machine Learning](00-history/16-machine-learning.md)
+
+### Model serving
+
+The runtime system that accepts prediction requests, prepares inputs, schedules model execution, and returns outputs under latency, throughput, quality, reliability, and cost constraints.
+
+**Start with:** [Model Serving](31-model-serving/README.md)
 
 ## O
 
@@ -186,11 +228,29 @@ A controlled request from an ordinary program to the protected operating-system 
 
 ## T
 
+### Tensor
+
+A multidimensional array together with a shape, element type, layout, and device placement. Machine learning runtimes apply vectorized operations to tensors and track the storage and dependency information needed for execution and differentiation.
+
+**Start with:** [AI Foundations](24-ai-foundations/README.md)
+
 ### Thread
 
 One sequence of execution within a process. A schedulable execution stream with registers and a stack that usually shares its process’s address space and resources with other threads.
 
 **Start with:** [How Software Actually Executes](01-software-foundations/01-how-software-actually-executes.md)
+
+### Token
+
+A discrete symbol identifier produced by a tokenizer from text or another modality. A token is not necessarily a word; tokenization affects sequence length, cost, representational boundaries, and model-visible input.
+
+**Start with:** [Transformers and LLMs](26-transformers-llms/README.md)
+
+### Trace
+
+A record of causally related work across process and service boundaries, represented as spans with timing, attributes, status, and parent relationships. Trace context propagates the identity needed to connect those spans.
+
+**Start with:** [Observability](18-observability/README.md)
 
 ### Transformer
 

@@ -14,7 +14,7 @@ A process has a PID, credentials, address space, descriptor table, and at least 
 
 ## See it yourself
 
-Predict that the background `sleep` is usually sampled in interruptible sleep, that `$!` agrees with `ps`, and that `wait` returns a signal-related nonzero status after `SIGTERM`. Record the actual status rather than assuming one shell convention.
+**Tiny Proof:** predict that the background `sleep` is usually sampled in interruptible sleep, that `$!` agrees with `ps`, and that `wait` returns a signal-related nonzero status after `SIGTERM`. Record the actual status rather than assuming one shell convention.
 
 ```bash
 sleep 30 &

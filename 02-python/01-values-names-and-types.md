@@ -14,7 +14,7 @@ Python evaluates an object and binds a name to the resulting reference. Rebindin
 
 ## See it yourself
 
-Predict that appending through `b` changes the list displayed by `a`, while `c == a` is true and `c is a` is false. Add a nested list and predict which inner mutation a shallow copy will share.
+**Tiny Proof:** predict that appending through `b` changes the list displayed by `a`, while `c == a` is true and `c is a` is false. Add a nested list and predict which inner mutation a shallow copy will share.
 
 ```bash
 python3 - <<'PY2'

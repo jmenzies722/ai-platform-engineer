@@ -105,6 +105,20 @@ Expected observation: `kill -0 "$LAB_PID"` no longer succeeds and `git status --
 
 You are done when you can explain why the `.py` file is not the loaded executable, why elapsed and CPU time differ, why VSZ is not “RAM owned,” and how fd 1 reaches a file.
 
+## Rubric
+
+- 2 points: verifies prerequisites, identity, and the healthy baseline
+- 3 points: explains process state, CPU time, memory, and descriptors from evidence
+- 2 points: distinguishes source path, command-line argument, and loaded executable
+- 2 points: diagnoses the missing-process and invalid-PID failures safely
+- 1 point: stops only the recorded process and removes generated artifacts
+
+## Sources
+
+- [Linux `proc(5)`](https://man7.org/linux/man-pages/man5/proc.5.html)
+- [Linux `/proc` filesystem](https://docs.kernel.org/filesystems/proc.html)
+- [Python execution model](https://docs.python.org/3/reference/executionmodel.html)
+
 ## Next
 
 Continue to [Concurrency and Waiting](../../01-software-foundations/03-concurrency-and-waiting.md).

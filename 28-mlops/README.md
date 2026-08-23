@@ -5,22 +5,27 @@ MLOps makes data, training, evaluation, and release processes reproducible and o
 ## What you will learn
 
 - Version data, code, configuration, and model artifacts.
-- Build training and validation pipelines with lineage.
-- Release, monitor, and safely retire models.
+- Enforce data contracts and test reproducible training pipelines with lineage.
+- Package, register, deploy, monitor, govern, and safely retire models.
 
 ## Lessons
 
 1. [Reproducibility and lineage](01-reproducibility-and-lineage.md)
 2. [Training pipelines and registries](02-training-pipelines-and-registries.md)
 3. [Release and monitoring](03-release-and-monitoring.md)
+4. [Data versioning and contracts](04-data-versioning-and-contracts.md)
+5. [Pipeline testing and reproducibility](05-pipeline-testing-and-reproducibility.md)
+6. [Model packaging and deployment](06-model-packaging-and-deployment.md)
+7. [Model monitoring and response](07-model-monitoring-and-response.md)
+8. [Governance and lifecycle controls](08-governance-and-lifecycle-controls.md)
 
 ## Practice
 
-Describe one model artifact using immutable inputs, evaluation evidence, ownership, and rollback instructions.
+- [Reproducible release lab](lab-reproducible-release.md): create content-addressed lineage, expose a stale cache, gate promotion, canary, roll back, and retire.
 
 ## Ready to continue
 
-You can reproduce a candidate, prevent invalid promotion, detect drift without confusing it with harm, and roll back safely.
+You can reproduce and trace a candidate, prevent stale caches and invalid promotion, deploy an evaluated digest, detect drift without confusing it with harm, respond from evidence, govern material changes, and retire safely.
 
 ## Next
 

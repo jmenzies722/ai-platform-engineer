@@ -64,4 +64,4 @@ When a new model posts a surprising gain, first audit split keys, timestamps, du
 
 ## Next
 
-Continue to [Machine Learning and Deep Learning](../25-ml-deep-learning/README.md).
+Continue to [Linear algebra for models](04-linear-algebra-for-models.md).
