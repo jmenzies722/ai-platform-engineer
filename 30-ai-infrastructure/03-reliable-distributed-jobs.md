@@ -50,4 +50,4 @@ Partial checkpoints appear valid, retries loop on deterministic errors, and a st
 
 ## Next
 
-Continue to [Model Serving](../31-model-serving/README.md).
+Continue to [Cluster architecture and failure domains](04-cluster-architecture-and-failure-domains.md).

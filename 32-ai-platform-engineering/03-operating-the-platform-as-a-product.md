@@ -50,4 +50,4 @@ Vanity adoption masks dissatisfaction, internal users cannot opt out, and deprec
 
 ## Next
 
-Continue to [Agentic Infrastructure](../33-agentic-infrastructure/README.md).
+Continue to [Data and feature platform contracts](04-data-and-feature-platform-contracts.md).
