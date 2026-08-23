@@ -21,11 +21,15 @@ Platform engineering treats shared delivery capabilities as products. Its job is
 
 ## Practice
 
-Complete the lessons in order, then run the design review in lesson 8. The capstone connects one researched user journey to a capability contract, tenant model, support plan, governance controls, adoption experiment, outcome measures, and a defensible cost model.
+1. Complete lessons 1 through 7 and write the capability contract, service boundary, tenant model, support path, and exception policy for one researched journey.
+2. Run the [platform adoption experiment](lab-platform-adoption-experiment.md). Preserve the baseline, failed and abandoned attempts, segment differences, old-path use, support burden, and the evidence for an expand, narrow, redesign, or stop decision.
+3. Complete lesson 8 and its design review. The review must connect the adoption evidence to outcome guardrails, full cost, explicit stop criteria, and a versioned capability decision.
+4. Carry the validated problem and contract into the [platform control-plane lab](../labs/14-platform-control-plane/README.md). Do not treat a convergent implementation as proof of product value; it is the system proof that follows the adoption proof.
+5. Use both evidence sets to begin milestone 1 of the [Secure Developer Platform Control Plane project](../projects/09-developer-platform-control-plane/README.md). The project is the integration proof, not a substitute for the research or bounded lab.
 
 ## Ready to continue
 
-You can defend a platform investment with user and operational evidence; specify contracts, tenancy, and escape hatches; operate self-service safely; and decide whether adoption and economics demonstrate durable value.
+You can defend or reject a platform investment with reproducible user and operational evidence; specify contracts, tenancy, support, and escape hatches; detect coerced or misleading adoption; and hand a validated capability boundary to an implementation team.
 
 ## Next
 
