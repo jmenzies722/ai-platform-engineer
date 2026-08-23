@@ -1,53 +1,55 @@
-# Requirements, load, and boundaries
+# Requirements and system boundaries
 
-System design starts by turning an ambiguous request into measurable behavior, constraints, and ownership boundaries.
+System design begins by replacing an attractive solution story with a precise account of users, outcomes, invariants, constraints, and exclusions.
 
 ## Why it matters
 
-Architecture cannot compensate for solving the wrong problem or sizing against an unstated workload.
+A technically elegant system can be a complete failure when it solves the wrong journey, protects the wrong invariant, or assumes a responsibility that belongs elsewhere.
 
 ## How it works
 
-Identify actors, core journeys, correctness rules, SLOs, security needs, cost limits, and non-goals. Estimate average and peak requests, payloads, storage growth, concurrency, and skew with units. Define components around cohesive responsibilities and explicit interfaces, then mark trust and failure boundaries.
+Begin with actors and their critical journeys. Write functional requirements as observable outcomes. Write quality attributes as measured behavior under named conditions: latency at peak traffic, durability after a zone loss, recovery time, privacy constraints, and a cost envelope. State non-goals and deferred journeys as carefully as goals.
 
-Functional requirements describe observable behavior; quality attributes state conditions such as p95 latency at peak load or recovery after a zone loss. Estimates should be ranges with named assumptions. Boundaries follow invariants and rates of change: keeping one owner for a fact is often more valuable than maximizing component count.
+Name invariants separately. “An accepted payment is never charged twice” is an invariant; “use Kafka” is not. Identify the system of record, trust boundaries, administrative surfaces, dependencies, and the team responsible for each decision. A context diagram should show external actors and owned systems before an internal component diagram appears.
+
+Resolve uncertainty by classifying it. A fact can be measured, a forecast can be bounded, a preference can be negotiated, and a policy constraint needs an accountable interpretation. Keep an assumption ledger with owner, evidence, confidence, consequence if wrong, and validation date. This makes the design revisable without making it vague.
 
 ## See it yourself
 
-At 500 requests/s and 200 ms average time, Little's Law predicts about 100 in-flight requests in stable conditions. A tenfold burst sustained for two seconds brings 10,000 arrivals while capacity sized for average may complete only 1,000; the remainder must queue or be rejected. This proves average throughput does not size burst absorption or tail latency.
+Take “build a document assistant” and ask what must remain true. Tenant A must never retrieve tenant B’s text. A cited answer must preserve the source identity. Deletion must become effective within a stated period. These statements immediately expose identity, authorization, provenance, and lifecycle boundaries that “chat over documents” conceals.
 
 ## Where it shows up
 
-For an inference API, requirements connect tenant arrival patterns, context sizes, model latency, and availability to admission and replica count. Trust boundaries separate callers, gateway, model workers, and data stores. The capacity worksheet records assumptions so production measurements can replace guesses after launch.
+For a model inference API, an interactive request and a batch evaluation may use the same model but have different latency, fairness, and interruption requirements. Separate journeys prevent one undifferentiated availability target from producing a costly and misleading design.
 
 ## When it breaks
 
-False precision hides assumptions, peak behavior is omitted, and component boundaries mirror org charts rather than invariants. When a design misses load, first compare actual arrival, size, service-time, and skew distributions with the assumption table. When ownership failures recur, trace the violated invariant across boundaries before adding another service.
+Requirements fail when nouns are undefined, averages replace distributions, every journey is called critical, or non-goals remain political secrets. Boundaries fail when two systems can both declare the same fact authoritative. When review stalls, return to one disputed journey and ask who observes what, under which conditions, and what harm follows from failure.
 
 ## Practice
 
-**Build:** write measurable requirements, non-goals, estimates, and trust/failure boundaries for an inference API. **Break:** inject a tenfold burst and one heavy tenant; show queue or rejection behavior. **Explain back:** defend each major component from an invariant or measured constraint, and name the first assumption to validate.
+**Build:** write a requirements brief for a tenant-aware document assistant: actors, three critical journeys, five quality attributes with conditions, four invariants, non-goals, trust boundaries, owners, and an assumption ledger. **Break:** add legal deletion and one untrusted ingestion source; revise boundaries without silently weakening an invariant. **Explain back:** justify each boundary from ownership, trust, or failure isolation.
 
 ## Check yourself
 
-1. Why state non-goals?
-2. Which estimate drives concurrency?
-3. What belongs at a trust boundary?
+1. How does an invariant differ from a quality attribute?
+2. Why must a performance target name its operating condition?
+3. Which uncertainty belongs in an experiment rather than a meeting?
 
 ## Sources
 
 ### REQUIRED
 
-- [Google SRE: service level objectives](https://sre.google/workbook/implementing-slos/)
+- [Google SRE Workbook: Implementing SLOs](https://sre.google/workbook/implementing-slos/)
 
 ### RECOMMENDED
 
-- [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html)
+- [NIST SP 800-160 Volume 1: Systems Security Engineering](https://csrc.nist.gov/pubs/sp/800/160/v1/r1/final)
 
 ### DEEP DIVE
 
-- [The Tail at Scale](https://research.google/pubs/the-tail-at-scale/)
+- [RFC 2119: Key words for use in RFCs](https://www.rfc-editor.org/rfc/rfc2119)
 
 ## Next
 
-Continue to [Data, consistency, and reliability](02-data-consistency-and-reliability.md).
+Continue to [Estimation and capacity](02-estimation-and-capacity.md).
