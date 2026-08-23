@@ -65,4 +65,4 @@ Rising latency with flat CPU and growing in-flight work suggests waiting or queu
 
 ## Next
 
-Continue to [Go](../10-go/README.md).
+Continue to [Authentication, Authorization, and API Evolution](./04-authentication-authorization-and-api-evolution.md).

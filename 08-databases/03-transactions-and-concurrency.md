@@ -66,4 +66,4 @@ Deadlock errors identify aborted concurrency, lock waits produce growing latency
 
 ## Next
 
-Continue to [Backend Engineering](../09-backend-engineering/README.md).
+Continue to [PostgreSQL Storage, WAL, and Vacuum](./04-postgresql-storage-wal-and-vacuum.md).
