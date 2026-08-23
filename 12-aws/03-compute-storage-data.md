@@ -48,4 +48,4 @@ Write a decision record for a small upload-processing service. Specify scaling u
 
 ## Next
 
-[DevOps](../13-devops/README.md)
+[Availability, recovery, and resilient design](04-availability-and-recovery.md)

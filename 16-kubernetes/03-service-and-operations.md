@@ -48,4 +48,4 @@ Diagnose a Service with no response using only `get`, `describe`, `logs`, and a 
 
 ## Next
 
-[Distributed Systems](../17-distributed-systems/README.md)
+[Persistent storage and data workloads](04-storage-and-data.md)

@@ -46,4 +46,4 @@ Write a release plan for a behavior plus schema change. Include compatibility, e
 
 ## Next
 
-[Terraform](../14-terraform/README.md)
+[Artifacts, registries, and promotion](04-artifacts-and-promotion.md)

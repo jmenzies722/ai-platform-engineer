@@ -6,21 +6,25 @@ Terraform compares configuration, prior state, and provider-reported reality to 
 
 - Read declarative configuration and its dependency graph.
 - Explain why state is sensitive, shared, and operationally critical.
-- Review plans, manage drift, and design stable modules.
+- Design stable modules and test their contracts before deployment.
+- Run reviewed workflows for import, refactoring, drift, and recovery.
 
 ## Lessons
 
 1. [Configuration, providers, and the graph](01-configuration-and-graph.md)
 2. [State, plans, and drift](02-state-plans-drift.md)
 3. [Modules and safe lifecycle](03-modules-and-lifecycle.md)
+4. [Testing and automated workflows](04-testing-and-workflows.md)
+5. [Import, refactoring, and adoption](05-import-and-refactoring.md)
+6. [Drift operations and state recovery](06-drift-and-recovery.md)
 
 ## Practice
 
-Use the local provider or `terraform_data` to create a tiny configuration. Run `fmt`, `validate`, `plan`, inspect state, change one input, and predict the next plan before running it.
+Complete the [local Terraform change-control lab](lab-change-control.md). It uses only built-in `terraform_data` resources to exercise graph inspection, tests, saved plans, refactoring, drift detection, and recovery.
 
 ## Ready to continue
 
-You can explain what Terraform state does, identify implicit dependencies, review replacement risk in a plan, and choose module boundaries around stable contracts.
+You can explain the graph and state model, review replacement risk, test module contracts, import existing objects without recreation, distinguish drift from intended change, and recover state through supported workflows.
 
 ## Next
 

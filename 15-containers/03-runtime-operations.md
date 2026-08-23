@@ -46,4 +46,4 @@ Run a simple HTTP image as non-root with a read-only root filesystem, temporary 
 
 ## Next
 
-[Kubernetes](../16-kubernetes/README.md)
+[Container networks and persistent storage](04-network-and-storage.md)

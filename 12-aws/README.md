@@ -6,21 +6,25 @@ AWS is a large catalog built from a small set of ideas: identity authorizes API 
 
 - Trace a request through accounts, IAM, Regions, Availability Zones, and VPCs.
 - Choose compute, storage, and data services from workload requirements.
-- Use AWS safely: scoped credentials, read-only inspection, explicit cost awareness.
+- Design for Availability Zone failure, recovery, observability, and controlled operations.
+- Explain a workload's cost model and install budgets before scale hides waste.
 
 ## Lessons
 
 1. [Accounts, IAM, and the AWS API](01-identity-and-api.md)
 2. [Regions, VPCs, and network boundaries](02-regions-and-vpcs.md)
 3. [Compute, storage, and managed data](03-compute-storage-data.md)
+4. [Availability, recovery, and resilient design](04-availability-and-recovery.md)
+5. [Operations, observability, and safe automation](05-operations-and-observability.md)
+6. [Cost models, allocation, and optimization](06-cost-and-governance.md)
 
 ## Practice
 
-Complete the [read-only AWS inventory lab](lab-read-only-inventory.md). It works without credentials in planning mode and makes no resource changes when credentials are used.
+Complete the [AWS architecture evidence lab](lab-read-only-inventory.md). It works as a paper exercise without credentials and uses retrieval-only commands with an approved read-only role.
 
 ## Ready to continue
 
-You can explain why an IAM allow may still be denied, distinguish an Availability Zone from a subnet, and justify a service choice using failure, scaling, and cost constraints.
+You can trace authorization and packet reachability, choose compute and data services, design a multi-AZ recovery path, build an operational evidence chain, and identify the unit economics and cost guardrails of a workload.
 
 ## Next
 
