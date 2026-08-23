@@ -14,21 +14,31 @@ Teams should use a remote backend with locking, encryption, access control, back
 
 Drift is remote change outside the configuration workflow. Resolve it deliberately: import the intended reality into code, or apply configuration to restore declared intent. Never edit state JSON by hand.
 
+State has lineage and serial metadata so Terraform can reject unrelated or stale snapshots. Backends determine storage and locking behavior; workspaces select distinct state instances but do not create security boundaries by themselves. Split state by ownership, lifecycle, credentials, and blast radius, then pass small explicit outputs rather than reading broad state whenever possible.
+
+A speculative plan supports review but cannot be applied. A saved plan captures decisions against a state snapshot and variables, yet can still fail when remote preconditions change. Refresh-only mode records provider-observed differences without modifying remote resources; it must not be used to silently approve unauthorized drift.
+
 ## See it yourself
 
-Change a `terraform_data` input and inspect the plan symbols and before/after values. Save it with `terraform plan -out=plan.bin`; use `terraform show plan.bin` to review the exact plan.
+Change a `terraform_data` input and inspect plan symbols, addresses, before and after values, unknowns, and replacement causes. Save with `terraform plan -out=plan.bin`, hash it, and use `terraform show plan.bin`. Compare lineage and serial before and after apply without publishing state. This proves local workflow behavior, not backend locking or remote API safety.
 
 ## Where it shows up
 
-CI plans on pull requests and applies after protected approval. Separate state files limit blast radius but create explicit cross-stack contracts.
+CI creates speculative pull-request plans with read-only credentials and applies a saved approved plan through a protected, serialized job. Separate state files limit blast radius but require explicit cross-stack contracts. Audit records connect source revision, variable set, provider locks, plan digest, approver, apply identity, and resulting state serial.
 
 ## When it breaks
 
-Concurrent applies race without locking. Stale plans become invalid after state changes. Manual console edits recur after every apply. Overly broad state combines unrelated systems into one failure domain.
+Concurrent applies race without locking. Stale plans fail or act on outdated assumptions. Partial applies leave remote mutations and incomplete downstream work. Manual console edits recur. Backend restore can overwrite valid newer state. Insufficient read permission hides attributes; provider upgrades produce representation-only differences. Broad state combines unrelated systems into one failure domain.
+
+Stop writers before state recovery. Preserve backend versions, lock identity, state lineage and serial, plan, provider locks, and API audit events. A state backup repairs mappings only; it cannot undo remote deletion, data mutation, or external side effects.
 
 ## Practice
 
-Classify a sample plan by action, blast radius, downtime, data risk, permissions, and cost. Escalate every replacement of a stateful resource.
+**Observe:** classify a sample plan by action, replacement cause, blast radius, downtime, data risk, permissions, cost, and ownership. Escalate stateful replacement.
+
+**Build:** design a remote-backend workflow with encryption, access control, versioning, locking, recovery test, serialized apply, and state retention.
+
+**Break safely:** create a stale local saved plan and simulate lock contention. Completion means unsafe apply stops, evidence identifies the active writer or changed serial, and recovery uses supported backend and Terraform operations.
 
 ## Check yourself
 
