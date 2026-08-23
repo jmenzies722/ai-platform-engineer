@@ -1,53 +1,39 @@
-# Lab: reason from local telemetry
+# Lab: diagnose a telemetry pipeline
 
-Use shell tools and this synthetic structured log. No collector or hosted service is required.
+Create a local telemetry dataset, introduce a propagation and cardinality defect, and diagnose from user impact back to instrumentation.
 
-## Capture
+## Goal
 
-Save the following as `/tmp/requests.jsonl`:
+Produce bounded metrics, correlated structured events, and trace relationships for a synthetic checkout; prove the baseline identifies a version-specific failure without indexing request IDs as metric dimensions.
 
-```json
-{"trace_id":"a1","route":"/checkout","status":200,"duration_ms":48,"region":"east"}
-{"trace_id":"a2","route":"/checkout","status":503,"duration_ms":3010,"region":"west"}
-{"trace_id":"a3","route":"/cart","status":200,"duration_ms":22,"region":"west"}
-{"trace_id":"a4","route":"/checkout","status":503,"duration_ms":2988,"region":"west"}
-{"trace_id":"a5","route":"/checkout","status":200,"duration_ms":51,"region":"east"}
-```
+## Before you start
 
-## Ask before querying
+Read lessons 2, 5, 6, and 7. Use Python 3 and temporary JSON files; no Collector, backend, account, privilege, network, or cost is required. Stop before adapting commands to production data. Predict the error cohort and number of metric series.
 
-Write hypotheses for:
+## Establish a baseline
 
-1. Which user journey is failing?
-2. Is impact global or cohort-specific?
-3. Which trace IDs deserve deeper inspection?
+`python3 --version` must show Python 3. Create five known request events and assert all contain route templates, version, status, duration, trace ID, span ID, and parent ID. Passing validation establishes a complete baseline schema.
 
-If `jq` is installed, test them:
+## Make it work
 
-```bash
-jq -s 'group_by(.route) | map({route: .[0].route, requests: length, errors: map(select(.status >= 500)) | length})' /tmp/requests.jsonl
-jq -s 'group_by(.region) | map({region: .[0].region, requests: length, errors: map(select(.status >= 500)) | length})' /tmp/requests.jsonl
-jq 'select(.status >= 500) | {trace_id,route,region,duration_ms}' /tmp/requests.jsonl
-```
+Write a Python analyzer that groups request count and errors by route template, version, and status class; builds fixed latency buckets; and reports missing parents. Include a failing version with two errors. Confirm bounded series, a higher error ratio in that version, and no missing parent.
 
-## Design
+## Break it
 
-Turn this event stream into:
+Replace one route template with `/orders/<uuid>` and remove one parent ID. Expected symptoms are a new metric series and one orphan span; request-level errors remain unchanged.
 
-- a request-rate metric with bounded labels;
-- an error-ratio metric;
-- a latency histogram;
-- a structured log schema;
-- trace span attributes.
+## Diagnose it
 
-Do not use `trace_id` as a metric label. Explain where it remains useful. Add one deployment annotation and one dependency span that would help distinguish application failure from a west-region dependency failure.
+Begin with the failing user cohort, then inspect version ratios, route-series growth, and orphan count. Normalize the route and restore propagation. Rerun identical assertions to prove both defects disappear without hiding the version-specific application failure.
 
-## Optional OpenTelemetry extension
+## Clean up
 
-Run a local OpenTelemetry demo or Collector only if already available. Export to a local debug exporter and inspect propagation; no hosted account is needed.
+Remove temporary JSON and scripts and verify the directory is absent.
 
-## Cleanup
+## What to keep
 
-```bash
-rm -f /tmp/requests.jsonl
-```
+Keep predictions, series counts, cohort ratios, the failed hypothesis, and corrections. Add a production budget for active series, exporter drops, and telemetry bytes per request, then explain which evidence supports impact, localization, and cause.
+
+## Sources
+
+- [OpenTelemetry observability primer](https://opentelemetry.io/docs/concepts/observability-primer/)

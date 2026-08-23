@@ -1,26 +1,31 @@
 # 17 — Distributed Systems
 
-Once work crosses a network, delay, loss, duplication, reordering, and partial failure become normal conditions rather than edge cases.
+Distributed systems engineering begins where local certainty ends: messages are delayed or duplicated, clocks disagree, processes pause, and only part of the system may fail.
 
 ## What you will learn
 
-- Reason from uncertainty instead of assuming a global clock or instant failure detection.
-- Use replication, quorums, and consensus with explicit guarantees.
-- Build retry-safe, overload-aware request and message flows.
+- Reason precisely about time, causality, partial failure, and consistency.
+- Choose replication, consensus, and transaction mechanisms from required guarantees.
+- Design duplicate-safe request and queue paths that remain bounded under overload.
+- Operate distributed workflows by testing partitions, lag, retries, and recovery.
 
 ## Lessons
 
-1. [Time, ordering, and partial failure](01-time-and-partial-failure.md)
-2. [Replication, consistency, and consensus](02-replication-and-consensus.md)
-3. [Retries, idempotency, and backpressure](03-retries-and-backpressure.md)
+1. [Time, causality, and partial failure](01-time-and-partial-failure.md)
+2. [Consistency models and client guarantees](02-consistency-models.md)
+3. [Replication, quorums, and repair](03-replication-and-quorums.md)
+4. [Consensus, leadership, and membership](04-consensus-and-membership.md)
+5. [Transactions, sagas, and the outbox](05-distributed-transactions.md)
+6. [Idempotency, retries, and uncertain outcomes](06-idempotency-and-retries.md)
+7. [Queues, flow control, and backpressure](07-queues-and-backpressure.md)
 
 ## Practice
 
-For a payment request, write every outcome after the client times out. Design an idempotency record and state which component may retry, for how long, and under what load limit.
+Complete [expose duplicate work and overload](lab-failure-harness.md). Keep the prediction, baseline, injected failure, diagnostic evidence, correction, and production decision as an operator's record.
 
 ## Ready to continue
 
-You can explain why a timeout is not proof of failure, compare quorum guarantees, and design bounded retries without creating duplicate work or a retry storm.
+You can explain the guarantees and limits in this module, calculate the small bounds that govern production behavior, design a controlled failure, diagnose it from evidence, and operate the mechanism with explicit ownership and recovery.
 
 ## Next
 
