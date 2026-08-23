@@ -1,8 +1,18 @@
 # Portfolio Projects
 
-These fifteen targets are future **independent repositories**. Each should have its own history, architecture decisions, automated verification, operational evidence, and release process. This repository supplies the curriculum and project briefs; it should not become a monorepo containing all implementations.
+Projects are where lesson models meet constraints. These fifteen targets are future **independent repositories** with their own history, decisions, verification, operational evidence, and release process. This curriculum repository supplies briefs; it should not become an implementation monorepo.
 
 All projects are **Planned**.
+
+## Project Learning Loop
+
+```mermaid
+flowchart LR
+    Problem --> Model --> Build --> Measure --> Break --> Debug --> Operate --> Decide
+    Decide -->|new constraint| Model
+```
+
+Begin a project only when you can state the user problem without naming the technology. A working happy path is the midpoint: the portfolio evidence is the measured behavior, controlled failure, diagnosis, recovery, and design judgment.
 
 | # | Portfolio target | Primary proof |
 |---:|---|---|
@@ -25,6 +35,12 @@ All projects are **Planned**.
 ## Graduation Criteria
 
 A project is portfolio-grade only when another engineer can evaluate both the system and your engineering judgment.
+
+Use the same three-layer explanations as the lessons:
+
+1. **Intuition:** the user problem and simple model.
+2. **Mechanism:** components, state, critical path, and invariants.
+3. **Engineering:** production constraints, failures, operations, security, cost, and tradeoffs.
 
 ### Problem and Users
 
@@ -69,3 +85,5 @@ A project is portfolio-grade only when another engineer can evaluate both the sy
 - Its design reflects measured behavior and lessons from at least one intentionally induced failure.
 
 Use [templates/PROJECT.md](templates/PROJECT.md) to shape an initial brief. Track curriculum competencies in [PROGRESS.md](PROGRESS.md), not with inflated project completion percentages.
+
+Before calling a project portfolio-grade, give its core explanation at all three levels in [TEACH-BACK.md](TEACH-BACK.md).

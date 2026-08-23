@@ -1,6 +1,12 @@
 # Interview Map
 
-Use this map after building and debugging in a domain. Interview practice without implementation evidence tends to produce memorized answers that collapse under follow-up questions.
+Use this map **after** building and debugging in a domain. It converts evidence into a concise explanation; it is not a shortcut around competence. Interview practice without implementation evidence produces answers that collapse under one changed constraint.
+
+Before practicing a theme:
+
+1. score the concept with [TEACH-BACK.md](TEACH-BACK.md);
+2. link build or incident evidence in [PROGRESS.md](PROGRESS.md);
+3. prepare one claim you revised because evidence contradicted your first model.
 
 ## Evaluation Pattern
 
@@ -12,6 +18,8 @@ For every theme, prepare to:
 4. identify failure modes and evidence;
 5. quantify capacity, reliability, security, and cost tradeoffs;
 6. evolve the design when assumptions change.
+
+Begin in plain language, then earn the precise term. A strong answer can move between intuition, mechanism, and engineering tradeoffs without confusing them.
 
 | Domain | Common interview themes | Preparation modules | Evidence to bring |
 |---|---|---|---|
@@ -42,3 +50,5 @@ For every theme, prepare to:
 | Date | Theme | Level | Result | Weakest follow-up | Evidence to produce next |
 |---|---|---|---|---|---|
 | YYYY-MM-DD | Example: Kubernetes scheduling | Senior | Needs work | Preemption and disruption interaction | Reproduce in a local cluster |
+
+After each attempt, repair the weakest follow-up by building or measuring something. Rehearsing the same wording is not remediation.

@@ -1,6 +1,22 @@
-# Roadmap: Software Foundations to Platform Engineering Leadership
+# Roadmap: Capability Gates, Not Calendar Milestones
 
-This roadmap defines capability gates, not calendar milestones. Move forward when you can produce the exit evidence for a stage. Revisit earlier stages whenever production behavior exposes a weak mental model.
+This roadmap answers one question: **What must I be able to do before the next layer becomes useful rather than confusing?**
+
+Move forward when you can produce the stage’s exit evidence. Reading every linked module is neither necessary nor sufficient. Revisit an earlier stage whenever a build, incident, or design review exposes a weak model.
+
+For each stage:
+
+```mermaid
+flowchart LR
+    Entry["Prerequisite evidence"] --> Learn["Minimum Competency"]
+    Learn --> Build["Build + break"]
+    Build --> Operate["Debug + operate"]
+    Operate --> Exit["Explain + design evidence"]
+    Exit --> Next["Next stage"]
+    Operate -->|model gap| Learn
+```
+
+Use [HOW-TO-LEARN.md](HOW-TO-LEARN.md) for the study loop and [PROGRESS.md](PROGRESS.md) to record evidence.
 
 ## Stage Dependency Map
 
@@ -159,4 +175,12 @@ flowchart TD
 
 ## Advancement Rule
 
-For each stage, update [PROGRESS.md](PROGRESS.md) only from evidence. “I read it” supports **Learning**. A repeatable build and a diagnosed failure support **Practicing**. Independent operation and defensible design are required for **Competent** or **Deep Understanding**.
+Update [PROGRESS.md](PROGRESS.md) only from evidence:
+
+- “I read it” supports **Learning**.
+- A repeatable Tiny Proof plus an accurate explain-back supports **Minimum Competency**.
+- An independent build and diagnosed controlled failure support **Practicing**.
+- Independent operation and defensible routine design support **Competent**.
+- Novel failure reasoning, quantified tradeoffs, and successful teaching support **Deep Understanding**.
+
+The weakest dimension relevant to the next stage is the gate. Strong explanations do not replace operational practice; years of tool use do not replace a correct mechanism.

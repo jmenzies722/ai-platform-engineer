@@ -1,24 +1,35 @@
 # Competency Progress
 
-This tracker records demonstrated capability, not content consumption.
+Copy this file to your own branch and update it with links to evidence. The repository cannot know what you understand, so every domain begins unclaimed.
 
-**Scale:** ⬜ Not Started | 🟨 Learning | 🟦 Practicing | 🟩 Competent | 🟪 Deep Understanding
+**Scale:** ⬜ Not Started · 🟨 Learning · 🟦 Practicing · 🟩 Competent · 🟪 Deep Understanding
+
+**Dimensions:** Explain · Build · Debug · Operate · Design
 
 ## Evidence Rules
 
-- **Learning:** can define concepts and follow a guided exercise.
+- **Learning:** can follow the intuition and mechanism, run a guided proof, and identify current gaps.
 - **Practicing:** can build and debug with limited guidance; evidence is repeatable.
 - **Competent:** can independently build, debug, operate, and make sound routine design decisions.
 - **Deep Understanding:** can reason from internals, handle novel failure, quantify tradeoffs, teach others, and improve the surrounding system.
 - A rating should link to evidence in a lab, project, incident review, design document, talk, or production outcome.
 - The weakest relevant dimension limits an overall domain claim. Strong explanation does not substitute for operational experience.
+- Completion of a file changes no rating by itself.
+
+## First Evidence to Earn
+
+After the Day 1 path in [START-HERE.md](START-HERE.md), add:
+
+| Date | Concept | Prediction | Observation | Model corrected | Teach-back score | Evidence link |
+|---|---|---|---|---|---:|---|
+| YYYY-MM-DD | Software execution | What did you expect? | What happened? | What changed? | /16 | Lab note |
 
 ## Competency Matrix
 
 | Domain | Explain | Build | Debug | Operate | Design | Evidence / next proof |
 |---|---:|---:|---:|---:|---:|---|
-| [History](00-history/README.md) | 🟨 | ⬜ | ⬜ | ⬜ | ⬜ | Complete causal maps; explain three abstraction cycles without notes |
-| [Software Foundations](01-software-foundations/README.md) | 🟨 | 🟨 | ⬜ | ⬜ | ⬜ | Complete [execution lab](labs/01-software-execution/README.md) and explain one failure chain |
+| [History](00-history/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Complete causal maps; explain three abstraction cycles without notes |
+| [Software Foundations](01-software-foundations/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Complete [execution lab](labs/01-software-execution/README.md) and explain one failure chain |
 | [Python](02-python/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | — |
 | [Computer Systems](03-computer-systems/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | — |
 | [Linux](04-linux/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | — |
@@ -60,4 +71,6 @@ This tracker records demonstrated capability, not content consumption.
 |---|---|---|---|---|
 | YYYY-MM-DD | Example | 🟨 → 🟦 Build | Link to lab or project | Describe the next concrete proof |
 
-Review this file after completing a lab, resolving an incident, shipping a project milestone, or discovering that an earlier rating was too generous. Downgrading a rating when evidence changes is sound engineering.
+Review this file after completing a lab, resolving an incident, shipping a project milestone, teaching a concept, or discovering that an earlier rating was too generous. Downgrading a rating when evidence changes is sound engineering.
+
+Use [TEACH-BACK.md](TEACH-BACK.md) to score explanations. Use [ROADMAP.md](ROADMAP.md) to decide whether the next stage’s prerequisite evidence exists.

@@ -1,10 +1,34 @@
-# Curriculum
+# Curriculum: Modules 00–35
 
-Status meanings:
+This is the ordered module spine. Use [START-HERE.md](START-HERE.md) for the first day and [ROADMAP.md](ROADMAP.md) for capability gates. Do not treat this catalog as a completion checklist.
 
-- **Complete** — lessons in the committed scope are fully written and usable.
-- **In progress** — at least one complete lesson exists; the module roadmap remains open.
-- **Scaffolded** — orientation and prerequisites exist; detailed lessons intentionally do not.
+## Publication State
+
+- **Complete** — every lesson promised by the module’s current scope is teachable and linked.
+- **In progress** — at least one complete lesson exists; unpublished scope is named honestly.
+- **Scaffolded** — a five-minute orientation, prerequisites, competency tiers, and explain outcomes exist; detailed lessons intentionally do not.
+
+Scaffolded does **not** mean “learned” or “low priority.” It means the curriculum refuses to substitute empty generated files for teaching.
+
+## The Through-Line
+
+```mermaid
+flowchart LR
+    Physical["Physical computation"] --> Programmable["Programmable behavior"]
+    Programmable --> Shared["Shared machines"]
+    Shared --> Connected["Connected systems"]
+    Connected --> Automated["Automated infrastructure"]
+    Automated --> Platforms["Self-service platforms"]
+    Platforms --> AI["AI workloads"]
+    AI --> Governed["Governed AI + agents"]
+    Governed --> Leadership["System design + leadership"]
+```
+
+## Active Learning Surface
+
+1. [Module 00: History](00-history/README.md) — complete causal teaching spine.
+2. [Module 01: Software Foundations](01-software-foundations/README.md) — model technical lesson plus Linux lab.
+3. Modules 02–35 — upgraded orientation scaffolds awaiting full lesson authoring.
 
 ## Module Catalog
 
@@ -115,3 +139,7 @@ Practice requirements discovery, estimation, API and data design, scaling, failu
 
 ### 35 — [Senior and Staff Engineering](35-senior-staff-engineering/README.md) · Scaffolded
 Develop technical leadership through strategy, influence, decision quality, written communication, mentoring, organizational design, and cross-team execution. Measure impact through durable systems and improved engineering capability.
+
+## How to Use the Catalog
+
+For a first pass, earn **Minimum Competency** in dependency order. Pause for Strong Engineer or Deep Dive work when a module underpins your job, current build, recurring incident, or owned design decision. Every module README states the evidence required and points only to published files.
