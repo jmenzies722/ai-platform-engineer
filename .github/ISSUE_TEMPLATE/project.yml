@@ -3,6 +3,9 @@ description: Propose or refine an independent portfolio-grade engineering projec
 title: "[Project] "
 labels: []
 body:
+  - type: markdown
+    attributes:
+      value: "Read CONTRIBUTING.md and QUALITY.md first. A project must prove an independent, operable system, not only a deployed feature set."
   - type: input
     id: target
     attributes:
@@ -20,14 +23,35 @@ body:
     id: attributes
     attributes:
       label: Quality attributes and constraints
-      description: Include measurable reliability, performance, security, operability, and cost expectations.
+      description: Include measurable correctness, reliability, performance, security, operability, accessibility, compatibility, data, and cost expectations with non-goals.
     validations:
       required: true
   - type: textarea
     id: proof
     attributes:
       label: Graduation evidence
-      description: Explain how another engineer can evaluate build, failure, recovery, decisions, and user value.
+      description: Explain how another engineer can reproduce the build, negative tests, controlled failure, diagnosis, recovery, design decisions, handoff, and user value.
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Safety, data, cost, and cleanup
+      description: Define authority, environment, synthetic or approved data, resource and spend limits, stop and rollback triggers, and teardown proof.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Curriculum mapping and sources
+      description: Link canonical lessons, required labs, incidents, gates, and primary technical sources. Identify any new navigation needed.
+    validations:
+      required: true
+  - type: textarea
+    id: review
+    attributes:
+      label: Validation and review ownership
+      description: List clean-state tests, evidence another reviewer will reproduce, content owner, and specialist reviewers.
     validations:
       required: true
   - type: checkboxes

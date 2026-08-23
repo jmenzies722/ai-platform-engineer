@@ -24,6 +24,22 @@ After the Day 1 path in [START-HERE.md](START-HERE.md), add:
 |---|---|---|---|---|---:|---|
 | YYYY-MM-DD | Software execution | What did you expect? | What happened? | What changed? | /16 | Lab note |
 
+## Assessment gate outcomes
+
+Use the [common assessment rubric](assessments/rubric.md) to record the evaluator's outcome and five-score vector. Gate scores use 0–3 and do not replace the domain ratings below. Record Pass, Rework, or Stop exactly; never average a weak dimension into a passing result.
+
+| Gate | Date | Outcome | Explain | Build | Debug | Operate | Design | Evidence packet, evaluator, and next proof |
+|---|---|---|---:|---:|---:|---:|---:|---|
+| [Foundations](assessments/gates/foundations.md) |  |  |  |  |  |  |  |  |
+| [Systems, Linux, and Networking](assessments/gates/systems-linux-networking.md) |  |  |  |  |  |  |  |  |
+| [Cloud Delivery](assessments/gates/cloud-delivery.md) |  |  |  |  |  |  |  |  |
+| [Kubernetes Reliability](assessments/gates/kubernetes-reliability.md) |  |  |  |  |  |  |  |  |
+| [Platform](assessments/gates/platform.md) |  |  |  |  |  |  |  |  |
+| [AI Platform](assessments/gates/ai-platform.md) |  |  |  |  |  |  |  |  |
+| [Staff](assessments/gates/staff.md) |  |  |  |  |  |  |  |  |
+
+For Rework, retain passed claims and name the smallest fresh proof required. For Stop, record containment and cleanup without reusing the compromised challenge. Add a dated row or linked assessment record for each later attempt rather than overwriting history. The gate's no-notes explanation is reviewed with [TEACH-BACK.md](TEACH-BACK.md).
+
 ## Competency Matrix
 
 | Domain | Explain | Build | Debug | Operate | Design | Evidence / next proof |
@@ -73,4 +89,4 @@ After the Day 1 path in [START-HERE.md](START-HERE.md), add:
 
 Review this file after completing a lab, resolving an incident, shipping a project milestone, teaching a concept, or discovering that an earlier rating was too generous. Downgrading a rating when evidence changes is sound engineering.
 
-Use [TEACH-BACK.md](TEACH-BACK.md) to score explanations. Use [ROADMAP.md](ROADMAP.md) to decide whether the next stage’s prerequisite evidence exists.
+Use [TEACH-BACK.md](TEACH-BACK.md) to score explanations and prepare for gate review. Use [ROADMAP.md](ROADMAP.md) to decide whether the next stage’s prerequisite evidence exists, then use the corresponding [assessment gate](assessments/README.md) for a formal claim.

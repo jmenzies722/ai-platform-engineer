@@ -3,6 +3,9 @@ description: Propose or improve an evidence-driven build, break, and debug exerc
 title: "[Lab] "
 labels: []
 body:
+  - type: markdown
+    attributes:
+      value: "Read CONTRIBUTING.md and QUALITY.md first. Prefer a disposable local environment and require prediction, evidence, recovery, and cleanup."
   - type: input
     id: lesson
     attributes:
@@ -21,20 +24,41 @@ body:
     id: environment
     attributes:
       label: Environment, safety, and cost
-      description: List tools, OS/cloud requirements, privileges, destructive actions, charges, and cleanup.
+      description: List versions, tools, identity and target checks, privileges, data, destructive actions, load, duration, charges, stop conditions, rollback, and cleanup proof.
     validations:
       required: true
   - type: textarea
     id: failure
     attributes:
       label: Controlled failure and evidence
-      description: Describe the fault, expected symptoms, debugging evidence, recovery, and proof.
+      description: Describe the healthy baseline, fault, predicted symptoms, competing hypotheses, discriminating evidence, reversible correction, and sustained recovery proof.
     validations:
       required: true
   - type: textarea
     id: completion
     attributes:
       label: Completion criteria
-      description: Define observable proof, including explain-back.
+      description: Define observable build, debug, operate, cleanup, and no-notes explain-back proof, including what the lab cannot establish.
     validations:
       required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources, navigation, and versions
+      description: Link authoritative mechanism sources and the canonical lesson, parent index, and next practice. State version boundaries.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Reproduction and review plan
+      description: Give the clean-state rerun plan and name the domain, operator, security, or cost review required.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safe_fixture
+    attributes:
+      label: Safe fixture
+      options:
+        - label: "The exercise uses authorized synthetic data and a disposable or explicitly bounded target."
+          required: true

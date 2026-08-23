@@ -5,7 +5,7 @@ labels: []
 body:
   - type: markdown
     attributes:
-      value: "Lessons must explain why, internals, failure, debugging, operation, and design—not only commands."
+      value: "Read CONTRIBUTING.md and QUALITY.md first. Lessons must explain purpose, mechanism, evidence, failure, practice, sources, and one next step."
   - type: input
     id: module
     attributes:
@@ -35,13 +35,34 @@ body:
     id: evidence
     attributes:
       label: Evidence and authoritative sources
-      description: Link official documentation, standards, or primary papers. Do not paste copyrighted material.
+      description: Map claims to standards, official documentation, maintainer material, primary papers, or reproducible measurements. Include versions and uncertainty. Do not paste copyrighted material.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope, prerequisites, and navigation
+      description: Name prerequisites, non-goals, version boundaries, canonical location, parent index, and the intended next lesson.
     validations:
       required: true
   - type: textarea
     id: acceptance
     attributes:
       label: Acceptance criteria
-      description: State what a learner should be able to explain, build, or debug after the change.
+      description: State observable explanation, practice, failure, source, link, and diagram outcomes.
     validations:
       required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation and review
+      description: List checks to run, evidence to reproduce, and required domain or specialist reviewers.
+    validations:
+      required: true
+  - type: checkboxes
+    id: integrity
+    attributes:
+      label: Integrity and safety
+      options:
+        - label: "I will not include secrets, private data, invented evidence, copied course material, or unsupported source claims."
+          required: true

@@ -44,6 +44,20 @@ Score each row from 0–2.
 
 Do not average away a zero in mechanism or precision.
 
+## Use in competency gate review
+
+Every [competency gate](assessments/README.md) includes an oral review. Give the first explanation without notes, then let the evaluator inspect artifacts and change a condition to test whether the model transfers.
+
+For an Explain score of 2 or 3 under the [assessment rubric](assessments/rubric.md), the teach-back must score 13–16 with no zero in mechanism or precision. The teach-back score supports only Explain; Build, Debug, Operate, and Design require their own inspectable evidence. Link the review record and gate outcome in [PROGRESS.md](PROGRESS.md).
+
+During gate review:
+
+1. state the consequential claim, mechanism, state owners, and boundary contracts;
+2. connect one symptom to a hypothesis and discriminating evidence;
+3. name what the evidence does not prove;
+4. adapt the explanation to the evaluator's changed condition; and
+5. record the lowest rubric row as remediation rather than rehearsing the same answer.
+
 ## Example
 
 Consider a process:
@@ -63,6 +77,6 @@ The explanation leads with the distinction, supplies only the components needed 
 
 ## Review record
 
-| Date | Concept | Listener or setting | Lowest rubric row | Correction | Evidence |
+| Date | Concept | Gate, listener, or setting | Lowest rubric row | Correction | Evidence |
 |---|---|---|---|---|---|
 | YYYY-MM-DD | Process | Study partner | Failure/debugging | Added state and wait evidence | Lab note |

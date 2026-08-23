@@ -4,6 +4,10 @@ Projects are where lesson models meet constraints. These fifteen briefs define f
 
 The canonical linked inventory is also available at [projects/README.md](projects/README.md). Status is intentionally not tracked here: a project earns a claim from inspectable evidence in its own repository.
 
+Select projects from the required practice in your [role track](tracks/README.md), then use the relevant [competency gate](assessments/README.md) to review Explain, Build, Debug, Operate, and Design evidence. The project brief defines the artifact; the gate defines the assessed capability.
+
+The synthetic [case studies](case-studies/README.md) are useful design and review inputs before related builds: [Kubernetes rollout](case-studies/01-failed-kubernetes-rollout.md) for Project 06, [inference latency and cost](case-studies/02-inference-latency-and-cost.md) for Project 12, and [platform adoption](case-studies/03-platform-adoption.md) for Project 09. Do not present case evidence as evidence that your implementation works.
+
 ## What a project must prove
 
 Begin only when you can state the user problem without naming the technology. A working happy path is the midpoint, not the finish. A strong project measures normal behavior, survives a controlled failure, supports diagnosis and recovery, and records the decisions behind the design.

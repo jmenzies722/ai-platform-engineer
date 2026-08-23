@@ -19,6 +19,14 @@ Every major technology is treated as an engineering system, not a vocabulary lis
 
 Lessons use **See it yourself** for bounded proofs. Module labs combine mechanisms. [Incident drills](incidents/README.md) withhold the diagnosis. [Projects](projects/README.md) require integration and sustained engineering judgment.
 
+## Composition layer
+
+The numbered modules below are the canonical curriculum. [Role tracks](tracks/README.md) compose those modules, labs, incidents, and projects for a target outcome; they do not fork lesson content or lower prerequisites. [Competency gates](assessments/README.md) assess the resulting evidence across Explain, Build, Debug, Operate, and Design. [Certification overlays](certs/README.md) map an external blueprint onto the same modules and evidence and are not separate courses.
+
+Choose a track when role focus is useful, but enter it at the earliest unmet gate rather than restarting automatically. Use [case studies](case-studies/README.md) to practice decisions from incomplete evidence between guided work and independent projects.
+
+## Evidence graph
+
 The experiences form an evidence graph, not four independent inventories. Follow a module README's Practice sequence: establish a model in lessons, produce a bounded proof in a lab, diagnose a related incident without its solution, and integrate the corrected design in a project. Carry artifacts forward rather than repeating claims. A later artifact should name which earlier evidence it accepts, rejects, or supersedes.
 
 Three cross-module paths are explicit:
