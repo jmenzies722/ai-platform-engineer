@@ -14,7 +14,7 @@ A bit has two states; positional binary gives each position a power-of-two weigh
 
 ## See it yourself
 
-Predict that thirteen appears as `0b1101` and two big-endian bytes, that `é` has one Python code point but two UTF-8 bytes, and that `0.1 + 0.2` is not printed as exact decimal 0.3.
+**Tiny Proof:** predict that thirteen appears as `0b1101` and two big-endian bytes, that `é` has one Python code point but two UTF-8 bytes, and that `0.1 + 0.2` is not printed as exact decimal 0.3.
 
 ```bash
 python3 - <<'PY2'

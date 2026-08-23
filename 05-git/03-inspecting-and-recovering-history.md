@@ -14,7 +14,7 @@ Recovery commands differ radically depending on whether unique work lives in the
 
 ## See it yourself
 
-Predict that the unstaged diff shows `changed`, then `restore a` replaces the working file from the index, whose content matches `HEAD`. Copy the changed text elsewhere first if it has value.
+**Tiny Proof:** predict that the unstaged diff shows `changed`, then `restore a` replaces the working file from the index, whose content matches `HEAD`. Copy the changed text elsewhere first if it has value.
 
 ```bash
 d=$(mktemp -d); git -C "$d" init -q
@@ -64,4 +64,4 @@ Missing working edits call for editor history, stash inspection, or filesystem r
 
 ## Next
 
-Continue to [Data Structures and Algorithms](../06-data-structures-algorithms/README.md).
+Continue to [Remotes, Fetching, and Collaborative State](./04-remotes-fetching-and-collaborative-state.md).

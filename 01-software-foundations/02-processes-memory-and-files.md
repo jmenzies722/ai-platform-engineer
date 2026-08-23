@@ -14,7 +14,7 @@ Process creation gives the kernel an object with credentials, a PID, one or more
 
 ## See it yourself
 
-Before starting the command, predict that `/proc/PID/exe` names Python, fd 1 names the current terminal or capture pipe, and VSZ is larger than RSS. Compare both `ps` samples rather than treating one state letter as a timeline.
+**Tiny Proof:** before starting the command, predict that `/proc/PID/exe` names Python, fd 1 names the current terminal or capture pipe, and VSZ is larger than RSS. Compare both `ps` samples rather than treating one state letter as a timeline.
 
 ```bash
 python3 -c 'import os,time; print(os.getpid(), flush=True); time.sleep(15)' &

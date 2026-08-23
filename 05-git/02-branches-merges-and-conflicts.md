@@ -14,7 +14,7 @@ A branch reference stores one commit ID and moves when new commits are made on t
 
 ## See it yourself
 
-Predict that both newly created branch names initially resolve to the same empty commit. In the lab, predict which line conflicts by comparing each branch with the common ancestor before invoking merge.
+**Tiny Proof:** predict that both newly created branch names initially resolve to the same empty commit. In the lab, predict which line conflicts by comparing each branch with the common ancestor before invoking merge.
 
 ```bash
 d=$(mktemp -d); git -C "$d" init -q

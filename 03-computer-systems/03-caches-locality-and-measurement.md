@@ -14,7 +14,7 @@ Hardware caches move fixed-size lines and exploit reuse over time and neighborin
 
 ## See it yourself
 
-Predict that the dense and sparse slices report different totals and touch different numbers of elements. Because those workloads are unequal, predict that even a consistent timing difference will be insufficient evidence for a locality conclusion.
+**Tiny Proof:** predict that the dense and sparse slices report different totals and touch different numbers of elements. Because those workloads are unequal, predict that even a consistent timing difference will be insufficient evidence for a locality conclusion.
 
 ```bash
 python3 - <<'PY2'
@@ -63,4 +63,4 @@ A sudden latency jump after deployment may come from colder code and data, chang
 
 ## Next
 
-Continue to [Linux](../04-linux/README.md).
+Continue to [System Calls, Interrupts, and Privilege](./04-system-calls-interrupts-and-privilege.md).

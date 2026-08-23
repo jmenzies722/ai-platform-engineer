@@ -14,7 +14,7 @@ Binary search maintains a half-open interval in which the target boundary may st
 
 ## See it yourself
 
-Predict that `bisect_left` returns index one for target four and index three as the insertion point for five. Membership still requires checking that the index is in range and holds the target.
+**Tiny Proof:** predict that `bisect_left` returns index one for target four and index three as the insertion point for five. Membership still requires checking that the index is in range and holds the target.
 
 ```bash
 python3 - <<'PY2'
@@ -63,4 +63,4 @@ Incorrect binary-search answers at boundaries suggest interval or duplicate hand
 
 ## Next
 
-Continue to [Networking](../07-networking/README.md).
+Continue to [Recursion, Divide and Conquer, and Greedy Choice](./04-recursion-divide-and-conquer-and-greedy-choice.md).

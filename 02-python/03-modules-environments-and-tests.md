@@ -14,7 +14,7 @@ Import searches configured locations for a module specification, creates a modul
 
 ## See it yourself
 
-Predict that the temporary directory is searched through `PYTHONPATH`, `double(3)` returns six, and the assertion prints `test passed`. Change the assertion to seven and predict the nonzero status before running it.
+**Tiny Proof:** predict that the temporary directory is searched through `PYTHONPATH`, `double(3)` returns six, and the assertion prints `test passed`. Change the assertion to seven and predict the nonzero status before running it.
 
 ```bash
 tmp=$(mktemp -d)
@@ -65,4 +65,4 @@ A deployment image often fails because the build installed a distribution into o
 
 ## Next
 
-Continue to [Computer Systems](../03-computer-systems/README.md).
+Continue to [Collections, Comprehensions, and Data Modeling](./04-collections-comprehensions-and-data-modeling.md).
