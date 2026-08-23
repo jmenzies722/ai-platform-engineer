@@ -37,6 +37,16 @@ Do not read all of these before the lab:
 - **DEEP DIVE** — [Intel 64 and IA-32 Architectures Software Developer Manuals](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html) — instruction-set and system programming reference.
 - **DEEP DIVE** — [LLVM documentation](https://llvm.org/docs/) — compiler infrastructure, IR, optimization, and code-generation internals.
 
+## Programming Languages and Backend Engineering
+
+- **REQUIRED** — [Python language reference](https://docs.python.org/3/reference/) — syntax and execution semantics.
+- **RECOMMENDED** — [Python Packaging User Guide](https://packaging.python.org/) — environments, packages, build metadata, and distribution.
+- **REQUIRED** — [Go language specification](https://go.dev/ref/spec) — normative language semantics.
+- **RECOMMENDED** — [Go memory model](https://go.dev/ref/mem) — synchronization and visibility guarantees.
+- **RECOMMENDED** — [Go diagnostics](https://go.dev/doc/diagnostics) — profiling, tracing, race detection, and runtime evidence.
+- **REQUIRED** — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html) — machine-readable HTTP API contracts.
+- **REQUIRED** — [OAuth 2.0 Security Best Current Practice, RFC 9700](https://www.rfc-editor.org/rfc/rfc9700) — current security guidance for OAuth deployments.
+
 ## Git and Software Delivery
 
 - **REQUIRED** — [Git reference documentation](https://git-scm.com/docs) — canonical command and model reference.
@@ -65,6 +75,8 @@ Do not read all of these before the lab:
 ## Databases and Distributed Systems
 
 - **REQUIRED** — [PostgreSQL documentation](https://www.postgresql.org/docs/) — relational database behavior and operations.
+- **RECOMMENDED** — [Redis documentation](https://redis.io/docs/latest/) — data structures, persistence, replication, clustering, and operations.
+- **REQUIRED** — [AMQP 0-9-1 Model](https://www.rabbitmq.com/tutorials/amqp-concepts) — RabbitMQ-maintained explanation of exchange, queue, binding, and acknowledgement semantics.
 - **DEEP DIVE** — [Architecture of a Database System — Hellerstein, Stonebraker, Hamilton](https://dsf.berkeley.edu/papers/fntdb07-architecture.pdf) — database subsystem architecture.
 - **REQUIRED** — [Time, Clocks, and the Ordering of Events in a Distributed System — Lamport](https://www.microsoft.com/en-us/research/publication/time-clocks-ordering-events-distributed-system/) — causality and logical clocks.
 - **REQUIRED** — [In Search of an Understandable Consensus Algorithm (Raft)](https://raft.github.io/raft.pdf) — approachable consensus algorithm and rationale.
@@ -77,6 +89,7 @@ Do not read all of these before the lab:
 - **REQUIRED** — [Terraform documentation](https://developer.hashicorp.com/terraform/docs) — language, state, lifecycle, providers, and workflows.
 - **RECOMMENDED** — [Architecture Decision Records](https://adr.github.io/) — lightweight record of consequential decisions and context.
 - **DEEP DIVE** — [The Twelve-Factor App](https://12factor.net/) — historically influential cloud-application principles; evaluate critically rather than treating as law.
+- **RECOMMENDED** — [AWS Builders' Library](https://aws.amazon.com/builders-library/) — first-party design and operations articles grounded in Amazon systems.
 
 ## Observability and SRE
 
@@ -85,6 +98,7 @@ Do not read all of these before the lab:
 - **REQUIRED** — [OpenTelemetry documentation](https://opentelemetry.io/docs/) — vendor-neutral telemetry APIs, SDKs, and data model.
 - **RECOMMENDED** — [Prometheus documentation](https://prometheus.io/docs/) — metric model, PromQL, instrumentation, and operations.
 - **DEEP DIVE** — [W3C Trace Context](https://www.w3.org/TR/trace-context/) — interoperable distributed trace propagation.
+- **DEEP DIVE** — [OpenTelemetry specifications](https://opentelemetry.io/docs/specs/) — normative data, API, SDK, protocol, and semantic conventions.
 
 ## Security
 
@@ -93,6 +107,8 @@ Do not read all of these before the lab:
 - **RECOMMENDED** — [OWASP Top 10](https://owasp.org/www-project-top-ten/) — common web application risk categories.
 - **RECOMMENDED** — [SLSA specification](https://slsa.dev/spec/) — software artifact integrity and supply-chain assurance.
 - **DEEP DIVE** — [NIST SP 800-207: Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final) — identity- and policy-centered security architecture.
+- **RECOMMENDED** — [MITRE ATT&CK](https://attack.mitre.org/) — evidence-based adversary tactics and techniques.
+- **RECOMMENDED** — [Kubernetes security documentation](https://kubernetes.io/docs/concepts/security/) — workload, cluster, and API security controls.
 
 ## Platform Engineering and Control Planes
 
@@ -107,6 +123,8 @@ Do not read all of these before the lab:
 - **RECOMMENDED** — [scikit-learn user guide](https://scikit-learn.org/stable/user_guide.html) — classical ML workflows and evaluation.
 - **REQUIRED** — [PyTorch documentation](https://pytorch.org/docs/stable/index.html) — tensors, autograd, distributed training, and runtime APIs.
 - **DEEP DIVE** — [Deep Learning — Goodfellow, Bengio, Courville](https://www.deeplearningbook.org/) — freely available foundational text.
+- **RECOMMENDED** — [MLflow documentation](https://mlflow.org/docs/latest/) — experiment tracking, model packaging, registry, and deployment lifecycle.
+- **RECOMMENDED** — [Kubeflow documentation](https://www.kubeflow.org/docs/) — Kubernetes-oriented machine learning workflows and platform components.
 
 ## Transformers, LLMs, and LLM Engineering
 
@@ -115,6 +133,8 @@ Do not read all of these before the lab:
 - **RECOMMENDED** — [Hugging Face Transformers documentation](https://huggingface.co/docs/transformers/) — model APIs and implementation ecosystem.
 - **RECOMMENDED** — [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — AI risk governance and measurement.
 - **DEEP DIVE** — [HELM](https://crfm.stanford.edu/helm/latest/) — transparent, multi-metric language-model evaluation.
+- **DEEP DIVE** — [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) — primary RAG formulation and evaluation.
+- **RECOMMENDED** — [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) — application-level LLM risk categories and mitigations.
 
 ## GPU Systems, AI Infrastructure, and Model Serving
 
@@ -125,6 +145,8 @@ Do not read all of these before the lab:
 - **DEEP DIVE** — [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180) — vLLM’s memory-management design.
 - **RECOMMENDED** — [KServe documentation](https://kserve.github.io/website/) — Kubernetes-native model serving APIs and operations.
 - **DEEP DIVE** — [MLSys proceedings](https://proceedings.mlsys.org/) — primary systems research for machine learning.
+- **RECOMMENDED** — [PyTorch distributed documentation](https://pytorch.org/docs/stable/distributed.html) — collective communication and distributed training APIs.
+- **RECOMMENDED** — [Kubernetes Dynamic Resource Allocation](https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/) — structured allocation of specialized devices and other resources.
 
 ## Senior and Staff Engineering
 

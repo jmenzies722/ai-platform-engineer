@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the repository's lean lesson contract and Markdown links."""
+"""Validate the curriculum contract, experience inventory, and Markdown links."""
 
 from __future__ import annotations
 
@@ -41,6 +41,20 @@ ROOT_DOCS = [
     "PROJECTS.md",
     "templates/LESSON.md",
 ]
+MINIMUM_LESSONS = {
+    **{number: 6 for number in range(1, 21)},
+    **{number: 8 for number in range(21, 34)},
+    34: 13,
+    35: 14,
+}
+REQUIRED_CHEATSHEETS = {
+    "linux.md",
+    "git.md",
+    "networking.md",
+    "kubernetes.md",
+    "aws.md",
+    "opentelemetry.md",
+}
 LINK_RE = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 FENCE_RE = re.compile(r"^```mermaid\s*$([\s\S]*?)^```\s*$", re.MULTILINE)
 
@@ -77,6 +91,8 @@ def check_lesson(path: Path) -> None:
     opening = " ".join(line.strip() for line in lines[1:first_section] if line.strip())
     if len(opening.split()) < 8:
         fail(rel, "add a useful opening paragraph before the first section")
+    if len(text.split()) < 350:
+        fail(rel, "lesson is too short for the substantive chapter contract")
 
     for source_heading in ("### REQUIRED", "### RECOMMENDED", "### DEEP DIVE"):
         if source_heading not in lines:
@@ -145,6 +161,37 @@ for root_doc in ROOT_DOCS:
     if not path.is_file() or path.stat().st_size == 0:
         fail(root_doc, "missing or empty required document")
 
+lab_dirs = sorted(path for path in (ROOT / "labs").glob("[0-9][0-9]-*") if path.is_dir())
+if len(lab_dirs) < 19:
+    fail("labs", f"expected at least 19 guided labs; found {len(lab_dirs)}")
+for lab in lab_dirs:
+    if not (lab / "README.md").is_file():
+        fail(lab.relative_to(ROOT), "lab directory is missing README.md")
+
+incident_dirs = sorted(
+    path for path in (ROOT / "incidents").glob("[0-9][0-9]-*") if path.is_dir()
+)
+if len(incident_dirs) < 12:
+    fail("incidents", f"expected at least 12 incident drills; found {len(incident_dirs)}")
+for incident in incident_dirs:
+    for required in ("README.md", "solution.md"):
+        if not (incident / required).is_file():
+            fail(incident.relative_to(ROOT), f"incident is missing {required}")
+
+project_dirs = sorted(
+    path for path in (ROOT / "projects").glob("[0-9][0-9]-*") if path.is_dir()
+)
+if len(project_dirs) != 15:
+    fail("projects", f"expected exactly 15 portfolio briefs; found {len(project_dirs)}")
+for project in project_dirs:
+    if not (project / "README.md").is_file():
+        fail(project.relative_to(ROOT), "project directory is missing README.md")
+
+cheatsheets = {path.name for path in (ROOT / "cheatsheets").glob("*.md")}
+missing_cheatsheets = REQUIRED_CHEATSHEETS - cheatsheets
+if missing_cheatsheets:
+    fail("cheatsheets", f"missing operator sheets: {sorted(missing_cheatsheets)}")
+
 module_dirs: list[Path] = []
 for number in range(36):
     matches = sorted(ROOT.glob(f"{number:02d}-*"))
@@ -164,17 +211,17 @@ for number in range(36):
         for path in module.glob("[0-9][0-9]-*.md")
         if "lab" not in path.stem.lower()
     )
-    minimum = 20 if number == 0 else 2
+    minimum = 20 if number == 0 else MINIMUM_LESSONS[number]
     if len(lessons) < minimum:
         fail(module.relative_to(ROOT), f"needs at least {minimum} real lessons; found {len(lessons)}")
     for lesson in lessons:
         check_lesson(lesson)
 
-markdown_files = sorted(ROOT.glob("*.md"))
-markdown_files += sorted((ROOT / "templates").glob("*.md"))
-for directory in module_dirs + [ROOT / "labs", ROOT / "incidents"]:
-    if directory.exists():
-        markdown_files += sorted(directory.rglob("*.md"))
+markdown_files = sorted(
+    path
+    for path in ROOT.rglob("*.md")
+    if ".git" not in path.parts
+)
 
 for path in set(markdown_files):
     text = path.read_text(encoding="utf-8")
