@@ -1,30 +1,30 @@
 # Portfolio Projects
 
-Projects are where lesson models meet constraints. These fifteen targets are future **independent repositories** with their own history, decisions, verification, operational evidence, and release process. This curriculum repository supplies briefs; it should not become an implementation monorepo.
+Projects are where lesson models meet constraints. These fifteen briefs define future **independent repositories** with their own history, decisions, verification, operational evidence, and release process. This curriculum repository contains briefs only; implementations, generated scaffolds, cloud state, datasets, binaries, model artifacts, packet captures, and secrets belong elsewhere.
 
-All projects are **Planned**.
+The canonical linked inventory is also available at [projects/README.md](projects/README.md). Status is intentionally not tracked here: a project earns a claim from inspectable evidence in its own repository.
 
 ## What a project must prove
 
 Begin only when you can state the user problem without naming the technology. A working happy path is the midpoint, not the finish. A strong project measures normal behavior, survives a controlled failure, supports diagnosis and recovery, and records the decisions behind the design.
 
-| # | Portfolio target | Primary proof |
+| # | Portfolio brief | Primary proof |
 |---:|---|---|
-| 01 | **Systems Inspector CLI** | Inspect Linux processes, memory, file descriptors, sockets, and cgroups; correlate observations with `/proc` and system calls. |
-| 02 | **Production Backend Service** | Authenticated API with durable storage, migrations, idempotency, asynchronous work, tests, telemetry, and capacity evidence. |
-| 03 | **Network Failure Lab** | Reproducible DNS, TCP, TLS, proxy, timeout, retry, and packet-loss experiments with evidence-led runbooks. |
-| 04 | **Cloud Foundation** | Least-privilege AWS account/VPC baseline expressed in Terraform with policy checks, state strategy, cost controls, and recovery. |
-| 05 | **Secure Delivery Pipeline** | Build, test, scan, sign, promote, verify, roll back, and audit a service artifact across environments. |
-| 06 | **Container Runtime Explorer** | A teaching implementation that creates isolated processes from Linux namespaces, cgroups, mounts, and capabilities. |
-| 07 | **Kubernetes Production Platform** | Cluster add-ons and workload contracts for ingress, identity, policy, secrets, observability, autoscaling, upgrades, and recovery. |
-| 08 | **Reconciliation Control Plane** | Declarative API plus idempotent controllers, work queues, status conditions, finalizers, retries, and convergence tests. |
-| 09 | **Service Reliability System** | SLIs/SLOs, error-budget policy, telemetry, alerts, load tests, capacity model, incident exercises, and reliability backlog. |
-| 10 | **Internal Developer Platform** | User-researched paved road offering secure self-service creation and operation of a service; adoption and cognitive-load measures included. |
-| 11 | **Reproducible ML Platform Slice** | Versioned data, training, evaluation, registry, lineage, promotion, deployment, monitoring, and rollback for one model. |
-| 12 | **GPU Workload Observatory** | Collect and correlate scheduler, node, GPU, framework, and workload signals; diagnose utilization and memory bottlenecks. |
-| 13 | **Multi-Tenant Model Serving Gateway** | Admission, routing, batching, quotas, auth, observability, rollout, fallback, and cost attribution across model servers. |
-| 14 | **AI Platform Control Plane** | Self-service model deployment and evaluation with policy, lineage, tenancy, reconciliation, and operational status. |
-| 15 | **Governed Agent Runtime** | Durable tool-using workflows with scoped identity, sandboxing, approvals, budgets, audit logs, evaluation, replay, and recovery. |
+| 01 | [**Systems Inspector and Capacity Probe**](projects/01-systems-inspector/README.md) | Kernel evidence, safe inspection, and mechanism-level diagnosis. |
+| 02 | [**Production Change-Request API**](projects/02-production-api/README.md) | Durable API correctness, concurrency, migrations, asynchronous work, and recovery. |
+| 03 | [**Network Failure Laboratory**](projects/03-network-failure-lab/README.md) | Reproducible DNS, TCP, TLS, proxy, timeout, and packet-loss diagnosis. |
+| 04 | [**Recoverable AWS Foundation with Terraform**](projects/04-aws-terraform-foundation/README.md) | Least-privilege infrastructure, policy checks, state lifecycle, cost controls, and recovery. |
+| 05 | [**Verifiable Software Delivery Pipeline**](projects/05-secure-delivery-pipeline/README.md) | Provenance from source through signed artifact, policy, promotion, and rollback. |
+| 06 | [**Multi-Tenant Kubernetes Application Platform**](projects/06-kubernetes-platform/README.md) | Workload contracts, identity, policy, observability, upgrades, isolation, and recovery. |
+| 07 | [**Operable Telemetry Stack**](projects/07-telemetry-stack/README.md) | Correlated metrics, logs, and traces with backpressure, governance, and unit costs. |
+| 08 | [**Reliability Review and Incident Exercise**](projects/08-reliability-exercise/README.md) | SLOs, risk analysis, capacity, failure drills, incident command, and measured improvement. |
+| 09 | [**Secure Developer Platform Control Plane**](projects/09-developer-platform-control-plane/README.md) | User-researched self-service backed by policy, reconciliation, tenancy, and actionable status. |
+| 10 | [**Reproducible ML Training and Promotion Pipeline**](projects/10-reproducible-ml-pipeline/README.md) | Versioned data, evaluation, lineage, governed promotion, monitoring, and retirement. |
+| 11 | [**Distributed GPU Capacity Planner and Simulator**](projects/11-distributed-gpu-planner/README.md) | Topology-aware scheduling, contention, checkpoint/failure simulation, and accelerator economics. |
+| 12 | [**Multi-Tenant Model Serving System**](projects/12-model-serving-system/README.md) | Admission, batching, fairness, quotas, rollout, fallback, and inference cost attribution. |
+| 13 | [**Governed Self-Service AI Platform**](projects/13-ai-platform/README.md) | Evaluation and deployment through policy, lineage, tenancy, reconciliation, and operational status. |
+| 14 | [**Governed Agent Runtime**](projects/14-governed-agent-runtime/README.md) | Durable tool workflows with scoped identity, approvals, budgets, audit, evaluation, and replay. |
+| 15 | [**Staff AI Platform Strategy and Design Package**](projects/15-staff-ai-platform-design/README.md) | Organization-wide architecture, economics, migration, governance, influence, and durable ownership. |
 
 ## Graduation Criteria
 
@@ -74,6 +74,6 @@ Explain the user problem plainly, then describe the components, state, critical 
 - It is not a verbatim tutorial implementation.
 - Its design reflects measured behavior and lessons from at least one intentionally induced failure.
 
-Use [templates/PROJECT.md](templates/PROJECT.md) to shape an initial brief. Track curriculum competencies in [PROGRESS.md](PROGRESS.md), not with inflated project completion percentages.
+Use the selected directory brief as the initial project contract, then adapt it from real discovery and measurements. Track curriculum competencies in [PROGRESS.md](PROGRESS.md), not with inflated project completion percentages.
 
 Before calling a project portfolio-grade, give its core explanation at all three levels in [TEACH-BACK.md](TEACH-BACK.md).
