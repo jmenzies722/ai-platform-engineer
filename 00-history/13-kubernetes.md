@@ -57,8 +57,11 @@ desired = 3
 actual = {"pod-a"}
 
 def reconcile():
+    next_id = 1
     while len(actual) < desired:
-        actual.add(f"pod-{len(actual) + 1}")
+        while f"pod-{next_id}" in actual:
+            next_id += 1
+        actual.add(f"pod-{next_id}")
     while len(actual) > desired:
         actual.pop()
 
