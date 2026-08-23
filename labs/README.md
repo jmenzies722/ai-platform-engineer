@@ -1,6 +1,6 @@
 # Labs
 
-Labs turn a conceptual model into observable evidence. Every lab follows predict → establish baseline → inspect → build → break → debug → recover → explain. Completion means you can account for behavior, not that commands exited successfully.
+Labs turn a conceptual model into observable evidence. Predict first, establish a baseline, inspect the mechanism, make a change, introduce one fault, diagnose it, and prove recovery. Completion means you can account for behavior, not that commands exited successfully.
 
 ## Lab Index
 

@@ -1,74 +1,27 @@
 # 32 — AI Platform Engineering
 
-> **Status:** Scaffolded · Detailed lessons are intentionally not yet published.
+An AI platform turns recurring infrastructure work into safe, supported interfaces that product teams can use without surrendering control.
 
-## 5-Minute Orientation
+## What you will learn
 
-### What is this?
+- Define paved roads and stable platform contracts.
+- Provide tenancy, governance, and cost attribution.
+- Measure platform reliability and developer outcomes.
 
-Unify model lifecycle, inference, evaluation, policy, lineage, identity, quotas, and developer workflows into an internal platform. Design for multi-tenancy, governance, operability, adoption, and safe evolution.
+## Lessons
 
-### Why does it matter?
+1. [Platform contracts and paved roads](01-platform-contracts-and-paved-roads.md)
+2. [Tenancy, governance, and cost](02-tenancy-governance-and-cost.md)
+3. [Operating the platform as a product](03-operating-the-platform-as-a-product.md)
 
-This layer exists because the previous layer alone cannot make production systems understandable, dependable, and evolvable at scale. The module will teach the mechanism before the product vocabulary and connect every abstraction to observable behavior.
+## Practice
 
-### Where does it fit?
+Design a self-service model deployment contract with quotas, policy checks, ownership, rollback, and escape hatches.
 
-This is Module 32 of 35. It follows [Model Serving](../31-model-serving/README.md) and provides foundations used by later modules. See the [Curriculum](../CURRICULUM.md) for the complete dependency path.
+## Ready to continue
 
-### What do I need first?
-
-Complete or demonstrate Minimum Competency in [Platform Engineering](../21-platform-engineering/README.md), [MLOps](../28-mlops/README.md), and [Model Serving](../31-model-serving/README.md). These are mechanism prerequisites, not merely earlier module numbers.
-
-### What will I be able to explain afterward?
-
-- the everyday problems this domain solves, before using specialized vocabulary;
-- the relationships among model lifecycle, inference, evaluation, policy, lineage, identity, quotas, and developer workflows into an internal platform;
-- where the abstraction appears in production and which lower-layer details can leak through it;
-- one common failure, the evidence that distinguishes it, and a defensible design tradeoff.
-
-## Competency Tiers
-
-### Minimum Competency
-
-Explain the module’s central mental model, complete guided proofs, and solve the designated No-AI challenge. This is enough for a first pass when the domain is not yet on your critical path.
-
-### Strong Engineer
-
-Build a representative system, break it safely, diagnose it from evidence, and operate it under realistic constraints. Explain the mechanism to both a new learner and a working engineer.
-
-### Deep Dive
-
-Inspect internals and primary sources, quantify reliability/security/cost tradeoffs, and make a design decision that accounts for adjacent layers.
-
-Go deep when this domain blocks a current project, recurs in incidents, or underpins a decision you own. Otherwise earn Minimum Competency and continue.
-
-## AI Learning Policy
-
-### AI Tutor
-
-Use AI for Socratic questions, prerequisite refreshers, and alternative analogies. Verify technical claims against canonical sources.
-
-### AI Pair
-
-Write your prediction and plan first. Read every generated command, state its expected effect, and keep ownership of tests and safety.
-
-### AI Review
-
-Ask AI to challenge assumptions, identify missing failure modes, and point out claims unsupported by evidence.
-
-### No-AI Challenge
-
-Complete the designated retrieval/build/debug task using your own model, local tools, and official documentation before consulting AI.
-
-### Explain Back
-
-Explain the concept without notes to a smart non-engineer, a junior engineer, and an interviewer. If one version collapses into jargon, revisit the intuition and mechanism.
-
-## Planned Scope
-
-No empty lesson files are created for this module. When authored, each lesson must satisfy [the lesson contract](../templates/LESSON.md), include a narratable Mermaid diagram, and end with an exact next path.
+You can separate platform policy from implementation, define tenancy boundaries, and use adoption and reliability evidence to guide investment.
 
 ## Next
 
-This scaffold is orientation, not completion. If you are following the active path, return to [START-HERE.md](../START-HERE.md). To preview the dependency that follows this module, open [Agentic Infrastructure](../33-agentic-infrastructure/README.md).
+Begin [Agentic Infrastructure](../33-agentic-infrastructure/README.md).

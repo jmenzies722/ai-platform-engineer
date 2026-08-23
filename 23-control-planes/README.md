@@ -1,74 +1,27 @@
 # 23 — Control Planes
 
-> **Status:** Scaffolded · Detailed lessons are intentionally not yet published.
+A control plane accepts intent, records state, and repeatedly coordinates external systems until observed reality converges or reports why it cannot.
 
-## 5-Minute Orientation
+## What you will learn
 
-### What is this?
+- Design declarative APIs with status, conditions, and stable contracts.
+- Build idempotent reconciliation around queues and state machines.
+- Handle ownership, deletion, policy, tenancy, and operational failure.
 
-Study declarative APIs, reconciliation, controllers, state machines, work queues, idempotency, convergence, and multi-tenant policy. Build the core architectural pattern behind modern infrastructure platforms.
+## Lessons
 
-### Why does it matter?
+1. [Declarative APIs and desired state](01-declarative-apis.md)
+2. [Reconciliation, queues, and convergence](02-reconciliation.md)
+3. [Ownership, policy, and control-plane operations](03-ownership-and-operations.md)
 
-This layer exists because the previous layer alone cannot make production systems understandable, dependable, and evolvable at scale. The module will teach the mechanism before the product vocabulary and connect every abstraction to observable behavior.
+## Practice
 
-### Where does it fit?
+Model a `Database` resource on paper. Define desired fields, observed status, conditions, ownership, retry behavior, deletion semantics, and what happens when the provider is unavailable.
 
-This is Module 23 of 35. It follows [Developer Platforms](../22-developer-platforms/README.md) and provides foundations used by later modules. See the [Curriculum](../CURRICULUM.md) for the complete dependency path.
+## Ready to continue
 
-### What do I need first?
-
-Complete or demonstrate Minimum Competency in [Kubernetes](../16-kubernetes/README.md) and [Distributed Systems](../17-distributed-systems/README.md). These are mechanism prerequisites, not merely earlier module numbers.
-
-### What will I be able to explain afterward?
-
-- the everyday problems this domain solves, before using specialized vocabulary;
-- the relationships among declarative APIs, reconciliation, controllers, state machines, work queues, idempotency, convergence, and multi-tenant policy;
-- where the abstraction appears in production and which lower-layer details can leak through it;
-- one common failure, the evidence that distinguishes it, and a defensible design tradeoff.
-
-## Competency Tiers
-
-### Minimum Competency
-
-Explain the module’s central mental model, complete guided proofs, and solve the designated No-AI challenge. This is enough for a first pass when the domain is not yet on your critical path.
-
-### Strong Engineer
-
-Build a representative system, break it safely, diagnose it from evidence, and operate it under realistic constraints. Explain the mechanism to both a new learner and a working engineer.
-
-### Deep Dive
-
-Inspect internals and primary sources, quantify reliability/security/cost tradeoffs, and make a design decision that accounts for adjacent layers.
-
-Go deep when this domain blocks a current project, recurs in incidents, or underpins a decision you own. Otherwise earn Minimum Competency and continue.
-
-## AI Learning Policy
-
-### AI Tutor
-
-Use AI for Socratic questions, prerequisite refreshers, and alternative analogies. Verify technical claims against canonical sources.
-
-### AI Pair
-
-Write your prediction and plan first. Read every generated command, state its expected effect, and keep ownership of tests and safety.
-
-### AI Review
-
-Ask AI to challenge assumptions, identify missing failure modes, and point out claims unsupported by evidence.
-
-### No-AI Challenge
-
-Complete the designated retrieval/build/debug task using your own model, local tools, and official documentation before consulting AI.
-
-### Explain Back
-
-Explain the concept without notes to a smart non-engineer, a junior engineer, and an interviewer. If one version collapses into jargon, revisit the intuition and mechanism.
-
-## Planned Scope
-
-No empty lesson files are created for this module. When authored, each lesson must satisfy [the lesson contract](../templates/LESSON.md), include a narratable Mermaid diagram, and end with an exact next path.
+You can separate spec from status, write an idempotent reconcile loop, explain eventual convergence, and design cleanup that survives retries and partial failure.
 
 ## Next
 
-This scaffold is orientation, not completion. If you are following the active path, return to [START-HERE.md](../START-HERE.md). To preview the dependency that follows this module, open [AI Foundations](../24-ai-foundations/README.md).
+Continue to [AI Foundations](../24-ai-foundations/README.md).

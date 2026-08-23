@@ -1,89 +1,42 @@
 # Start Here
 
-You do not need a computer science degree or infrastructure experience. You need a browser, enough time to think before running commands, and Linux only when you reach the first lab.
+Begin with one working model of computation and one observed program. You need Python 3 for the first lesson and Linux for the first lab. Prior systems experience is not required.
 
-## Your First Five Files
+## Read these first
 
-Open these in order:
+Open these exact files in order:
 
-1. **[START-HERE.md](START-HERE.md)** — the page you are reading; commit to the first path.
-2. **[README.md](README.md)** — see the whole journey and the current lesson.
-3. **[HOW-TO-LEARN.md](HOW-TO-LEARN.md)** — learn the WHY → DESIGN loop and evidence rules.
-4. **[00-history/01-origins-of-computing.md](00-history/01-origins-of-computing.md)** — understand a computer as a state-transition machine.
-5. **[01-software-foundations/01-how-software-actually-executes.md](01-software-foundations/01-how-software-actually-executes.md)** — connect source code to visible output.
+1. [README.md](README.md)
+2. [HOW-TO-LEARN.md](HOW-TO-LEARN.md)
+3. [00-history/01-origins-of-computing.md](00-history/01-origins-of-computing.md)
+4. [01-software-foundations/01-how-software-actually-executes.md](01-software-foundations/01-how-software-actually-executes.md)
+5. [labs/01-software-execution/README.md](labs/01-software-execution/README.md)
+6. [TEACH-BACK.md](TEACH-BACK.md)
+7. [PROGRESS.md](PROGRESS.md)
 
-Then open **[labs/01-software-execution/README.md](labs/01-software-execution/README.md)** and make the second lesson observable.
+Do not survey the whole repository first. These files establish the vocabulary and evidence habits used later.
 
-Do not read the entire curriculum before beginning. The first two lessons and one lab supply the mental hooks the rest of the repository will use.
+## First session
 
-## The First 10 Minutes
+In [00-history/01-origins-of-computing.md](00-history/01-origins-of-computing.md), predict the demonstration’s output before running it. Identify the stored state, the instruction being applied, and the resulting state.
 
-### Minute 0–2: see the destination
+Then read [01-software-foundations/01-how-software-actually-executes.md](01-software-foundations/01-how-software-actually-executes.md). In the lab, start a Python process and inspect its PID, memory mappings, resident memory, file descriptors, and output destination.
 
-Read the top of [README.md](README.md) and narrate its journey map. The path moves from physical computation to software, shared machines, distributed infrastructure, platforms, and AI systems.
+Write down one prediction that was correct and one that changed.
 
-### Minute 2–5: learn the loop
+## Finish line
 
-Read only [The Learning Loop](HOW-TO-LEARN.md#the-learning-loop). Remember:
+You are ready to continue when you can do the following without a script:
 
-**Why → What → How → Build → Break → Debug → Operate → Design**
+- explain why stored programs make hardware reusable;
+- distinguish source code, an executable runtime, and a process;
+- explain why a CPU does not execute Python source directly;
+- inspect a process by PID and identify where its standard output goes;
+- distinguish an address-space mapping from resident physical memory;
+- state what your observation supports and what it leaves uncertain.
 
-### Minute 5–10: prove the first idea
+Record the evidence in [PROGRESS.md](PROGRESS.md), then continue with [00-history/README.md](00-history/README.md).
 
-Open [Origins of Computing](00-history/01-origins-of-computing.md). Read through **Tiny Proof**, predict its output, and run it with Python 3.
+## If you are blocked
 
-At minute 10, say aloud:
-
-> A computer repeatedly applies encoded instructions to stored state. Software changes the instructions; it does not remove the physical limits of memory, computation, and data movement.
-
-If you can reconstruct that idea in your own words, continue. If not, reread **Picture This** and narrate the diagram.
-
-## Day 1 Path
-
-```mermaid
-flowchart LR
-    A["Origins of Computing"] --> B["Draw the state machine"]
-    B --> C["How Software Executes"]
-    C --> D["Run Tiny Proof"]
-    D --> E["Inspect a Python process"]
-    E --> F["Teach it back twice"]
-```
-
-1. Complete the Minimum Competency path in [Origins of Computing](00-history/01-origins-of-computing.md).
-2. On paper, draw **instruction + current state → changed state**.
-3. Read [How Software Actually Executes](01-software-foundations/01-how-software-actually-executes.md).
-4. Draw **Source → Runtime/Compiler → OS → Process → Memory → CPU → Output** from memory.
-5. Complete the beginner path in the [software execution lab](labs/01-software-execution/README.md).
-6. Use [TEACH-BACK.md](TEACH-BACK.md) to explain both concepts to a friend and a junior engineer.
-7. Record evidence and one remaining gap in [PROGRESS.md](PROGRESS.md).
-
-## Done with Day 1 Means
-
-You can demonstrate all of these without reading a script:
-
-- [ ] Explain why a stored program made one machine useful for many jobs.
-- [ ] Distinguish source code, the Python executable, and a running process.
-- [ ] Draw the seven-link software execution chain in order.
-- [ ] Explain why the CPU executes native CPython instructions, not Python source text.
-- [ ] Use a PID to inspect the process you started.
-- [ ] Distinguish mapped virtual memory from resident memory without calling either “the program’s RAM.”
-- [ ] Identify where stdout points and explain one reason output can be delayed.
-- [ ] Name one prediction the lab corrected.
-- [ ] Give a plain-language explanation and a precise engineering explanation.
-
-Completion is not “I read the files.” It is “I predicted, observed, corrected my model, and can teach it.”
-
-## If You Get Stuck
-
-| Situation | Next move |
-|---|---|
-| A term appears too early | Look it up in [CONCEPT-INDEX.md](CONCEPT-INDEX.md), then enter at the first lesson. |
-| The analogy makes sense but the mechanism does not | Narrate the Mermaid diagram one arrow at a time. |
-| A command fails | Read the lab checkpoint and troubleshooting note; preserve the exact error. |
-| You can follow but not explain | Use the curious-friend rubric in [TEACH-BACK.md](TEACH-BACK.md). |
-| You already know the topic | Attempt the Knowledge Check and build/break exercise without notes; advance only with evidence. |
-| You do not have Linux | Read the lesson now; run the lab later in a Linux VM, container, or Codespace-like environment with `/proc`. |
-
-## After Day 1
-
-Return to [Module 00](00-history/README.md) and follow its complete causal spine. Then continue through [CURRICULUM.md](CURRICULUM.md) at the depth your work requires.
+Use [CONCEPT-INDEX.md](CONCEPT-INDEX.md) for unfamiliar terms. Preserve exact command errors and observations. If Linux is unavailable, complete the reading now and return to the lab in a Linux VM or other environment that exposes `/proc`.

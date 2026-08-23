@@ -4,15 +4,9 @@ Projects are where lesson models meet constraints. These fifteen targets are fut
 
 All projects are **Planned**.
 
-## Project Learning Loop
+## What a project must prove
 
-```mermaid
-flowchart LR
-    Problem --> Model --> Build --> Measure --> Break --> Debug --> Operate --> Decide
-    Decide -->|new constraint| Model
-```
-
-Begin a project only when you can state the user problem without naming the technology. A working happy path is the midpoint: the portfolio evidence is the measured behavior, controlled failure, diagnosis, recovery, and design judgment.
+Begin only when you can state the user problem without naming the technology. A working happy path is the midpoint, not the finish. A strong project measures normal behavior, survives a controlled failure, supports diagnosis and recovery, and records the decisions behind the design.
 
 | # | Portfolio target | Primary proof |
 |---:|---|---|
@@ -36,11 +30,7 @@ Begin a project only when you can state the user problem without naming the tech
 
 A project is portfolio-grade only when another engineer can evaluate both the system and your engineering judgment.
 
-Use the same three-layer explanations as the lessons:
-
-1. **Intuition:** the user problem and simple model.
-2. **Mechanism:** components, state, critical path, and invariants.
-3. **Engineering:** production constraints, failures, operations, security, cost, and tradeoffs.
+Explain the user problem plainly, then describe the components, state, critical path, and invariants. Finish with the production constraints: failure, operations, security, cost, and the tradeoffs you accepted.
 
 ### Problem and Users
 
@@ -75,7 +65,7 @@ Use the same three-layer explanations as the lessons:
 ### Communication
 
 - README gives a truthful quick start, architecture map, tradeoffs, and current limitations.
-- A concise demo follows user value → system behavior → failure → diagnosis → recovery.
+- A concise demo starts with user value, shows normal behavior, introduces a failure, diagnoses it, and proves recovery.
 - You can explain internals and defend tradeoffs without relying on generated prose.
 
 ### Independence

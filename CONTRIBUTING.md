@@ -2,7 +2,7 @@
 
 This repository uses the same evidence and review discipline it teaches. Contributions may be technical corrections, deeper explanations, labs, references, incident scenarios, or curriculum decisions. Shallow lesson generation is not useful.
 
-## Issue → Branch → Pull Request Study Workflow
+## Work through a focused change
 
 ### 1. Open or Select an Issue
 
@@ -72,7 +72,7 @@ Review for:
 
 - factual and causal correctness;
 - distinction between abstraction and implementation;
-- WHY → WHAT → HOW → INTERNALS → BUILD → BREAK → DEBUG → OPERATE → DESIGN;
+- a clear explanation of purpose, mechanism, evidence, failure, and tradeoffs;
 - commands that are safe, reproducible, and explained;
 - real canonical references;
 - useful failure models and observable completion criteria;
@@ -96,7 +96,7 @@ After merge, complete the no-AI challenge and update [PROGRESS.md](PROGRESS.md) 
 
 ## Lesson Contract
 
-Every complete lesson must follow [`templates/LESSON.md`](templates/LESSON.md) exactly. Module READMEs require a five-minute orientation, competency tiers, and all five AI learning-policy sections.
+Every complete lesson follows [`templates/LESSON.md`](templates/LESSON.md). Module READMEs introduce the subject, link the lessons and practice, state what readiness looks like, and point to the next module.
 
 ## Lab Safety
 

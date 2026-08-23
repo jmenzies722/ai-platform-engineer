@@ -1,74 +1,27 @@
 # 27 — LLM Engineering
 
-> **Status:** Scaffolded · Detailed lessons are intentionally not yet published.
+LLM engineering turns a probabilistic model into a bounded application with context, tools, tests, and safety controls.
 
-## 5-Minute Orientation
+## What you will learn
 
-### What is this?
+- Design prompts and structured outputs as interfaces.
+- Build retrieval and tool-use paths with explicit trust boundaries.
+- Evaluate quality, safety, latency, and cost.
 
-Build evaluated applications using prompting, retrieval, tools, structured output, safety boundaries, and model routing. Treat quality, latency, cost, and nondeterminism as testable system properties.
+## Lessons
 
-### Why does it matter?
+1. [Prompts and structured outputs](01-prompts-and-structured-outputs.md)
+2. [Retrieval and tool use](02-retrieval-and-tool-use.md)
+3. [Evaluation, safety, and cost](03-evaluation-safety-and-cost.md)
 
-This layer exists because the previous layer alone cannot make production systems understandable, dependable, and evolvable at scale. The module will teach the mechanism before the product vocabulary and connect every abstraction to observable behavior.
+## Practice
 
-### Where does it fit?
+Specify a small assistant, define its output schema and threat model, then create a repeatable evaluation set before changing prompts.
 
-This is Module 27 of 35. It follows [Transformers and LLMs](../26-transformers-llms/README.md) and provides foundations used by later modules. See the [Curriculum](../CURRICULUM.md) for the complete dependency path.
+## Ready to continue
 
-### What do I need first?
-
-Complete or demonstrate Minimum Competency in [Transformers and LLMs](../26-transformers-llms/README.md) and [Backend Engineering](../09-backend-engineering/README.md). These are mechanism prerequisites, not merely earlier module numbers.
-
-### What will I be able to explain afterward?
-
-- the everyday problems this domain solves, before using specialized vocabulary;
-- the relationships among evaluated applications using prompting, retrieval, tools, structured output, safety boundaries, and model routing;
-- where the abstraction appears in production and which lower-layer details can leak through it;
-- one common failure, the evidence that distinguishes it, and a defensible design tradeoff.
-
-## Competency Tiers
-
-### Minimum Competency
-
-Explain the module’s central mental model, complete guided proofs, and solve the designated No-AI challenge. This is enough for a first pass when the domain is not yet on your critical path.
-
-### Strong Engineer
-
-Build a representative system, break it safely, diagnose it from evidence, and operate it under realistic constraints. Explain the mechanism to both a new learner and a working engineer.
-
-### Deep Dive
-
-Inspect internals and primary sources, quantify reliability/security/cost tradeoffs, and make a design decision that accounts for adjacent layers.
-
-Go deep when this domain blocks a current project, recurs in incidents, or underpins a decision you own. Otherwise earn Minimum Competency and continue.
-
-## AI Learning Policy
-
-### AI Tutor
-
-Use AI for Socratic questions, prerequisite refreshers, and alternative analogies. Verify technical claims against canonical sources.
-
-### AI Pair
-
-Write your prediction and plan first. Read every generated command, state its expected effect, and keep ownership of tests and safety.
-
-### AI Review
-
-Ask AI to challenge assumptions, identify missing failure modes, and point out claims unsupported by evidence.
-
-### No-AI Challenge
-
-Complete the designated retrieval/build/debug task using your own model, local tools, and official documentation before consulting AI.
-
-### Explain Back
-
-Explain the concept without notes to a smart non-engineer, a junior engineer, and an interviewer. If one version collapses into jargon, revisit the intuition and mechanism.
-
-## Planned Scope
-
-No empty lesson files are created for this module. When authored, each lesson must satisfy [the lesson contract](../templates/LESSON.md), include a narratable Mermaid diagram, and end with an exact next path.
+You can constrain outputs, ground answers, isolate untrusted content, and compare changes with task-level evidence.
 
 ## Next
 
-This scaffold is orientation, not completion. If you are following the active path, return to [START-HERE.md](../START-HERE.md). To preview the dependency that follows this module, open [MLOps](../28-mlops/README.md).
+Begin [MLOps](../28-mlops/README.md).
