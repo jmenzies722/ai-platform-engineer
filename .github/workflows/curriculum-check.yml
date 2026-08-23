@@ -93,8 +93,9 @@ jobs:
           done
 
           for module in {00..35}; do
-            readme="$(find "${module}-"* -maxdepth 1 -name README.md -print -quit)"
-            test -n "$readme" || { echo "Missing README for module $module"; exit 1; }
+            readmes=( "${module}-"*/README.md )
+            readme="${readmes[0]}"
+            test -f "$readme" || { echo "Missing README for module $module"; exit 1; }
             awk '$0 == "## 5-Minute Orientation" { found=1 } END { exit !found }' "$readme" ||
               { echo "$readme missing 5-Minute Orientation"; exit 1; }
             awk '$0 == "## Competency Tiers" { found=1 } END { exit !found }' "$readme" ||
