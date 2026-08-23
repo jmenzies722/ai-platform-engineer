@@ -24,6 +24,9 @@ put credentials, customer data, or production logs in an exercise.
 | [Inference latency regression](10-inference-latency/README.md) | Advanced | Model serving, batching, queueing |
 | [GPU out of memory](11-gpu-oom/README.md) | Advanced | Accelerator memory, fragmentation, workload shape |
 | [Queue overload](12-queue-overload/README.md) | Advanced | Backlog, consumer capacity, age-based SLOs |
+| [RAG corpus poisoning or ACL bypass](13-rag-acl-bypass/README.md) | Expert | Retrieval authorization, corpus integrity, provenance |
+| [Agent runaway and kill-switch latency](14-agent-runaway/README.md) | Expert | Agent budgets, tool side effects, emergency stop |
+| [Stale evaluation promotion](15-stale-evaluation-promotion/README.md) | Expert | Artifact identity, policy enforcement, release evidence |
 
 ## Academy method
 
