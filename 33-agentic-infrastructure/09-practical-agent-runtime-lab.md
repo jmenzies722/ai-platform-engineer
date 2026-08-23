@@ -28,6 +28,8 @@ Never evaluate by touching real services. Keep effect stores local and seeded. F
 
 **Build:** implement replay, budgets, typed validation, tenant authorization, approvals, leases, idempotency, cancellation, redaction, and twenty-five tests. **Break:** test prompt injection, traversal-like IDs, mutated approval, duplicate delivery, four crash windows, stale worker, policy outage, runaway loop, and kill switch. **Explain back:** compare two trajectories and conduct an incident drill. Completion requires bounded termination, no cross-tenant effects, exactly one committed effect, deterministic replay, and cancellation acknowledgement.
 
+Then complete standalone [Lab 19: Bound an Agent Runtime](../labs/19-agent-runtime-safety/README.md). Add its approval-binding and audit-chain evidence to the [Governed Agent Runtime](../projects/14-governed-agent-runtime/README.md), and use the [queue-overload drill](../incidents/12-queue-overload/README.md) to test backlog recovery without duplicate business effects.
+
 ## Check yourself
 
 1. Which guarantee must hold with any planner?

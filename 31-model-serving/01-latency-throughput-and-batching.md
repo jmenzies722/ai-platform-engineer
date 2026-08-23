@@ -50,4 +50,4 @@ Unbounded queues convert overload into timeouts, mixed request sizes cause head-
 
 ## Next
 
-Continue to [Memory, routing, and overload](02-memory-routing-and-overload.md).
+Continue to [Admission, routing, and overload](02-memory-routing-and-overload.md).
