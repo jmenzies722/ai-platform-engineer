@@ -50,4 +50,4 @@ Mocks omit real permissions, replay changes external state, trace volume hides s
 
 ## Next
 
-Continue to [System Design](../34-system-design/README.md).
+Continue to [Agent runtime architecture](04-agent-runtime-architecture.md).

@@ -50,4 +50,4 @@ Slow links, stragglers, imbalanced partitions, small batches, and collective mis
 
 ## Next
 
-Continue to [AI Infrastructure](../30-ai-infrastructure/README.md).
+Continue to [GPU architecture and instruction execution](04-architecture-and-instruction-execution.md).

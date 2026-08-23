@@ -50,4 +50,4 @@ Retries amplify overload, stale health checks route to stuck replicas, and autos
 
 ## Next
 
-Continue to [Practical lab: build a tiny model service](03-practical-model-service-lab.md).
+Continue to [Inference runtimes and execution](04-inference-runtimes-and-execution.md).
