@@ -1,53 +1,55 @@
-# Scope, judgment, and decisions
+# Scope and level-appropriate impact
 
-Senior judgment turns ambiguity into a decision whose assumptions, consequences, and evidence are visible to others.
+Senior and staff engineers choose work by the consequence it changes, the coordination it requires, and the capability it leaves behind.
 
 ## Why it matters
 
-The largest technical risks often live between teams, across time horizons, or outside any ticket's stated scope.
+At higher levels, excellent local execution can still be the wrong contribution when the limiting factor is a cross-team interface, missing decision, unsafe operating model, or absent technical direction.
 
 ## How it works
 
-Frame the outcome, stakeholders, constraints, invariants, and uncertainties. Separate reversible from irreversible choices. Generate credible alternatives, identify decision criteria, and record why one path was chosen. Use small experiments for uncertain facts and escalation for value or authority conflicts.
+Start from an organizational outcome, not a favored artifact. Ask what is preventing progress, whose behavior or system must change, how many boundaries are crossed, and whether the problem needs implementation, alignment, strategy, or capability building. Scope includes non-goals, ownership edges, time horizon, and success evidence.
 
-Good scope includes what will not be solved and where ownership ends. Facts, forecasts, preferences, and constraints should not be blended: each needs different challenge. Reversible decisions can use bounded trials; choices that lock data, public contracts, or organizational dependency deserve stronger evidence. A decision record preserves context and revisit conditions, not an illusion of permanence.
+Senior scope often owns a complex subsystem or leads a difficult project within a bounded area. Staff scope more often spans teams, changes a shared mechanism, resolves a persistent interface, or establishes direction others can execute. The distinction is not team count alone. Ambiguity, consequence, leverage, and duration matter.
+
+Keep a portfolio of direct delivery, risk reduction, strategic enablement, and people leverage. Limit concurrent commitments. Negotiate what will stop when urgent work enters. Impact should be attributed carefully: enabling ten engineers is valuable, but their work is not evidence of your contribution unless the mechanism and changed outcome are clear.
 
 ## See it yourself
 
-Rewrite “we need a vector database” as: retrieve from 500,000 documents, p95 under 200 ms, hourly updates, tenant filtering, two operators, and measured relevance target. Compare database extension, managed service, and lexical baseline on 100 queries. If lexical meets the target, the original solution statement was premature. The experiment turns preference into evidence.
+Compare “design the new gateway” with “reduce unsafe, inconsistent model-provider integration across six teams.” The first suggests an artifact; the second exposes standards, migration, ownership, and adoption. A gateway may be part of the answer, but scope is judged by the changed organizational outcome.
 
 ## Where it shows up
 
-For a cross-team storage choice, a staff engineer identifies who owns data correctness, migration, and on-call before selecting technology. They make cost and lock-in explicit, run the smallest discriminating test, and record the executive or risk-owner decision when values conflict. The artifact lets later teams revisit assumptions without relitigating history.
+Platform work, reliability programs, identity migrations, developer experience, and model governance often require staff scope because no single team’s backlog contains the whole outcome. The engineer finds the seam without casually absorbing every adjacent responsibility.
 
 ## When it breaks
 
-Premature certainty suppresses evidence, endless analysis avoids ownership, and decisions remain implicit. When work stalls, first inspect the decision statement, named owner, criteria, unknowns, and deadline or trigger. Missing evidence calls for an experiment; conflicting values call for the accountable owner; repeated reopening calls for checking whether revisit conditions actually occurred.
+Scope breaks through title performance, rescuing every hard problem, broad programs with no mechanism, and invisible glue work that never transfers. Diagnose overload by listing outcomes, decision rights, dependencies, and stop conditions. Narrow scope by consequence, not by making every workstream equally shallow.
 
 ## Practice
 
-**Build:** write a one-page decision with alternatives, criteria, owner, disconfirming evidence, and revisit trigger. **Break:** remove a key assumption and introduce a stakeholder constraint; show how the decision process responds. **Explain back:** distinguish fact uncertainty from value conflict and name when escalation is responsible.
+**Build:** write a scope brief for reducing model-integration risk across six teams. Include outcome, baseline, boundaries, leverage mechanism, stakeholders, measures, non-goals, and work you will stop. **Break:** remove executive sponsorship and add an urgent incident program. **Explain back:** defend the revised scope without appealing to title or activity.
 
 ## Check yourself
 
-1. Which choices deserve more rigor?
-2. What makes a decision reversible?
-3. When should you escalate?
+1. What makes scope staff-level besides team count?
+2. How does a leverage mechanism differ from claiming others’ impact?
+3. Which commitment will you stop when priorities change?
 
 ## Sources
 
 ### REQUIRED
 
-- [Architecture Decision Records](https://adr.github.io/)
+- [StaffEng: Staff archetypes](https://staffeng.com/guides/staff-archetypes/)
 
 ### RECOMMENDED
 
-- [Google SRE: managing incidents](https://sre.google/workbook/incident-response/)
+- [DORA research](https://dora.dev/research/)
 
 ### DEEP DIVE
 
-- [NIST systems security engineering](https://csrc.nist.gov/pubs/sp/800/160/v1/r1/final)
+- [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
 
 ## Next
 
-Continue to [Influence and technical leadership](02-influence-and-technical-leadership.md).
+Continue to [Working through ambiguity](02-working-through-ambiguity.md).
