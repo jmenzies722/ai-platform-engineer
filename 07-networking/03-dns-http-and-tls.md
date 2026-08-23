@@ -63,4 +63,4 @@ An API behind a CDN demonstrates the sequence. DNS can direct clients to an edge
 
 ## Next
 
-Continue to [Databases](../08-databases/README.md).
+Continue to [DNS Resolution and Operations](./04-dns-resolution-and-operations.md).

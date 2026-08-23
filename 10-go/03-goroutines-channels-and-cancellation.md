@@ -63,4 +63,4 @@ A steadily rising goroutine count suggests blocked sends, receives, timers, or d
 
 ## Next
 
-Continue to [Software Architecture](../11-software-architecture/README.md).
+Continue to [Runtime, Memory, Scheduling, and Races](./04-runtime-memory-scheduling-and-races.md).

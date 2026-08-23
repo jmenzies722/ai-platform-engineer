@@ -63,4 +63,4 @@ Unknown-field parsing errors during rollout suggest incompatible readers; old va
 
 ## Next
 
-Continue to [AWS](../12-aws/README.md).
+Continue to [Architecture Styles and Deployment Boundaries](./04-architecture-styles-and-deployment-boundaries.md).
