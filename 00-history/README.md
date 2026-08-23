@@ -1,6 +1,6 @@
 # 00 — History: Why the Stack Exists
 
-**Module status: Complete**
+> **Module status:** Complete
 
 ## 5-Minute Orientation
 
