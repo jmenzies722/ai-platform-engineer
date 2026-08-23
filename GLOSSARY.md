@@ -68,6 +68,12 @@ The rules governing which values an operation may observe when data has multiple
 
 **Start with:** [Distributed Systems](17-distributed-systems/README.md)
 
+### Continuous batching
+
+An inference scheduling method that adds ready sequences and removes completed ones between model iterations instead of waiting for one fixed request batch to finish. It improves accelerator occupancy under variable sequence lengths, but admission, prefill work, fairness, and KV-cache capacity still bound latency and throughput.
+
+**Start with:** [KV Cache and Continuous Batching](31-model-serving/05-kv-cache-and-continuous-batching.md)
+
 ### Control plane
 
 The part of a system that accepts what you want, decides what should happen, and keeps checking the result. Components that expose intent APIs, persist desired state, make decisions, and reconcile or configure data-plane resources.
@@ -94,7 +100,27 @@ A system made from computers that coordinate by sending messages and can fail se
 
 **Start with:** [Distributed Systems](00-history/09-distributed-systems.md)
 
+## E
+
+### Effect reconciliation
+
+The process of comparing durable intent with the observed state of an external side effect, then safely completing, retrying, compensating, or recording that effect. It uses stable operation identity and re-observation to resolve timeouts and crash windows without assuming that an unknown outcome failed.
+
+**Start with:** [Durable Execution and Effect Reconciliation](33-agentic-infrastructure/06-durable-execution-and-reconciliation.md)
+
+### Evaluation gate
+
+A versioned release rule that requires specified evidence for an exact artifact before promotion. The gate binds evaluation suites, metrics, slices, thresholds, safety or compliance checks, and approvals to the candidate digest; missing or stale evidence is not a pass.
+
+**Start with:** [AI Platform Engineering](00-history/19-ai-platform-engineering.md)
+
 ## F
+
+### Feature store
+
+A system that manages governed feature definitions and serves feature values for training and inference under contracts for entity identity, event time, freshness, transformation version, and access. It does not by itself guarantee point-in-time correctness or offline-online consistency; those properties require validated data and retrieval semantics.
+
+**Start with:** [Data and Feature Platform Contracts](32-ai-platform-engineering/04-data-and-feature-platform-contracts.md)
 
 ### File descriptor
 
@@ -117,6 +143,12 @@ A program that carries out instructions written in another program representatio
 **Start with:** [How Software Actually Executes](01-software-foundations/01-how-software-actually-executes.md)
 
 ## K
+
+### KV cache
+
+The per-sequence attention state that stores previously computed key and value tensors so an autoregressive model can decode a new token without recomputing the full prefix. Its memory grows with cached tokens, layers, KV heads, head dimension, and element size, so it often governs serving concurrency.
+
+**Start with:** [KV Cache and Continuous Batching](31-model-serving/05-kv-cache-and-continuous-batching.md)
 
 ### Kernel
 
@@ -143,6 +175,12 @@ A model trained on text patterns to predict the next token and generate sequence
 Elapsed time for one unit of work, measured between stated boundaries. Useful latency claims include a workload, percentile, window, and treatment of failures; an average alone hides tail behavior.
 
 **Start with:** [Observability](18-observability/README.md)
+
+### Lineage
+
+The recorded provenance connecting an artifact or result to its resolved inputs, transformations, code, environment, execution attempts, evaluations, approvals, and derived outputs. Useful lineage uses immutable identities and supports reproducibility, comparison, policy enforcement, incident analysis, and recall.
+
+**Start with:** [AI Platform Engineering](00-history/19-ai-platform-engineering.md)
 
 ## M
 
@@ -180,11 +218,25 @@ Software that safely shares a computer and gives programs common ways to use it.
 
 ## P
 
+### Prefix cache
+
+A serving cache that reuses model state computed for an exact token prefix across eligible requests. Correct reuse keys include the model, tokenizer, and other interpretation-changing state, while tenant and privacy boundaries constrain sharing; a hit is valuable in proportion to tokens and computation reused.
+
+**Start with:** [KV Cache and Continuous Batching](31-model-serving/05-kv-cache-and-continuous-batching.md)
+
 ### Process
 
 One active, OS-managed run of a program. An operating-system execution context with an identity, virtual address space, resources, security credentials, state, and one or more threads.
 
 **Start with:** [How Software Actually Executes](01-software-foundations/01-how-software-actually-executes.md)
+
+## Q
+
+### Quota
+
+An enforced upper bound on a tenant's admitted or concurrent use of named resources over a stated scope and window. Quota limits blast radius and supports fairness, but it is distinct from a budget, which triggers spending decisions, and from capacity, which describes resources that physically exist.
+
+**Start with:** [Tenancy, Governance, and Cost](32-ai-platform-engineering/02-tenancy-governance-and-cost.md)
 
 ## R
 
