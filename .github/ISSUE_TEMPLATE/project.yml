@@ -1,0 +1,39 @@
+name: Portfolio project proposal
+description: Propose or refine an independent portfolio-grade engineering project
+title: "[Project] "
+labels: []
+body:
+  - type: input
+    id: target
+    attributes:
+      label: Portfolio target
+      placeholder: "Target number/name from PROJECTS.md or a justified addition"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: User, problem, evidence, and non-goals
+    validations:
+      required: true
+  - type: textarea
+    id: attributes
+    attributes:
+      label: Quality attributes and constraints
+      description: Include measurable reliability, performance, security, operability, and cost expectations.
+    validations:
+      required: true
+  - type: textarea
+    id: proof
+    attributes:
+      label: Graduation evidence
+      description: Explain how another engineer can evaluate build, failure, recovery, decisions, and user value.
+    validations:
+      required: true
+  - type: checkboxes
+    id: independence
+    attributes:
+      label: Repository boundary
+      options:
+        - label: "The implementation will live in an independent repository."
+          required: true

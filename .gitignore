@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Lab evidence and transient state
+labs/**/.lab-pid
+labs/**/inspection.txt
+labs/**/evidence.md
+labs/**/*.log
+labs/**/my_workload.py
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/

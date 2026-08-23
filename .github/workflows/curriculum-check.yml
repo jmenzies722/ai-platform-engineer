@@ -1,0 +1,81 @@
+name: Curriculum structure
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  history-lessons:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check required curriculum files and lesson headings
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          files=(
+            00-history/01-origins-of-computing.md
+            00-history/02-why-software-exists.md
+            00-history/03-machine-code-assembly-high-level-languages.md
+            00-history/04-evolution-of-programming-languages.md
+            00-history/05-evolution-of-operating-systems.md
+            00-history/06-unix-c-linux.md
+            00-history/07-networking-and-the-internet.md
+            00-history/08-databases.md
+            00-history/09-distributed-systems.md
+            00-history/10-virtualization-and-cloud.md
+            00-history/11-devops.md
+            00-history/12-containers.md
+            00-history/13-kubernetes.md
+            00-history/14-sre-and-observability.md
+            00-history/15-platform-engineering.md
+            00-history/16-machine-learning.md
+            00-history/17-transformers-and-llms.md
+            00-history/18-ai-infrastructure.md
+            00-history/19-ai-platform-engineering.md
+            00-history/20-agentic-engineering.md
+            01-software-foundations/01-how-software-actually-executes.md
+          )
+
+          headings=(
+            "## Why You're Learning This"
+            "## Historical Context"
+            "## Problem This Solves"
+            "## Mental Model"
+            "## Core Concepts"
+            "## How It Actually Works"
+            "## Deep Dive"
+            "## Visual Model"
+            "## Code / Commands"
+            "## Practical Example"
+            "## Where This Appears in Production"
+            "## Common Failure Modes"
+            "## Debugging Approach"
+            "## Hands-On Lab"
+            "## Build Exercise"
+            "## Break It Exercise"
+            "## No-AI Challenge"
+            "## Knowledge Check"
+            "## Interview Questions"
+            "## Explain It Yourself"
+            "## Key Takeaways"
+            "## Vocabulary"
+            "## References"
+            "## Next Lesson"
+          )
+
+          for file in "${files[@]}"; do
+            test -s "$file" || { echo "Missing or empty: $file"; exit 1; }
+            previous=0
+            for heading in "${headings[@]}"; do
+              line="$(awk -v text="$heading" '$0 == text { print NR; exit }' "$file")"
+              test -n "$line" || { echo "$file missing heading: $heading"; exit 1; }
+              (( line > previous )) || { echo "$file heading out of order: $heading"; exit 1; }
+              previous="$line"
+            done
+          done

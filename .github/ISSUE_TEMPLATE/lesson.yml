@@ -1,0 +1,47 @@
+name: Lesson proposal or correction
+description: Propose a lesson, deepen an explanation, or report a technical error
+title: "[Lesson] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: "Lessons must explain why, internals, failure, debugging, operation, and design—not only commands."
+  - type: input
+    id: module
+    attributes:
+      label: Module and lesson
+      placeholder: "01-software-foundations / How Software Actually Executes"
+    validations:
+      required: true
+  - type: dropdown
+    id: change
+    attributes:
+      label: Change type
+      options:
+        - Technical correction
+        - New lesson proposal
+        - Missing depth or mental model
+        - Broken reference or navigation
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and learner impact
+      description: Identify what is incorrect, unclear, missing, or misleading.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and authoritative sources
+      description: Link official documentation, standards, or primary papers. Do not paste copyrighted material.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: State what a learner should be able to explain, build, or debug after the change.
+    validations:
+      required: true
