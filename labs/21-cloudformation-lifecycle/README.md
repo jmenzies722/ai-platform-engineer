@@ -376,11 +376,11 @@ test "$(aws sqs get-queue-attributes --queue-url "$QUEUE_URL" \
 
 ## Failure injection: observe failed-update rollback
 
-Introduce one fault: a new standard SSM parameter whose name begins with the
-reserved `/aws/` hierarchy. The same template requests a queue visibility
-change to 32 seconds. CloudFormation may schedule independent resources in
-either order, so do not assume the queue update completes before the parameter
-fails.
+Introduce one fault: a second stack resource attempts to create the same
+lab-prefixed SSM parameter name that the baseline resource already owns. The
+same template requests a queue visibility change to 32 seconds. CloudFormation
+may schedule independent resources in either order, so do not assume the queue
+update completes before the duplicate parameter fails.
 
 ```bash
 sed 's/VisibilityTimeout: 30/VisibilityTimeout: 32/' \
@@ -389,7 +389,7 @@ sed 's/VisibilityTimeout: 30/VisibilityTimeout: 32/' \
   RejectedParameter:\
     Type: AWS::SSM::Parameter\
     Properties:\
-      Name: /aws/dop-c02-reserved-name\
+      Name: !Ref OwnerParameterName\
       Type: String\
       Tier: Standard\
       Value: synthetic-invalid-update' \

@@ -254,7 +254,10 @@ Rank and discriminate these hypotheses:
 
 ### Missing-telemetry test
 
-Do not publish any event for two full 60-second periods. Then run:
+Do not publish more events. The alarm can evaluate more historical datapoints
+than `EvaluationPeriods` alone suggests, so two empty periods do not guarantee
+an immediate state change. Inspect the alarm once per minute for at most ten
+minutes:
 
 ```bash
 aws cloudwatch describe-alarms \
@@ -263,7 +266,13 @@ aws cloudwatch describe-alarms \
   --query 'MetricAlarms[0].{state:StateValue,reason:StateReason,updated:StateUpdatedTimestamp}'
 ```
 
-Expected result: `INSUFFICIENT_DATA`. If it remains `OK`, inspect recent datapoints and wait only until their evaluation window expires. If it becomes `ALARM`, compare the alarm's `TreatMissingData` value with the baseline. Missing telemetry proves uncertainty about the proxy; it does not prove either health or failure.
+The test passes when the old datapoint ages out of CloudWatch's evaluation
+range and the alarm becomes `INSUFFICIENT_DATA`. If it remains `OK` or `ALARM`
+after ten minutes, preserve the alarm history and recent datapoints and mark
+this post-fault check inconclusive; do not manufacture a state. The initial
+pre-data `INSUFFICIENT_DATA` state is still direct evidence of the configured
+missing-data behavior. Missing telemetry proves uncertainty about the proxy;
+it does not prove either health or failure.
 
 Correct the controlled fault by publishing one healthy event and confirm the alarm returns to `OK` within two periods:
 

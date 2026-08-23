@@ -382,6 +382,10 @@ test "$(
     --query State --output text
 )" = "DISABLED"
 
+# Rule state and event routing converge asynchronously. Wait before creating
+# the negative-test event.
+sleep 60
+
 aws securityhub batch-update-findings \
   --region "$REGION" \
   --finding-identifiers "Id=${FINDING_ID},ProductArn=${PRODUCT_ARN}" \
@@ -398,7 +402,13 @@ jq -e '((.Messages // []) | length) == 0' \
   /tmp/lab27-disabled-route-message.json
 ```
 
-Expected symptom: the validation exits `0`, showing no message for the update while the rule is disabled. If a message is present, inspect its finding ID, note, and update time. Delete and record a delayed baseline delivery, wait for an empty queue, and restart the disabled-rule window; fail the test if the message contains `Synthetic update while route disabled`. An empty receive is bounded negative evidence, not proof that no delayed message can ever arrive.
+Expected symptom: the validation exits `0`, showing no message for the update
+during this bounded disabled window. If a message contains `Synthetic update
+while route disabled`, record the propagation delay, delete that message, wait
+another 60 seconds, and repeat the update with a distinct attempt suffix. Make
+at most three attempts and stop if every attempt routes. Delete and record any
+delayed baseline delivery before retrying. An empty receive is bounded negative
+evidence, not proof that no delayed message can ever arrive.
 
 ## Diagnose it
 
@@ -432,10 +442,22 @@ Correct the controlled fault by re-enabling the rule. Update the finding again w
 aws events enable-rule \
   --region "$REGION" \
   --name "$RULE_NAME"
+
+test "$(
+  aws events describe-rule \
+    --region "$REGION" \
+    --name "$RULE_NAME" \
+    --query State --output text
+)" = "ENABLED"
+
+# Allow the data-plane route to converge before publishing recovery evidence.
+sleep 60
+
+export RECOVERY_NOTE="Synthetic route recovery check"
 aws securityhub batch-update-findings \
   --region "$REGION" \
   --finding-identifiers "Id=${FINDING_ID},ProductArn=${PRODUCT_ARN}" \
-  --note "Text=Synthetic route recovery check,UpdatedBy=${LAB_ID}"
+  --note "Text=${RECOVERY_NOTE},UpdatedBy=${LAB_ID}"
 
 aws sqs receive-message \
   --region "$REGION" \
@@ -446,18 +468,25 @@ aws sqs receive-message \
   --attribute-names All \
   > /tmp/lab27-recovery-message.json
 
-jq --arg id "$FINDING_ID" --arg generator "$LAB_ID" -e '
+jq --arg id "$FINDING_ID" --arg generator "$LAB_ID" \
+  --arg note "$RECOVERY_NOTE" -e '
   (.Messages | length) == 1 and
   (.Messages[0].Body | fromjson |
     .source == "aws.securityhub" and
     ."detail-type" == "Security Hub Findings - Imported" and
     .detail.findings[0].Id == $id and
     .detail.findings[0].GeneratorId == $generator and
-    .detail.findings[0].Note.Text == "Synthetic route recovery check")' \
+    .detail.findings[0].Note.Text == $note)' \
   /tmp/lab27-recovery-message.json
 ```
 
-Repeat only the bounded receive, not the finding update, for up to five minutes. Recovery passes only when the validation exits `0`. Record the recovery message ID and retain its receipt handle privately for cleanup.
+If no matching message arrives, first repeat the bounded receive for up to one
+minute to allow ordinary delivery latency. Then repeat the complete
+update-and-receive pair with `RECOVERY_NOTE` set to a distinct attempt suffix;
+an update emitted before route convergence cannot be recovered by polling SQS.
+Make at most three updates over five minutes. Recovery passes only when the
+message matches the exact note for its attempt. Record the recovery message ID
+and retain its receipt handle privately for cleanup.
 
 ## Triage and suppression decision
 
