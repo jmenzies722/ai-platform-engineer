@@ -12,23 +12,76 @@ Read lessons 1, 2, 4, 6, and 7. Use Python 3 and SQLite in a temporary directory
 
 ## Establish a baseline
 
-`python3 --version` must show Python 3. Create two tenants, one user each, and one document each. Assert each user reads only its own document and logs contain decision metadata without content.
+`python3 --version` must show Python 3. Create an isolated database and program path:
+
+```bash
+mkdir -p /tmp/security-boundary-lab
+python3 - <<'PY'
+import sqlite3
+path = "/tmp/security-boundary-lab/documents.db"
+db = sqlite3.connect(path)
+db.execute("create table documents (id text primary key, tenant text not null, body text not null)")
+db.executemany("insert into documents values (?, ?, ?)", [
+    ("doc-a", "tenant-a", "synthetic-alpha"),
+    ("doc-b", "tenant-b", "synthetic-bravo"),
+])
+db.commit()
+assert db.execute("select count(*) from documents").fetchone()[0] == 2
+print("baseline database ready")
+PY
+```
+
+This establishes only the starting data. Write down four predictions: each owner read, one cross-tenant read, and one injection-shaped ID.
 
 ## Make it work
 
-Implement lookup with a parameterized SQLite query and derive tenant from authenticated test context, not request parameters. Emit JSON decisions with actor, action, resource, outcome, policy version, and correlation ID. Add negative tests for cross-tenant IDs and injection-shaped strings.
+Save `/tmp/security-boundary-lab/service.py`:
+
+```python
+import json
+import sqlite3
+
+DB = "/tmp/security-boundary-lab/documents.db"
+USERS = {"alice": "tenant-a", "bob": "tenant-b"}
+
+def read_document(actor, document_id):
+    tenant = USERS[actor]
+    row = sqlite3.connect(DB).execute(
+        "select body from documents where id = ? and tenant = ?",
+        (document_id, tenant),
+    ).fetchone()
+    event = {
+        "actor": actor, "action": "document.read", "resource": document_id,
+        "outcome": "allow" if row else "deny", "policy_version": "1",
+        "correlation_id": f"test-{actor}-{document_id[:8]}",
+    }
+    print(json.dumps(event, sort_keys=True))
+    return row[0] if row else None
+
+assert read_document("alice", "doc-a") == "synthetic-alpha"
+assert read_document("alice", "doc-b") is None
+assert read_document("bob", "doc-b") == "synthetic-bravo"
+assert read_document("alice", "' or 1=1 --") is None
+```
+
+Run `python3 /tmp/security-boundary-lab/service.py | tee /tmp/security-boundary-lab/audit.jsonl`. Confirm all assertions pass and the audit stream contains decisions but no document bodies.
 
 ## Break it
 
-Change lookup to trust a request-supplied tenant. The expected symptom is a cross-tenant read while authentication still appears successful. Capture only synthetic evidence.
+Change the function signature to accept `requested_tenant`, use it in the query instead of `USERS[actor]`, and call `read_document("alice", "doc-b", "tenant-b")`. The expected symptom is a cross-tenant read while authentication still appears successful. This is the only injected fault. Capture only synthetic evidence.
 
 ## Diagnose it
 
-Start from the isolation invariant, compare trusted actor tenant with requested resource owner, and inspect the authorization decision. Restore server-side ownership enforcement and rerun all negative tests. Prove denied attempts are visible and no document body or fake secret enters logs.
+Start from the isolation invariant, compare trusted actor tenant with requested resource owner, and inspect the authorization decision. The `allow` event for Alice and `doc-b` proves the policy decision is wrong; successful authentication is irrelevant to resource authorization. Restore server-side ownership enforcement, rerun all tests, then use `! rg 'synthetic-(alpha|bravo)' /tmp/security-boundary-lab/audit.jsonl` to prove bodies were not logged.
 
 ## Clean up
 
-Delete the temporary database, program, and logs. Search the temporary directory before deletion for the synthetic secret and confirm only the intentionally controlled test fixture contained it.
+The document bodies are synthetic fixtures, not secrets. Confirm they occur only in the database and source assertions, then remove all artifacts:
+
+```bash
+rm -rf /tmp/security-boundary-lab
+test ! -e /tmp/security-boundary-lab
+```
 
 ## What to keep
 
