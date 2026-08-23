@@ -105,11 +105,16 @@ Do not average away a zero in mechanism or precision.
 
 ## A Reusable 90-Second Frame
 
-> Before **[concept]**, people had **[concrete problem]**.  
-> **[Concept]** is **[precise definition]**.  
-> It works by **[ordered mechanism]**.  
-> In production, it appears in **[specific place]**.  
-> A common failure is **[symptom]**, so I inspect **[evidence]** first.  
+> Before **[concept]**, people had **[concrete problem]**.
+>
+> **[Concept]** is **[precise definition]**.
+>
+> It works by **[ordered mechanism]**.
+>
+> In production, it appears in **[specific place]**.
+>
+> A common failure is **[symptom]**, so I inspect **[evidence]** first.
+>
 > The key tradeoff or limit is **[boundary]**.
 
 Use the frame to organize thought, not as a script to memorize.
