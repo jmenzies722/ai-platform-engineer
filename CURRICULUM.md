@@ -25,6 +25,16 @@ The numbered modules below are the canonical curriculum. [Role tracks](tracks/RE
 
 Choose a track when role focus is useful, but enter it at the earliest unmet gate rather than restarting automatically. Use [case studies](case-studies/README.md) to practice decisions from incomplete evidence between guided work and independent projects.
 
+## Evidence graph
+
+The experiences form an evidence graph, not four independent inventories. Follow a module README's Practice sequence: establish a model in lessons, produce a bounded proof in a lab, diagnose a related incident without its solution, and integrate the corrected design in a project. Carry artifacts forward rather than repeating claims. A later artifact should name which earlier evidence it accepts, rejects, or supersedes.
+
+Three cross-module paths are explicit:
+
+- Platform product and control: [Platform Engineering](21-platform-engineering/README.md), the [adoption experiment](21-platform-engineering/lab-platform-adoption-experiment.md), [Developer Platforms](22-developer-platforms/README.md), [Control Planes](23-control-planes/README.md), the [control-plane lab](labs/14-platform-control-plane/README.md), the [retry storm](incidents/08-retry-storm/README.md) and [queue overload](incidents/12-queue-overload/README.md) incidents, then [project 09](projects/09-developer-platform-control-plane/README.md).
+- Reproducible model release: [MLOps](28-mlops/README.md), the [ML reproducibility lab](labs/15-ml-reproducibility/README.md), the [release lab](28-mlops/lab-reproducible-release.md), the [bad rollout incident](incidents/06-bad-rollout/README.md), then [project 10](projects/10-reproducible-ml-pipeline/README.md).
+- Accelerator systems and capacity: [GPU Systems](29-gpu-systems/README.md), its [performance investigation](29-gpu-systems/09-practical-gpu-systems-lab.md), the [GPU scheduling and OOM lab](labs/16-gpu-scheduling-oom/README.md), the [GPU OOM incident](incidents/11-gpu-oom/README.md), [AI Infrastructure](30-ai-infrastructure/README.md), its [cluster simulator](30-ai-infrastructure/09-practical-ai-infrastructure-lab.md), the [queue overload incident](incidents/12-queue-overload/README.md), then [project 11](projects/11-distributed-gpu-planner/README.md).
+
 ## Foundations
 
 - 00 [History](00-history/README.md)
@@ -89,8 +99,8 @@ Use the full learning loop:
 
 1. read the chapter orientation and record a prediction;
 2. work the lessons in order, running the smallest useful proofs;
-3. complete the module lab without copying unexplained commands;
-4. attempt a related incident before opening its solution;
-5. integrate the domain into a portfolio project;
+3. complete the linked module and standalone labs, retaining the evidence named in their rubrics;
+4. attempt the linked incident before opening its solution, then record which design assumption changed;
+5. integrate the accepted evidence and incident corrections into the linked portfolio project;
 6. use the interview bank to explain changed constraints;
 7. record inspectable evidence in [PROGRESS.md](PROGRESS.md).

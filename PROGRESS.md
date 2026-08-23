@@ -65,16 +65,16 @@ For Rework, retain passed claims and name the smallest fresh proof required. For
 | [Observability](18-observability/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Instrument and investigate a request with correlated telemetry |
 | [SRE](19-sre/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Write an SLO and use burn evidence to make a release decision |
 | [Security](20-security/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Produce a threat model, verify controls, and state residual risk |
-| [Platform Engineering](21-platform-engineering/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Validate a platform capability with users, contracts, and outcome metrics |
-| [Developer Platforms](22-developer-platforms/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Build and test a self-service workflow with ownership and escape hatches |
-| [Control Planes](23-control-planes/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Implement an idempotent reconciler and recover interrupted work |
+| [Platform Engineering](21-platform-engineering/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Run the [adoption experiment](21-platform-engineering/lab-platform-adoption-experiment.md); link reproducible baseline, segment, retention, old-path, support, and stop-decision evidence |
+| [Developer Platforms](22-developer-platforms/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Prove one self-service workflow in the [control-plane lab](labs/14-platform-control-plane/README.md), then revise retry and support boundaries from the [retry storm](incidents/08-retry-storm/README.md) |
+| [Control Planes](23-control-planes/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Link idempotency, convergence, tenant, and dead-letter proofs from the [control-plane lab](labs/14-platform-control-plane/README.md), plus recovery decisions from [queue overload](incidents/12-queue-overload/README.md) |
 | [AI Foundations](24-ai-foundations/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Derive and test an optimization or probability claim on small data |
 | [ML and Deep Learning](25-ml-deep-learning/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Train, evaluate, and debug a model against a documented baseline |
 | [Transformers and LLMs](26-transformers-llms/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Explain and inspect tokenization, attention, generation, and memory use |
 | [LLM Engineering](27-llm-engineering/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Build an evaluated application with structured, retrieval, safety, and cost tests |
-| [MLOps](28-mlops/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Reproduce a model artifact from versioned code, data identity, and configuration |
-| [GPU Systems](29-gpu-systems/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Explain a profile and distinguish compute, memory, launch, and communication limits |
-| [AI Infrastructure](30-ai-infrastructure/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Design a scheduled accelerator workload with topology, storage, and recovery evidence |
+| [MLOps](28-mlops/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Link a reproducible run from the [standalone lab](labs/15-ml-reproducibility/README.md), governed rollback from the [release lab](28-mlops/lab-reproducible-release.md), and a corrected canary decision from [bad rollout](incidents/06-bad-rollout/README.md) |
+| [GPU Systems](29-gpu-systems/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Link roofline, profile, numerical, memory, and topology evidence from the [performance lab](29-gpu-systems/09-practical-gpu-systems-lab.md), then distinguish OOM causes in the [incident](incidents/11-gpu-oom/README.md) |
+| [AI Infrastructure](30-ai-infrastructure/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Link deterministic cluster events, invariants, queue distributions, checkpoint recovery, and costs from the [cluster lab](30-ai-infrastructure/09-practical-ai-infrastructure-lab.md), then revise capacity from [queue overload](incidents/12-queue-overload/README.md) |
 | [Model Serving](31-model-serving/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Produce load curves and demonstrate admission control, rollout, and recovery |
 | [AI Platform Engineering](32-ai-platform-engineering/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Design a multi-tenant lifecycle with quotas, policy, lineage, and operator ownership |
 | [Agentic Infrastructure](33-agentic-infrastructure/README.md) | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | Run a durable, permission-bounded workflow and recover a duplicate or interrupted action |

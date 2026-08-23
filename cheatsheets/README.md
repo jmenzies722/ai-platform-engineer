@@ -11,6 +11,9 @@ catalogs, runbooks, or substitutes for understanding the system.
 | [Kubernetes](kubernetes.md) | Whether desired state, scheduling, startup, service routing, or capacity is failing |
 | [AWS](aws.md) | Which identity, region, resource, dependency, or audit event explains a symptom |
 | [OpenTelemetry](opentelemetry.md) | Whether telemetry was created, propagated, exported, accepted, and made queryable |
+| [GPU diagnosis](gpu.md) | Whether placement, device health, memory, data movement, kernels, or communication limits progress |
+| [Model serving](model-serving.md) | Whether routing, admission, KV cache, batching, runtime, or overload explains service behavior |
+| [AI platform control plane](ai-platform-control-plane.md) | Whether identity, policy, orchestration, lineage, evaluation, deployment, or effects block convergence |
 
 ## Operating model
 

@@ -22,11 +22,14 @@ AI infrastructure supplies scarce accelerators, fast data paths, reliable jobs, 
 
 ## Practice
 
-Complete the cluster simulator lab and defend placement, network, storage, checkpoint, preemption, capacity, and cost decisions from its event log.
+1. Bring forward the measured limits and scheduler assumptions from [GPU Systems](../29-gpu-systems/README.md), including the module performance investigation, standalone scheduling simulation, and GPU OOM diagnosis. Label each input as measured, published, estimated, or synthetic.
+2. Complete the [accelerator cluster simulator lab](09-practical-ai-infrastructure-lab.md). Preserve its workload and fleet definitions, deterministic event log, invariants, placement comparisons, contention evidence, checkpoint and recovery timelines, queue distributions, and cost calculation.
+3. Attempt the [queue overload incident](../incidents/12-queue-overload/README.md) before reading its solution. Use arrival, service, retry, age, fairness, and downstream-limit evidence to revise admission, queue policy, capacity triggers, and recovery projections.
+4. Build the [Distributed GPU Capacity Planner and Simulator project](../projects/11-distributed-gpu-planner/README.md). Compare at least three policies under baseline and adverse workloads, validate reduced cases analytically, quantify uncertainty, and make every recommendation reproducible from manifests and raw event logs.
 
 ## Ready to continue
 
-You can connect queueing, topology, data delivery, training decomposition, checkpoints, failure domains, and economics to useful work and job completion time.
+You can connect measured accelerator limits, queueing, topology, data delivery, training decomposition, checkpoints, failure domains, and economics to useful work and job completion time, and defend a capacity decision under uncertainty and injected failure.
 
 ## Next
 

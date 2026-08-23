@@ -57,6 +57,9 @@ REQUIRED_CHEATSHEETS = {
     "kubernetes.md",
     "aws.md",
     "opentelemetry.md",
+    "gpu.md",
+    "model-serving.md",
+    "ai-platform-control-plane.md",
 }
 LINK_RE = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 SYSTEM_SPECS: dict[str, tuple[int, tuple[str, ...]]] = {

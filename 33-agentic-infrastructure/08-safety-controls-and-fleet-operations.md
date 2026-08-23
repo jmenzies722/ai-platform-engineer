@@ -1,52 +1,62 @@
-# Safety controls and fleet operations
+# Fleet reliability and recovery
 
-Operating agents safely requires layered prevention, bounded blast radius, rapid containment, evidence-preserving response, and tested recovery.
+Operating an agent fleet requires capacity isolation, versioned rollout, dependency-aware service objectives, and recovery that reconciles durable runs rather than merely restarting workers.
 
 ## Why it matters
 
-At fleet scale, rare planning, model, tool, and policy failures become routine events. Prompt improvements alone cannot contain authority.
+At fleet scale, ordinary bursts, stuck runs, model or tool regressions, and shared dependency failures can exhaust queues or hide tenant impact. A healthy worker count says little about completed tasks or unresolved effects.
 
 ## How it works
 
-Prevention combines typed tools, least privilege, isolation, input provenance, output validation, approval, quotas, and deny-by-default egress. Detection uses policy denials, repeated actions, unusual targets, cost velocity, effect rate, and semantic monitors. Containment includes per-run cancel, capability revocation, tenant pause, tool disable, model rollback, and global admission stop.
+Partition capacity by tenant, authority class, model, and tool dependency so low-consequence background work cannot consume reserves for interactive or reconciliation work. Admission charges expected model, tool, sandbox, and effect work against run and fleet budgets. Queue age and deadline feasibility matter more than depth alone. Retry ownership belongs to one layer under an end-to-end deadline.
 
-Kill switches are independent of the model path, authenticated, audited, and tested under control-plane degradation. Draining prevents new effects while reconciling in-flight work. Recovery rotates credentials, validates external state, replays durable events, and resumes only known-safe runs. SLOs cover completion, stuck runs, policy availability, effect reconciliation, and cancellation latency.
+Release identity binds model, prompt, tool schema, policy, evaluator, runtime, and sandbox image. Shadow runs cannot commit effects. Canaries use bounded authority and advance only after minimum samples and hard safety gates. Rollback restores a compatible complete release; durable runs either finish on their pinned version or pass an explicit migration with replay tests.
+
+Fleet SLOs cover valid task completion, time to terminal state, stuck-run age, policy and tool availability, approval wait by service class, effect reconciliation age, cancellation acknowledgement, and cost per attempted and completed task. Dashboards preserve denominators for succeeded, failed, safely aborted, denied, cancelled, and needs-reconciliation outcomes. Alerts join user impact to saturation or dependency evidence.
+
+Recovery is state repair. Replace failed workers, replay verified events under fenced ownership, query effect receipts, reissue only safe idempotent calls, and preserve runs whose outcome remains unknown. Resume traffic gradually while checking queue age, terminal-state mix, effect inventory, tenant fairness, and cost velocity. Human containment and kill-switch protocols are defined in the preceding lesson; fleet recovery consumes their audit evidence.
 
 ## See it yourself
 
-If 10,000 runs each have independent harmful-effect probability \(10^{-4}\), the probability of at least one is approximately \(1-(1-10^{-4})^{10000}\), about 63%. Scale converts a rare per-run event into likely fleet exposure.
+Suppose arrival is 40 runs/s and healthy completion is 50 runs/s. A tool outage lowers completion to 20 runs/s for ten minutes, creating \((40-20)\times600=12{,}000\) queued runs. After recovery, spare drain capacity is only \(50-40=10\) runs/s, so draining takes at least 1,200 seconds while normal load continues. Restarting workers at minute ten does not restore latency; bounded admission and priority policy are required before the outage.
+
+If one tenant contributes 75% of arrivals but has only 40% of reserved service, a global FIFO queue can let its backlog dominate everyone. Per-class scheduling and admission make the isolation claim testable: during overload, other tenants retain their declared minimum completion rate and bounded oldest age.
 
 ## Where it shows up
 
-Operations dashboards segment authority class and tenant. Runbooks begin with stopping new consequential actions, preserving events, querying committed effects, and notifying owners rather than deleting failed runs.
+Operations dashboards segment tenant, authority, release, state, and dependency. Runbooks cover stuck runs, model regression, tool outage, policy outage, receipt backlog, cost surge, and tenant overload. The [queue-overload drill](../incidents/12-queue-overload/README.md) exercises backlog and recovery arithmetic; the [bad-rollout drill](../incidents/06-bad-rollout/README.md) exercises guarded rollback. Project evidence belongs in the [Governed Agent Runtime](../projects/14-governed-agent-runtime/README.md).
 
 ## When it breaks
 
-Cancellation stops the planner but not remote tools, global switches depend on the failed policy service, alerts leak content, and retries resume quarantined runs. Exercise each control with in-flight effects and verify acknowledgement at every executor.
+A global queue hides class starvation, retries multiply a tool outage, rollout mixes incompatible event schemas, rollback strands pinned runs, and scale-down steals leases without fencing. Aggregate success can hide one tenant or authority class, while trace sampling can omit rare unresolved effects.
+
+Diagnose from state age and flow: arrivals, admissions, transitions, terminals, retries, lease transfers, tool calls, approvals, receipts, and costs on one timeline. Check cohort and release digests before blaming the model. Recovery requires declining oldest age under continued demand, no growth in ambiguous effects, restored reserved service by class, and reconciled accounting.
 
 ## Practice
 
-**Observe:** map preventive, detective, and containment controls. **Build:** write SLOs and runbooks for runaway cost, tool compromise, and duplicate effects. **Break:** make policy unavailable and delay cancellation acknowledgement. Completion requires bounded new effects and a reconciled recovery inventory.
+**Build:** create a bounded fleet simulation with two tenants, three priority classes, a finite queue, pinned release versions, worker leases, and one tool dependency. **Break:** halve tool capacity for ten simulated minutes, introduce a bad runtime canary, and retire a worker with active runs. **Prove:** queue memory stays bounded, protected classes retain reserved service, rollback does not mix incompatible state, stale workers cannot advance runs, and oldest age declines after recovery.
+
+Complete [Lab 19](../labs/19-agent-runtime-safety/README.md) first, then expose its terminal states and audit outcomes as fleet counters. Keep simulation time, event count, and memory explicitly capped so the result is reproducible.
 
 ## Check yourself
 
-1. Why must a kill switch bypass the agent path?
-2. What remains after planner cancellation?
-3. Which evidence is preserved before credential rotation?
+1. Why does worker recovery not imply queue recovery?
+2. Which dimensions require capacity isolation?
+3. What proves a rollout rollback preserved durable-run compatibility?
 
 ## Sources
 
 ### REQUIRED
 
-- [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework)
+- [Google SRE: service level objectives](https://sre.google/workbook/implementing-slos/)
 
 ### RECOMMENDED
 
-- [Google SRE incident response](https://sre.google/sre-book/managing-incidents/)
+- [Google SRE: handling overload](https://sre.google/sre-book/handling-overload/)
 
 ### DEEP DIVE
 
-- [OWASP Top 10 for LLM applications](https://genai.owasp.org/llm-top-10/)
+- [The Tail at Scale](https://research.google/pubs/the-tail-at-scale/)
 
 ## Next
 

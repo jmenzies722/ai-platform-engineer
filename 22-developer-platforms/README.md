@@ -21,11 +21,15 @@ An internal developer platform exposes platform capabilities through a coherent 
 
 ## Practice
 
-Complete the lessons in order, then perform the IDP design review in lesson 8. The capstone requires a catalog model, template and workflow boundary, interface and plugin architecture, scorecard, threat model, golden-path lifecycle, and evidence plan.
+1. Bring forward the user segment, journey baseline, and decision from the [platform adoption experiment](../21-platform-engineering/lab-platform-adoption-experiment.md). Translate the accepted capability boundary into a catalog model, template and workflow contract, escape hatch, and support owner.
+2. Complete the lessons in order, then perform the IDP design review in lesson 8. Require authoritative ownership, rerunnable execution, coherent portal and API behavior, constrained plugins, actionable scorecards, a threat model, and a golden-path retirement plan.
+3. Implement the narrow workflow surface in the [platform control-plane lab](../labs/14-platform-control-plane/README.md). Retain API, status, audit, idempotency, convergence, and tenant-isolation evidence; a successful request without actionable status is incomplete.
+4. Attempt the [retry storm incident](../incidents/08-retry-storm/README.md) without reading its solution. Use the diagnosis to revise workflow deadlines, retry ownership, support guidance, and dependency guardrails.
+5. Integrate the product surface and operational findings in milestones 1 through 3 of the [Secure Developer Platform Control Plane project](../projects/09-developer-platform-control-plane/README.md).
 
 ## Ready to continue
 
-You can trace authoritative metadata into a catalog, design resumable self-service, keep portal and API behavior coherent, constrain plugins, make scorecards actionable, secure delegated execution, and retire a golden path without stranding teams.
+You can trace a validated user journey into authoritative metadata and resumable self-service; prove coherent interfaces, delegated security, and actionable status; diagnose retry amplification across platform dependencies; and retire a golden path without stranding teams.
 
 ## Next
 
