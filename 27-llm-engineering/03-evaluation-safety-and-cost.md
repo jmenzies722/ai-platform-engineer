@@ -56,4 +56,4 @@ Static tests miss adaptive attacks, judge scores drift, and averages hide rare h
 
 ## Next
 
-Continue to [MLOps](../28-mlops/README.md).
+Continue to [RAG pipeline engineering](04-rag-pipeline-engineering.md).

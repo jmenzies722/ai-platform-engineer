@@ -56,4 +56,4 @@ Validation leakage disguises overfitting. Distribution shift invalidates curves.
 
 ## Next
 
-Continue to [Transformers and LLMs](../26-transformers-llms/README.md).
+Continue to [Data and feature pipelines](04-data-and-feature-pipelines.md).

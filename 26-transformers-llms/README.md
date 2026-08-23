@@ -5,22 +5,27 @@ Transformers model sequences with attention and large-scale pretraining. This mo
 ## What you will learn
 
 - Trace tokenization, embeddings, attention, and transformer blocks.
-- Explain next-token training and generation.
-- Reason about context, hallucination, and evaluation.
+- Explain corpus construction, next-token training, post-training, and generation.
+- Reason about context, alignment limits, inference capacity, hallucination, and evaluation.
 
 ## Lessons
 
 1. [Tokens, embeddings, and attention](01-tokens-embeddings-and-attention.md)
 2. [Pretraining and generation](02-pretraining-and-generation.md)
 3. [Capabilities, limits, and evaluation](03-capabilities-limits-and-evaluation.md)
+4. [Transformer block internals](04-transformer-block-internals.md)
+5. [Pretraining data and scaling](05-pretraining-data-and-scaling.md)
+6. [Post-training and alignment](06-post-training-and-alignment.md)
+7. [Inference mechanics and efficiency](07-inference-mechanics-and-efficiency.md)
+8. [Evaluating language models](08-evaluating-language-models.md)
 
-## Practice
+## Practical lab
 
-Compute one tiny attention example, inspect a tokenizer, and design a task evaluation that separates factuality from style.
+- [Transformer internals lab](lab-transformer-internals.md): implement causal attention and sampling, introduce a mask fault, and calculate cache growth.
 
 ## Ready to continue
 
-You can trace transformer data flow, explain sampling controls, and identify why plausible text is not verified knowledge.
+You can trace transformer tensors, explain training and alignment objectives, calculate inference memory, debug masking and decoding, and build evaluation evidence that does not confuse plausible text with verified knowledge.
 
 ## Next
 
