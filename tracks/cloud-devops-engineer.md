@@ -34,6 +34,8 @@ An engineer who turns application changes into secure, repeatable, observable pr
 
 **Labs:** [Linux diagnosis](../labs/02-linux-diagnosis/README.md), [Git recovery](../labs/03-git-recovery/README.md), [network diagnosis](../labs/04-network-dns-tls/README.md), [AWS architecture review](../labs/07-aws-architecture-review/README.md), [Terraform safety](../labs/08-terraform-safety/README.md), [container isolation](../labs/09-container-isolation/README.md), [Kubernetes operations](../labs/10-kubernetes-operations/README.md), [OpenTelemetry traces](../labs/11-opentelemetry-traces/README.md), and [security threat modeling](../labs/13-security-threat-model/README.md).
 
+**AWS product practice:** if the role is AWS-centered, complete the [DOP-C02 gap lab sequence](../labs/README.md#aws-dop-c02-gap-labs) after the canonical AWS, DevOps, and Terraform labs. Treat organization-level evidence as optional until an existing authorized organization sandbox is available.
+
 **Incidents:** [OOM kill](../incidents/02-oom/README.md), [disk exhaustion](../incidents/03-disk-exhaustion/README.md), [TLS expiry](../incidents/04-tls-expiry/README.md), [bad rollout](../incidents/06-bad-rollout/README.md), and [Kubernetes CrashLoopBackOff](../incidents/07-kubernetes-crashloopbackoff/README.md).
 
 **Projects:** complete [Recoverable AWS Foundation with Terraform](../projects/04-aws-terraform-foundation/README.md) and [Verifiable Software Delivery Pipeline](../projects/05-secure-delivery-pipeline/README.md). Add [Multi-Tenant Kubernetes Application Platform](../projects/06-kubernetes-platform/README.md) for Kubernetes-heavy roles.

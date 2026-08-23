@@ -22,6 +22,8 @@ DevOps is an operating model for shortening safe feedback loops across developme
 
 Complete the [evidence-preserving delivery lab](lab-delivery-evidence.md). It models an immutable artifact, policy gates, staged release, a failed guardrail, and recovery without requiring a hosted CI product.
 
+If AWS delivery is in scope, continue with the [AWS-native delivery path](../labs/20-aws-native-delivery/README.md) in an authorized disposable sandbox. It applies the same evidence model to CodePipeline, CodeBuild, ECR, Lambda, gate failure, rollback, secrets, and audit.
+
 ## Ready to continue
 
 You can distinguish integration, delivery, deployment, and release; trace a production artifact to reviewed source and build identity; constrain pipeline authority; and use production evidence to govern and improve changes.

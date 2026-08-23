@@ -29,11 +29,12 @@ Choose a track when role focus is useful, but enter it at the earliest unmet gat
 
 The experiences form an evidence graph, not four independent inventories. Follow a module README's Practice sequence: establish a model in lessons, produce a bounded proof in a lab, diagnose a related incident without its solution, and integrate the corrected design in a project. Carry artifacts forward rather than repeating claims. A later artifact should name which earlier evidence it accepts, rejects, or supersedes.
 
-Three cross-module paths are explicit:
+Four cross-module paths are explicit:
 
 - Platform product and control: [Platform Engineering](21-platform-engineering/README.md), the [adoption experiment](21-platform-engineering/lab-platform-adoption-experiment.md), [Developer Platforms](22-developer-platforms/README.md), [Control Planes](23-control-planes/README.md), the [control-plane lab](labs/14-platform-control-plane/README.md), the [retry storm](incidents/08-retry-storm/README.md) and [queue overload](incidents/12-queue-overload/README.md) incidents, then [project 09](projects/09-developer-platform-control-plane/README.md).
 - Reproducible model release: [MLOps](28-mlops/README.md), the [ML reproducibility lab](labs/15-ml-reproducibility/README.md), the [release lab](28-mlops/lab-reproducible-release.md), the [bad rollout incident](incidents/06-bad-rollout/README.md), then [project 10](projects/10-reproducible-ml-pipeline/README.md).
 - Accelerator systems and capacity: [GPU Systems](29-gpu-systems/README.md), its [performance investigation](29-gpu-systems/09-practical-gpu-systems-lab.md), the [GPU scheduling and OOM lab](labs/16-gpu-scheduling-oom/README.md), the [GPU OOM incident](incidents/11-gpu-oom/README.md), [AI Infrastructure](30-ai-infrastructure/README.md), its [cluster simulator](30-ai-infrastructure/09-practical-ai-infrastructure-lab.md), the [queue overload incident](incidents/12-queue-overload/README.md), then [project 11](projects/11-distributed-gpu-planner/README.md).
+- AWS delivery and operations: [AWS](12-aws/README.md), [DevOps](13-devops/README.md), and [Terraform](14-terraform/README.md), their module labs, the [AWS product lab sequence](labs/README.md#aws-dop-c02-gap-labs), the [bad rollout incident](incidents/06-bad-rollout/README.md), then [projects 04 and 05](projects/README.md). The [DOP-C02 overlay](certs/aws-dop-c02.md) maps this evidence without replacing the modules.
 
 ## Foundations
 

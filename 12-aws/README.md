@@ -22,6 +22,8 @@ AWS is a large catalog built from a small set of ideas: identity authorizes API 
 
 Complete the [AWS architecture evidence lab](lab-read-only-inventory.md). It works as a paper exercise without credentials and uses retrieval-only commands with an approved read-only role.
 
+For AWS product-operation practice, use [labs 20 through 27](../labs/README.md#aws-dop-c02-gap-labs). Each lab separates local or static evidence from account-backed evidence and states its identity, spend, stop, and teardown boundaries. The organization extension requires an existing authorized organization sandbox.
+
 ## Ready to continue
 
 You can trace authorization and packet reachability, choose compute and data services, design a multi-AZ recovery path, build an operational evidence chain, and identify the unit economics and cost guardrails of a workload.
