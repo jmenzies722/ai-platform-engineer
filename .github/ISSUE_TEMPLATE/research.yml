@@ -1,0 +1,40 @@
+name: Research request
+description: Request primary-source research for a curriculum decision
+title: "[Research] "
+labels: []
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Decision-oriented research question
+      description: State the decision this research should inform; avoid an unbounded topic.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and exclusions
+      description: Include domain, versions, environments, and what is explicitly out of scope.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Preferred primary sources
+      description: List maintainers, standards bodies, official documentation, or papers to prioritize.
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Required output and acceptance criteria
+      description: Define comparison, experiment, reference update, lesson change, or decision record expected.
+    validations:
+      required: true
+  - type: checkboxes
+    id: integrity
+    attributes:
+      label: Source integrity
+      options:
+        - label: "Claims must be traceable to real links; uncertainty and version dependence must be explicit."
+          required: true

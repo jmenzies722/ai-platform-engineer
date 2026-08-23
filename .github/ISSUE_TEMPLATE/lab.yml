@@ -1,0 +1,40 @@
+name: Lab proposal or correction
+description: Propose or improve an evidence-driven build, break, and debug exercise
+title: "[Lab] "
+labels: []
+body:
+  - type: input
+    id: lesson
+    attributes:
+      label: Related lesson
+      placeholder: "Relative link or module/lesson name"
+    validations:
+      required: true
+  - type: textarea
+    id: model
+    attributes:
+      label: Mental model under test
+      description: What behavior should the learner predict and observe?
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment, safety, and cost
+      description: List tools, OS/cloud requirements, privileges, destructive actions, charges, and cleanup.
+    validations:
+      required: true
+  - type: textarea
+    id: failure
+    attributes:
+      label: Controlled failure and evidence
+      description: Describe the fault, expected symptoms, debugging evidence, recovery, and proof.
+    validations:
+      required: true
+  - type: textarea
+    id: completion
+    attributes:
+      label: Completion criteria
+      description: Define observable proof, including explain-back.
+    validations:
+      required: true
