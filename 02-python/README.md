@@ -1,74 +1,27 @@
 # 02 — Python
 
-> **Status:** Scaffolded · Detailed lessons are intentionally not yet published.
+Learn Python’s value model, control flow, and module boundaries by writing small programs you can inspect and test. Read the lessons in order: each one assumes the model and vocabulary established immediately before it.
 
-## 5-Minute Orientation
+## What you will learn
 
-### What is this?
+By the end, you can explain the central mechanism in plain language, inspect it with a small command or program, recognize common failure modes, and choose evidence before changing a system.
 
-Develop production-grade Python fluency: language semantics, data model, typing, packaging, testing, concurrency, profiling, and runtime behavior. Python becomes both an implementation language and an instrument for investigating systems and AI workloads.
+## Lessons
 
-### Why does it matter?
+1. [Values, Names, and Types](./01-values-names-and-types.md)
+2. [Control Flow and Functions](./02-control-flow-and-functions.md)
+3. [Modules, Environments, and Tests](./03-modules-environments-and-tests.md)
 
-This layer exists because the previous layer alone cannot make production systems understandable, dependable, and evolvable at scale. The module will teach the mechanism before the product vocabulary and connect every abstraction to observable behavior.
+## Practice
 
-### Where does it fit?
+Use each lesson’s bounded exercise to build a small artifact and preserve your predictions, observations, and cleanup notes.
 
-This is Module 02 of 35. It follows [Software Foundations](../01-software-foundations/README.md) and provides foundations used by later modules. See the [Curriculum](../CURRICULUM.md) for the complete dependency path.
+Practice is part of the path, not an optional recap. Predict first, work only in disposable or explicitly scoped resources, compare expected and actual observations, and perform the documented cleanup.
 
-### What do I need first?
+## Ready to continue
 
-Complete or demonstrate Minimum Competency in [Software Foundations](../01-software-foundations/README.md). These are mechanism prerequisites, not merely earlier module numbers.
-
-### What will I be able to explain afterward?
-
-- the everyday problems this domain solves, before using specialized vocabulary;
-- the relationships among production-grade Python fluency: language semantics, data model, typing, packaging, testing, concurrency, profiling, and runtime behavior;
-- where the abstraction appears in production and which lower-layer details can leak through it;
-- one common failure, the evidence that distinguishes it, and a defensible design tradeoff.
-
-## Competency Tiers
-
-### Minimum Competency
-
-Explain the module’s central mental model, complete guided proofs, and solve the designated No-AI challenge. This is enough for a first pass when the domain is not yet on your critical path.
-
-### Strong Engineer
-
-Build a representative system, break it safely, diagnose it from evidence, and operate it under realistic constraints. Explain the mechanism to both a new learner and a working engineer.
-
-### Deep Dive
-
-Inspect internals and primary sources, quantify reliability/security/cost tradeoffs, and make a design decision that accounts for adjacent layers.
-
-Go deep when this domain blocks a current project, recurs in incidents, or underpins a decision you own. Otherwise earn Minimum Competency and continue.
-
-## AI Learning Policy
-
-### AI Tutor
-
-Use AI for Socratic questions, prerequisite refreshers, and alternative analogies. Verify technical claims against canonical sources.
-
-### AI Pair
-
-Write your prediction and plan first. Read every generated command, state its expected effect, and keep ownership of tests and safety.
-
-### AI Review
-
-Ask AI to challenge assumptions, identify missing failure modes, and point out claims unsupported by evidence.
-
-### No-AI Challenge
-
-Complete the designated retrieval/build/debug task using your own model, local tools, and official documentation before consulting AI.
-
-### Explain Back
-
-Explain the concept without notes to a smart non-engineer, a junior engineer, and an interviewer. If one version collapses into jargon, revisit the intuition and mechanism.
-
-## Planned Scope
-
-No empty lesson files are created for this module. When authored, each lesson must satisfy [the lesson contract](../templates/LESSON.md), include a narratable Mermaid diagram, and end with an exact next path.
+Continue when you can answer each lesson’s checks without notes, reproduce its smallest proof, explain one failure from evidence, and distinguish what the evidence proves from what it merely suggests.
 
 ## Next
 
-This scaffold is orientation, not completion. If you are following the active path, return to [START-HERE.md](../START-HERE.md). To preview the dependency that follows this module, open [Computer Systems](../03-computer-systems/README.md).
+Start with [Values, Names, and Types](./01-values-names-and-types.md).

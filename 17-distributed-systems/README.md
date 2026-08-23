@@ -1,74 +1,27 @@
 # 17 — Distributed Systems
 
-> **Status:** Scaffolded · Detailed lessons are intentionally not yet published.
+Once work crosses a network, delay, loss, duplication, reordering, and partial failure become normal conditions rather than edge cases.
 
-## 5-Minute Orientation
+## What you will learn
 
-### What is this?
+- Reason from uncertainty instead of assuming a global clock or instant failure detection.
+- Use replication, quorums, and consensus with explicit guarantees.
+- Build retry-safe, overload-aware request and message flows.
 
-Reason about partial failure, clocks, ordering, coordination, replication, consensus, partitions, backpressure, and idempotency. Replace single-machine assumptions with explicit models of uncertainty.
+## Lessons
 
-### Why does it matter?
+1. [Time, ordering, and partial failure](01-time-and-partial-failure.md)
+2. [Replication, consistency, and consensus](02-replication-and-consensus.md)
+3. [Retries, idempotency, and backpressure](03-retries-and-backpressure.md)
 
-This layer exists because the previous layer alone cannot make production systems understandable, dependable, and evolvable at scale. The module will teach the mechanism before the product vocabulary and connect every abstraction to observable behavior.
+## Practice
 
-### Where does it fit?
+For a payment request, write every outcome after the client times out. Design an idempotency record and state which component may retry, for how long, and under what load limit.
 
-This is Module 17 of 35. It follows [Kubernetes](../16-kubernetes/README.md) and provides foundations used by later modules. See the [Curriculum](../CURRICULUM.md) for the complete dependency path.
+## Ready to continue
 
-### What do I need first?
-
-Complete or demonstrate Minimum Competency in [Networking](../07-networking/README.md), [Databases](../08-databases/README.md), and [Software Architecture](../11-software-architecture/README.md). These are mechanism prerequisites, not merely earlier module numbers.
-
-### What will I be able to explain afterward?
-
-- the everyday problems this domain solves, before using specialized vocabulary;
-- the relationships among reason about partial failure, clocks, ordering, coordination, replication, consensus, partitions, backpressure, and idempotency;
-- where the abstraction appears in production and which lower-layer details can leak through it;
-- one common failure, the evidence that distinguishes it, and a defensible design tradeoff.
-
-## Competency Tiers
-
-### Minimum Competency
-
-Explain the module’s central mental model, complete guided proofs, and solve the designated No-AI challenge. This is enough for a first pass when the domain is not yet on your critical path.
-
-### Strong Engineer
-
-Build a representative system, break it safely, diagnose it from evidence, and operate it under realistic constraints. Explain the mechanism to both a new learner and a working engineer.
-
-### Deep Dive
-
-Inspect internals and primary sources, quantify reliability/security/cost tradeoffs, and make a design decision that accounts for adjacent layers.
-
-Go deep when this domain blocks a current project, recurs in incidents, or underpins a decision you own. Otherwise earn Minimum Competency and continue.
-
-## AI Learning Policy
-
-### AI Tutor
-
-Use AI for Socratic questions, prerequisite refreshers, and alternative analogies. Verify technical claims against canonical sources.
-
-### AI Pair
-
-Write your prediction and plan first. Read every generated command, state its expected effect, and keep ownership of tests and safety.
-
-### AI Review
-
-Ask AI to challenge assumptions, identify missing failure modes, and point out claims unsupported by evidence.
-
-### No-AI Challenge
-
-Complete the designated retrieval/build/debug task using your own model, local tools, and official documentation before consulting AI.
-
-### Explain Back
-
-Explain the concept without notes to a smart non-engineer, a junior engineer, and an interviewer. If one version collapses into jargon, revisit the intuition and mechanism.
-
-## Planned Scope
-
-No empty lesson files are created for this module. When authored, each lesson must satisfy [the lesson contract](../templates/LESSON.md), include a narratable Mermaid diagram, and end with an exact next path.
+You can explain why a timeout is not proof of failure, compare quorum guarantees, and design bounded retries without creating duplicate work or a retry storm.
 
 ## Next
 
-This scaffold is orientation, not completion. If you are following the active path, return to [START-HERE.md](../START-HERE.md). To preview the dependency that follows this module, open [Observability](../18-observability/README.md).
+Continue to [Observability](../18-observability/README.md).

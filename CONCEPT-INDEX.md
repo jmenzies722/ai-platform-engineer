@@ -1,10 +1,10 @@
 # Concept Index
 
-Use this page when a term appears before your model is ready. **Start gently** at the first lesson; use deeper modules only after you can explain the entry point.
+Use this index when a term appears before its lesson. Start with the introductory lesson, then follow the deeper module when you need implementation or operational detail.
 
 Search this file with your browser’s Find command.
 
-| Concept | Plain-language question | First gentle lesson | Deeper path |
+| Concept | Question | Start here | Continue with |
 |---|---|---|---|
 | Abstraction | How can I use something without carrying every detail in my head? | [Why Software Exists](00-history/02-why-software-exists.md) | [Software Architecture](11-software-architecture/README.md), [Control Planes](23-control-planes/README.md) |
 | Agent | How can software choose and perform several steps toward a goal? | [Agentic Engineering](00-history/20-agentic-engineering.md) | [Agentic Infrastructure](33-agentic-infrastructure/README.md) |
@@ -43,7 +43,7 @@ Search this file with your browser’s Find command.
 | Virtual memory | How does each process get its own address space without owning all physical RAM? | [How Software Executes](01-software-foundations/01-how-software-actually-executes.md) | [Computer Systems](03-computer-systems/README.md), [Linux](04-linux/README.md) |
 | Virtualization | How can one physical machine present several isolated logical machines? | [Virtualization and Cloud](00-history/10-virtualization-and-cloud.md) | [AWS](12-aws/README.md), [Containers](15-containers/README.md) |
 
-## If Two Terms Seem Similar
+## Common distinctions
 
 - **Program vs process:** stored instructions vs one OS-managed execution.
 - **Compiler vs interpreter:** translation vs execution strategy; one runtime can use both.
@@ -52,4 +52,4 @@ Search this file with your browser’s Find command.
 - **Platform vs portal:** a reliable set of capabilities and contracts vs one possible interface.
 - **Model vs agent:** a parameterized prediction system vs a bounded execution loop that may use a model and tools.
 
-For a term’s plain and precise definitions, use [GLOSSARY.md](GLOSSARY.md).
+For concise definitions, use [GLOSSARY.md](GLOSSARY.md).

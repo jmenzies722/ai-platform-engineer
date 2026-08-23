@@ -1,122 +1,55 @@
 # Lesson Title
 
-## In One Sentence
+Open with one paragraph that states the point in plain language. Do not add a summary heading before it.
 
-One plain sentence a beginner can understand. Use no unexplained jargon.
+## Why it matters
 
-## Why This Exists
+Name any prerequisite with an exact link. Describe the concrete problem, the cost of leaving it unsolved, and the reason this mechanism deserves attention.
 
-Name prerequisites with exact links. Describe the concrete real-world problem before the abstraction existed. A learner should understand the pressure without knowing the solution’s name.
+## How it works
 
-## Picture This
+Define the mechanism precisely. Trace the important state, boundaries, decisions, and side effects. Include implementation details only when they explain a practical consequence.
 
-Use one everyday analogy or story. Do not use the engineering term until the underlying idea is visible. State where the analogy stops being accurate.
-
-## The Real Definition
-
-Introduce the engineering name, then define it precisely and gently. Establish:
-
-1. **Intuition layer** — what the idea means in plain language.
-2. **Mechanism layer** — components, state, and causality.
-3. **Engineering layer** — production behavior, failures, and tradeoffs.
-
-## Mental Model
-
-```mermaid
-flowchart LR
-    Before --> Problem --> Abstraction
-    Abstraction --> Capability["New capability"]
-    Capability --> Complexity["New complexity"]
-    Complexity --> Next["Next abstraction"]
-```
-
-Explain how to narrate every arrow. State the model’s boundary.
-
-## How It Actually Works
-
-Trace the critical path step by step. Prefer “because A changed, B happens” over disconnected facts. Include internals only when they affect a decision, symptom, or tradeoff.
-
-## Tiny Proof
-
-Provide the smallest safe code or command demo that makes the central claim observable.
-
-1. Ask for a prediction before execution.
-2. Show the command/code.
-3. State the expected observation.
-4. Explain what the observation proves and what it does not prove.
-
-## In Production
-
-Show where this mechanism appears in real systems: Linux, cloud, Kubernetes, AI infrastructure, or another concrete environment. Connect the intuition layer to engineering consequences.
-
-## How It Breaks
-
-List common failures as **symptom → likely mechanism → misleading conclusion to avoid**. Include unsafe or overloaded boundaries where relevant.
-
-## Debug It
-
-Use:
-
-**precise symptom → last proven boundary → falsifiable hypothesis → smallest useful evidence → controlled comparison → correction → prevention**
-
-Name the first evidence to inspect and why.
-
-## Build / Break Exercises
-
-### Guided proof
-
-Give a bounded first exercise.
-
-### Build
-
-Build a reduced version from a blank start.
-
-### Break
-
-Introduce one safe fault at a time. Predict, observe, explain, recover.
-
-### No-AI challenge
-
-Set a task completed from the learner’s model, local tools, and primary documentation.
-
-For every task, state observable success criteria.
-
-## Explain It to Anybody
-
-### 1. To a smart non-engineer
-
-Give a short explanation with the problem, concrete model, benefit, and no unexplained jargon.
-
-### 2. To a junior engineer
-
-Use precise vocabulary, narrate the mechanism, and include one production failure.
-
-### 3. In an interview (60–90 seconds)
-
-Define, motivate, explain the mechanism, name a tradeoff, and describe useful debugging evidence. This is a model answer to rebuild, not memorize.
-
-## Knowledge Check
-
-Ask questions that test prediction, mechanism, transfer, failure reasoning, and design tradeoffs—not recall of the lesson’s wording. Optional answer guides should explain reasoning.
+Use a Mermaid diagram only when relationships are materially clearer than prose. Keep it small, use valid GitHub Mermaid syntax, quote labels containing special characters, and do not use HTML.
 
 ## Vocabulary
 
-Define only terms introduced in this lesson, in order of first use. Each gets one plain line. Add curriculum-wide terms to [GLOSSARY.md](../GLOSSARY.md) with its required four fields.
+Include this section only when the lesson introduces terms that a reader needs for the mechanism. Define each term once, briefly, in order of use.
 
-## References
+## See it yourself
+
+Provide the smallest safe command or program that makes the central claim observable. Ask for a prediction, state the expected observation, and explain what the result supports and what it does not prove.
+
+## Where it shows up
+
+Connect the mechanism to specific production systems and decisions. Prefer one developed example over a list of product names.
+
+## When it breaks
+
+Describe common failure modes, their visible symptoms, and the evidence that distinguishes them. Include security, overload, and unsafe boundaries when relevant.
+
+## Practice
+
+Give a bounded observation task, an independent build, and one controlled failure. State observable completion criteria. A short **Say it out loud** prompt may appear here when it helps retrieval.
+
+## Check yourself
+
+Ask questions that test prediction, mechanism, transfer, failure diagnosis, and tradeoffs. Avoid wording-recall questions.
+
+## Sources
 
 ### REQUIRED
 
-Canonical source needed for Minimum Competency.
+Link a canonical source needed to verify the lesson’s central claims.
 
 ### RECOMMENDED
 
-Official or primary source useful for Strong Engineer depth.
+Link an official guide, primary account, or strong technical treatment.
 
 ### DEEP DIVE
 
-Specification, paper, source, or internals reference. Verify every URL; never invent one.
+Link a specification, paper, source tree, or internals reference. Verify every URL.
 
 ## Next
 
-Give one exact next file path and explain the dependency. Never point to an unpublished file.
+Link one exact file path that continues the subject. Do not point to an unpublished file.

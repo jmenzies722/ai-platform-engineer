@@ -1,99 +1,41 @@
-# Lab: Title
+# Lab title
 
-## Status
+State the behavior this lab makes visible and why that behavior matters in production.
 
-- Domain:
-- Related lesson:
-- Estimated resource cost:
-- Destructive actions: none / list explicitly
+## Goal
 
-## Why This Lab Exists
+Name the result the learner will produce and the claim the result tests.
 
-Name the mental model this lab tests and the production behavior it represents.
+## Before you start
 
-## Objectives
+List the related lesson, required tools, supported environment, expected cost, privileges, and any destructive action. Give a clear stop condition for cloud or shared systems.
 
-- Explain:
-- Build:
-- Break:
-- Debug:
-- Operate:
+Write down what you expect to observe before running a command.
 
-## Prerequisites
+## Establish a baseline
 
-List knowledge, tools, platform assumptions, access, and versions.
+Show the smallest command that proves the starting state is healthy. Include the important part of the expected output and explain what it establishes.
 
-## Safety and Cost Boundaries
+## Make it work
 
-State data-loss risks, cloud charges, privilege requirements, and a stop condition.
+Provide a short sequence of commands with enough prose to explain each decision. Pin versions when behavior depends on them. Keep credentials and private data out of commands and captured output.
 
-## Environment
+## Break it
 
-Record OS, architecture, tool versions, and relevant configuration without secrets.
+Introduce one safe fault. State the exact change and the expected symptom. Do not combine failures.
 
-## Prediction
+## Diagnose it
 
-Before running commands, write expected state transitions, output, and failure signatures.
+Start from the user-visible symptom. Name the first evidence to inspect, what competing explanations it separates, and how to prove the correction.
 
-## Setup
+## Clean up
 
-Provide deterministic setup and a verification command.
+Restore the starting state. For cloud resources, include a command that proves billable resources are gone.
 
-## Procedure
+## What to keep
 
-### 1. Establish a Baseline
+Record the prediction, the useful output, the failed hypothesis, the correction, and one production implication. Finish by explaining the mechanism without notes.
 
-Capture known-good behavior and evidence.
+## Sources
 
-### 2. Inspect the Mechanism
-
-Observe each important boundary.
-
-### 3. Build
-
-Change or construct the target behavior.
-
-### 4. Break
-
-Introduce one controlled fault. Record the exact change.
-
-### 5. Debug
-
-Use hypothesis → evidence → isolation → correction. Preserve commands and timestamps.
-
-### 6. Recover
-
-Restore healthy state and prove recovery from user-visible behavior.
-
-## Evidence
-
-- Commands and relevant output:
-- Metrics/logs/traces/events:
-- Before/after state:
-- Diagram or sequence:
-- Commit or artifact:
-
-## Analysis
-
-Explain observations, discrepancies from predictions, hidden assumptions, and production implications.
-
-## No-AI Challenge
-
-Complete one bounded variation using primary documentation only.
-
-## Cleanup
-
-Provide exact cleanup and verification. For cloud resources, prove billable resources are gone.
-
-## Completion Criteria
-
-- [ ] I predicted behavior before execution.
-- [ ] I captured a known-good baseline.
-- [ ] I built the target behavior.
-- [ ] I induced and diagnosed a failure from evidence.
-- [ ] I restored and verified healthy state.
-- [ ] I can explain the mechanism without notes.
-
-## References
-
-List canonical documentation used, with access date or version where behavior is version-specific.
+Link the official documentation, standard, or primary source used by the lab. Note the version when it changes the observed behavior.

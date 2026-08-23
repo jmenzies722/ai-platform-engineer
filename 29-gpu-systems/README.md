@@ -1,74 +1,27 @@
 # 29 — GPU Systems
 
-> **Status:** Scaffolded · Detailed lessons are intentionally not yet published.
+GPUs trade flexible control flow for massive parallel throughput. This module develops the hardware and performance model needed to use them efficiently.
 
-## 5-Minute Orientation
+## What you will learn
 
-### What is this?
+- Explain GPU execution, memory hierarchy, and kernels.
+- Distinguish compute-bound from memory-bound workloads.
+- Reason about precision, communication, and profiling.
 
-Study GPU architecture, kernels, memory hierarchy, execution scheduling, interconnects, collectives, profiling, and resource partitioning. Relate model operations to utilization, throughput, latency, and cost.
+## Lessons
 
-### Why does it matter?
+1. [GPU execution and memory](01-gpu-execution-and-memory.md)
+2. [Kernels, precision, and performance](02-kernels-precision-and-performance.md)
+3. [Multi-GPU communication](03-multi-gpu-communication.md)
 
-This layer exists because the previous layer alone cannot make production systems understandable, dependable, and evolvable at scale. The module will teach the mechanism before the product vocabulary and connect every abstraction to observable behavior.
+## Practice
 
-### Where does it fit?
+Use arithmetic intensity and profiler evidence to diagnose a workload before proposing an optimization.
 
-This is Module 29 of 35. It follows [MLOps](../28-mlops/README.md) and provides foundations used by later modules. See the [Curriculum](../CURRICULUM.md) for the complete dependency path.
+## Ready to continue
 
-### What do I need first?
-
-Complete or demonstrate Minimum Competency in [Computer Systems](../03-computer-systems/README.md) and [Machine Learning and Deep Learning](../25-ml-deep-learning/README.md). These are mechanism prerequisites, not merely earlier module numbers.
-
-### What will I be able to explain afterward?
-
-- the everyday problems this domain solves, before using specialized vocabulary;
-- the relationships among gPU architecture, kernels, memory hierarchy, execution scheduling, interconnects, collectives, profiling, and resource partitioning;
-- where the abstraction appears in production and which lower-layer details can leak through it;
-- one common failure, the evidence that distinguishes it, and a defensible design tradeoff.
-
-## Competency Tiers
-
-### Minimum Competency
-
-Explain the module’s central mental model, complete guided proofs, and solve the designated No-AI challenge. This is enough for a first pass when the domain is not yet on your critical path.
-
-### Strong Engineer
-
-Build a representative system, break it safely, diagnose it from evidence, and operate it under realistic constraints. Explain the mechanism to both a new learner and a working engineer.
-
-### Deep Dive
-
-Inspect internals and primary sources, quantify reliability/security/cost tradeoffs, and make a design decision that accounts for adjacent layers.
-
-Go deep when this domain blocks a current project, recurs in incidents, or underpins a decision you own. Otherwise earn Minimum Competency and continue.
-
-## AI Learning Policy
-
-### AI Tutor
-
-Use AI for Socratic questions, prerequisite refreshers, and alternative analogies. Verify technical claims against canonical sources.
-
-### AI Pair
-
-Write your prediction and plan first. Read every generated command, state its expected effect, and keep ownership of tests and safety.
-
-### AI Review
-
-Ask AI to challenge assumptions, identify missing failure modes, and point out claims unsupported by evidence.
-
-### No-AI Challenge
-
-Complete the designated retrieval/build/debug task using your own model, local tools, and official documentation before consulting AI.
-
-### Explain Back
-
-Explain the concept without notes to a smart non-engineer, a junior engineer, and an interviewer. If one version collapses into jargon, revisit the intuition and mechanism.
-
-## Planned Scope
-
-No empty lesson files are created for this module. When authored, each lesson must satisfy [the lesson contract](../templates/LESSON.md), include a narratable Mermaid diagram, and end with an exact next path.
+You can explain occupancy and memory traffic, interpret a roofline, and identify when communication erases parallel speedup.
 
 ## Next
 
-This scaffold is orientation, not completion. If you are following the active path, return to [START-HERE.md](../START-HERE.md). To preview the dependency that follows this module, open [AI Infrastructure](../30-ai-infrastructure/README.md).
+Begin [AI Infrastructure](../30-ai-infrastructure/README.md).

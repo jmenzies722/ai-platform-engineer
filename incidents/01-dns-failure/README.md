@@ -60,7 +60,7 @@ $ ip route
 ## Your Tasks
 
 1. State impact and identify what is known versus inferred.
-2. Draw the resolution path: application → resolver library/cache → configured resolver → authoritative chain.
+2. Draw the resolution path from the application through its resolver library or cache, the configured resolver, and the authoritative nameservers.
 3. Write at least three plausible hypotheses.
 4. For each hypothesis, choose a discriminating test and expected result.
 5. Identify the earliest failing boundary.

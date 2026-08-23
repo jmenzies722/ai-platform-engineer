@@ -1,74 +1,27 @@
 # 28 — MLOps
 
-> **Status:** Scaffolded · Detailed lessons are intentionally not yet published.
+MLOps makes data, training, evaluation, and release processes reproducible and observable across a model's lifetime.
 
-## 5-Minute Orientation
+## What you will learn
 
-### What is this?
+- Version data, code, configuration, and model artifacts.
+- Build training and validation pipelines with lineage.
+- Release, monitor, and safely retire models.
 
-Engineer reproducible data, training, registry, evaluation, deployment, monitoring, and governance workflows. Track lineage and promotion decisions across code, data, model, configuration, and environment.
+## Lessons
 
-### Why does it matter?
+1. [Reproducibility and lineage](01-reproducibility-and-lineage.md)
+2. [Training pipelines and registries](02-training-pipelines-and-registries.md)
+3. [Release and monitoring](03-release-and-monitoring.md)
 
-This layer exists because the previous layer alone cannot make production systems understandable, dependable, and evolvable at scale. The module will teach the mechanism before the product vocabulary and connect every abstraction to observable behavior.
+## Practice
 
-### Where does it fit?
+Describe one model artifact using immutable inputs, evaluation evidence, ownership, and rollback instructions.
 
-This is Module 28 of 35. It follows [LLM Engineering](../27-llm-engineering/README.md) and provides foundations used by later modules. See the [Curriculum](../CURRICULUM.md) for the complete dependency path.
+## Ready to continue
 
-### What do I need first?
-
-Complete or demonstrate Minimum Competency in [Machine Learning and Deep Learning](../25-ml-deep-learning/README.md), [DevOps](../13-devops/README.md), and [Observability](../18-observability/README.md). These are mechanism prerequisites, not merely earlier module numbers.
-
-### What will I be able to explain afterward?
-
-- the everyday problems this domain solves, before using specialized vocabulary;
-- the relationships among reproducible data, training, registry, evaluation, deployment, monitoring, and governance workflows;
-- where the abstraction appears in production and which lower-layer details can leak through it;
-- one common failure, the evidence that distinguishes it, and a defensible design tradeoff.
-
-## Competency Tiers
-
-### Minimum Competency
-
-Explain the module’s central mental model, complete guided proofs, and solve the designated No-AI challenge. This is enough for a first pass when the domain is not yet on your critical path.
-
-### Strong Engineer
-
-Build a representative system, break it safely, diagnose it from evidence, and operate it under realistic constraints. Explain the mechanism to both a new learner and a working engineer.
-
-### Deep Dive
-
-Inspect internals and primary sources, quantify reliability/security/cost tradeoffs, and make a design decision that accounts for adjacent layers.
-
-Go deep when this domain blocks a current project, recurs in incidents, or underpins a decision you own. Otherwise earn Minimum Competency and continue.
-
-## AI Learning Policy
-
-### AI Tutor
-
-Use AI for Socratic questions, prerequisite refreshers, and alternative analogies. Verify technical claims against canonical sources.
-
-### AI Pair
-
-Write your prediction and plan first. Read every generated command, state its expected effect, and keep ownership of tests and safety.
-
-### AI Review
-
-Ask AI to challenge assumptions, identify missing failure modes, and point out claims unsupported by evidence.
-
-### No-AI Challenge
-
-Complete the designated retrieval/build/debug task using your own model, local tools, and official documentation before consulting AI.
-
-### Explain Back
-
-Explain the concept without notes to a smart non-engineer, a junior engineer, and an interviewer. If one version collapses into jargon, revisit the intuition and mechanism.
-
-## Planned Scope
-
-No empty lesson files are created for this module. When authored, each lesson must satisfy [the lesson contract](../templates/LESSON.md), include a narratable Mermaid diagram, and end with an exact next path.
+You can reproduce a candidate, prevent invalid promotion, detect drift without confusing it with harm, and roll back safely.
 
 ## Next
 
-This scaffold is orientation, not completion. If you are following the active path, return to [START-HERE.md](../START-HERE.md). To preview the dependency that follows this module, open [GPU Systems](../29-gpu-systems/README.md).
+Begin [GPU Systems](../29-gpu-systems/README.md).

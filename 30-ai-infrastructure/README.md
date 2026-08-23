@@ -1,74 +1,27 @@
 # 30 — AI Infrastructure
 
-> **Status:** Scaffolded · Detailed lessons are intentionally not yet published.
+AI infrastructure supplies scarce accelerators, fast data paths, reliable jobs, and observability for training and inference workloads.
 
-## 5-Minute Orientation
+## What you will learn
 
-### What is this?
+- Schedule heterogeneous accelerator workloads.
+- Design storage and networking paths around workload behavior.
+- Operate distributed jobs through failure and contention.
 
-Design compute, storage, networking, scheduling, images, data paths, quotas, and observability for training and inference fleets. Debug across cloud, cluster, node, accelerator, framework, and workload layers.
+## Lessons
 
-### Why does it matter?
+1. [Accelerator scheduling](01-accelerator-scheduling.md)
+2. [Storage and networking](02-storage-and-networking.md)
+3. [Reliable distributed jobs](03-reliable-distributed-jobs.md)
 
-This layer exists because the previous layer alone cannot make production systems understandable, dependable, and evolvable at scale. The module will teach the mechanism before the product vocabulary and connect every abstraction to observable behavior.
+## Practice
 
-### Where does it fit?
+Create a capacity and failure plan for a distributed training job, including checkpoint cost, placement, and preemption policy.
 
-This is Module 30 of 35. It follows [GPU Systems](../29-gpu-systems/README.md) and provides foundations used by later modules. See the [Curriculum](../CURRICULUM.md) for the complete dependency path.
+## Ready to continue
 
-### What do I need first?
-
-Complete or demonstrate Minimum Competency in [Kubernetes](../16-kubernetes/README.md), [MLOps](../28-mlops/README.md), and [GPU Systems](../29-gpu-systems/README.md). These are mechanism prerequisites, not merely earlier module numbers.
-
-### What will I be able to explain afterward?
-
-- the everyday problems this domain solves, before using specialized vocabulary;
-- the relationships among compute, storage, networking, scheduling, images, data paths, quotas, and observability for training and inference fleets;
-- where the abstraction appears in production and which lower-layer details can leak through it;
-- one common failure, the evidence that distinguishes it, and a defensible design tradeoff.
-
-## Competency Tiers
-
-### Minimum Competency
-
-Explain the module’s central mental model, complete guided proofs, and solve the designated No-AI challenge. This is enough for a first pass when the domain is not yet on your critical path.
-
-### Strong Engineer
-
-Build a representative system, break it safely, diagnose it from evidence, and operate it under realistic constraints. Explain the mechanism to both a new learner and a working engineer.
-
-### Deep Dive
-
-Inspect internals and primary sources, quantify reliability/security/cost tradeoffs, and make a design decision that accounts for adjacent layers.
-
-Go deep when this domain blocks a current project, recurs in incidents, or underpins a decision you own. Otherwise earn Minimum Competency and continue.
-
-## AI Learning Policy
-
-### AI Tutor
-
-Use AI for Socratic questions, prerequisite refreshers, and alternative analogies. Verify technical claims against canonical sources.
-
-### AI Pair
-
-Write your prediction and plan first. Read every generated command, state its expected effect, and keep ownership of tests and safety.
-
-### AI Review
-
-Ask AI to challenge assumptions, identify missing failure modes, and point out claims unsupported by evidence.
-
-### No-AI Challenge
-
-Complete the designated retrieval/build/debug task using your own model, local tools, and official documentation before consulting AI.
-
-### Explain Back
-
-Explain the concept without notes to a smart non-engineer, a junior engineer, and an interviewer. If one version collapses into jargon, revisit the intuition and mechanism.
-
-## Planned Scope
-
-No empty lesson files are created for this module. When authored, each lesson must satisfy [the lesson contract](../templates/LESSON.md), include a narratable Mermaid diagram, and end with an exact next path.
+You can connect queueing, topology, data delivery, checkpoints, and failure domains to job completion time.
 
 ## Next
 
-This scaffold is orientation, not completion. If you are following the active path, return to [START-HERE.md](../START-HERE.md). To preview the dependency that follows this module, open [Model Serving](../31-model-serving/README.md).
+Begin [Model Serving](../31-model-serving/README.md).

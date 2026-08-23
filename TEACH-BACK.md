@@ -1,126 +1,68 @@
 # Teach Back
 
-If you can explain a system clearly, you probably have a usable model. If you can only repeat its vocabulary, you do not.
+An explanation tests whether you can reconstruct a mechanism. Repeating the lesson’s phrasing tests memory of prose instead.
 
 Use this rubric after every lesson. Explain once without notes, inspect the gap, then try again.
 
-## The Three Audiences
+## Make the point first
 
-### A curious friend
+Begin with the claim that matters. Define the problem, name the mechanism, and explain the practical consequence. Remove any term that does not help the listener predict behavior.
 
-**Goal:** Make the problem and central idea feel obvious.
+Adjust detail to the listener, but do not maintain three separate scripts. A new learner may need common language; an engineer may need boundary conditions and evidence. The underlying account must remain the same.
 
-Include:
+## Explain the mechanism
 
-- the situation before the concept existed;
-- one concrete analogy;
-- what changed and why it helps;
-- one honest limit of the analogy.
+State:
 
-Avoid:
-
-- acronyms;
-- product names as explanations;
-- invisible prerequisites;
-- “basically” followed by unexplained jargon.
-
-**Pass:** The listener can restate the idea and give a new example.
-
-### A junior engineer
-
-**Goal:** Supply vocabulary and a mechanism they can use while building or debugging.
-
-Include:
-
-- the precise engineering term and definition;
-- components, boundaries, and state changes;
+- the relevant state and who owns it;
+- the operation or decision that changes that state;
+- the contract at each important boundary;
 - one production location;
-- one failure symptom and first evidence to inspect;
-- what the abstraction hides.
+- one failure symptom and the first evidence you would inspect;
+- a limit of the explanation.
 
-**Pass:** The listener can draw the model and predict one behavior.
+An analogy is useful only when it clarifies a relation. State where it stops matching the real system.
 
-### An interviewer
-
-**Goal:** Show a compact mental model, engineering judgment, and depth under follow-up.
-
-In 60–90 seconds:
-
-1. define the concept in one precise sentence;
-2. state the problem it solves;
-3. narrate the critical mechanism;
-4. connect one production tradeoff or failure;
-5. name useful evidence and one limit of the model.
-
-**Pass:** Your answer remains coherent when a constraint changes.
-
-## Scoring Rubric
+## Score it
 
 Score each row from 0–2.
 
 | Dimension | 0 | 1 | 2 |
 |---|---|---|---|
-| Starts with the problem | Opens with jargon/product | Problem is vague | Before-state and pressure are concrete |
+| Leads with the point | Opens with jargon or a product | Point is delayed | Claim and consequence are immediate |
 | Language fits audience | Unexplained terms | Mostly appropriate | Every term earns its place |
 | Mechanism | Labels only | Partial sequence | Causal, ordered, and bounded |
-| Mental model | No drawable model | Model misses a boundary | Listener can redraw and narrate it |
+| Boundaries | Important boundary is absent | Boundary is named | Contract and limits are clear |
 | Production connection | None | Generic use case | Concrete system and consequence |
-| Failure/debugging | “Check logs” | Names a failure | Symptom → hypothesis → evidence |
+| Failure/debugging | “Check logs” | Names a failure | Connects symptom, hypothesis, and evidence |
 | Precision | False simplification | Correct but fuzzy | Correct, concise, states limits |
 | Teachability | Memorized monologue | Understandable | Listener can transfer the model |
 
 - **13–16:** usable explanation
 - **9–12:** promising, but repair the lowest row
-- **0–8:** return to Picture This, Mental Model, and Tiny Proof
+- **0–8:** return to the mechanism and demonstration
 
 Do not average away a zero in mechanism or precision.
 
-## Example: Process
+## Example
 
-### To a curious friend
+Consider a process:
 
-“A recipe sitting on a shelf is not dinner being cooked. In the same way, a program file is stored instructions, while a process is one active run with its own workspace and access to shared equipment. The operating system keeps track of that run so several programs can safely share the computer.”
+> A program is stored code and data. A process is one operating-system-managed execution of that program, with an identity, virtual address space, threads, credentials, file descriptors, and scheduler state. Starting the same program twice creates two processes. In production, an existing PID proves that the process record exists, not that useful work is progressing. I would inspect process state, CPU-time change, wait state, open descriptors, and syscall or profile evidence before deciding why it is stuck.
 
-### To a junior engineer
+The explanation leads with the distinction, supplies only the components needed for diagnosis, and limits the claim made by an existing PID.
 
-“A process is an OS-managed execution context: a PID, virtual address space, one or more threads, file descriptors, credentials, and execution state. Starting the same program twice creates two processes. If one is alive but not progressing, I first inspect its state, CPU-time change, wait channel, and open descriptors rather than rereading source blindly.”
+## Review questions
 
-### In an interview
+- Can the listener state the main claim after one hearing?
+- Can they predict one new case from the mechanism?
+- Which sentence is unsupported or too broad?
+- Which term can be removed?
+- What observation would disprove your diagnosis?
+- Does the explanation remain correct when the scale or failure assumption changes?
 
-“A program is stored code and data; a process is an OS-managed instance executing that program. On Linux, the process has a PID, virtual address space, threads, credentials, file descriptors, and scheduler state. The shell commonly creates a child and `execve` replaces its image with the target executable. This distinction matters operationally: a valid file does not prove startup, and an existing PID does not prove progress. I would use process state, CPU time, `/proc`, profiles, or syscall evidence to separate runnable, blocked, and failing behavior.”
+## Review record
 
-## Example: Kubernetes Reconciliation
-
-### To a curious friend
-
-“A thermostat does not turn the heater on once and leave. It keeps comparing the room with your chosen temperature and corrects the difference. Kubernetes does that for applications: you describe the result you want, and it keeps checking and correcting the cluster.”
-
-### To a junior engineer
-
-“Kubernetes stores desired state as API objects. Controllers watch those objects and observed state, then perform idempotent actions to reduce the difference. Scheduling and node agents handle later boundaries. Convergence is asynchronous, so I inspect object generation, conditions, events, controller ownership, and node reality rather than assuming one API write immediately changed the workload.”
-
-### In an interview
-
-“Kubernetes is an API-driven distributed control plane built around reconciliation. Users declare desired state; controllers observe desired and actual state and repeatedly issue idempotent changes toward convergence. This separates intent from imperative orchestration and supports extensibility, but creates eventual consistency and asynchronous failure boundaries. In an incident I trace the object from admission and persisted intent through controller status, scheduling, node runtime, and network/storage dependencies. A present object proves accepted intent, not a healthy running workload.”
-
-## A Reusable 90-Second Frame
-
-> Before **[concept]**, people had **[concrete problem]**.
->
-> **[Concept]** is **[precise definition]**.
->
-> It works by **[ordered mechanism]**.
->
-> In production, it appears in **[specific place]**.
->
-> A common failure is **[symptom]**, so I inspect **[evidence]** first.
->
-> The key tradeoff or limit is **[boundary]**.
-
-Use the frame to organize thought, not as a script to memorize.
-
-## Review Record
-
-| Date | Concept | Audience | Lowest rubric row | Correction made | Evidence |
+| Date | Concept | Listener or setting | Lowest rubric row | Correction | Evidence |
 |---|---|---|---|---|---|
-| YYYY-MM-DD | Process | Junior engineer | Failure/debugging | Added state and wait evidence | Lab note |
+| YYYY-MM-DD | Process | Study partner | Failure/debugging | Added state and wait evidence | Lab note |

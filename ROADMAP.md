@@ -1,38 +1,10 @@
-# Roadmap: Capability Gates, Not Calendar Milestones
+# Roadmap
 
-This roadmap answers one question: **What must I be able to do before the next layer becomes useful rather than confusing?**
+This roadmap groups the curriculum by engineering capability. Move forward when you can produce the stated evidence. Reading every linked page is neither necessary nor sufficient.
 
-Move forward when you can produce the stage’s exit evidence. Reading every linked module is neither necessary nor sufficient. Revisit an earlier stage whenever a build, incident, or design review exposes a weak model.
+Stages 1 through 6 build the software, infrastructure, reliability, and platform foundations. Stage 7 can begin once your programming and systems knowledge is sound. Stage 8 depends on both infrastructure practice and AI foundations. Stages 9 and 10 add platform ownership and technical leadership.
 
-For each stage:
-
-```mermaid
-flowchart LR
-    Entry["Prerequisite evidence"] --> Learn["Minimum Competency"]
-    Learn --> Build["Build + break"]
-    Build --> Operate["Debug + operate"]
-    Operate --> Exit["Explain + design evidence"]
-    Exit --> Next["Next stage"]
-    Operate -->|model gap| Learn
-```
-
-Use [HOW-TO-LEARN.md](HOW-TO-LEARN.md) for the study loop and [PROGRESS.md](PROGRESS.md) to record evidence.
-
-## Stage Dependency Map
-
-```mermaid
-flowchart TD
-    A[1. Foundations] --> B[2. Systems Practitioner]
-    B --> C[3. Backend and Cloud Engineer]
-    C --> D[4. Infrastructure Engineer]
-    D --> E[5. Distributed Systems and SRE]
-    E --> F[6. Platform Engineer]
-    B --> G[7. AI Systems Foundations]
-    F --> H[8. AI Infrastructure Engineer]
-    G --> H
-    H --> I[9. AI Platform Engineer]
-    I --> J[10. Platform Engineering Leadership]
-```
+Use [HOW-TO-LEARN.md](HOW-TO-LEARN.md) to structure practice and [PROGRESS.md](PROGRESS.md) to record evidence.
 
 ## 1. Foundations
 
@@ -43,7 +15,7 @@ flowchart TD
 **Prerequisites:** Curiosity, command-line access, and willingness to test assumptions.
 
 **Exit evidence:**
-- Explain source → runtime → OS → process → memory → CPU → output.
+- Explain how source code becomes observable machine behavior through a runtime, operating system, process, memory, and CPU.
 - Implement and test a nontrivial command-line program.
 - Use branches, commits, diffs, and pull requests deliberately.
 - Analyze time/space tradeoffs for common data structures.
@@ -173,12 +145,12 @@ flowchart TD
 - Improve the system that produces engineering work: standards, reviews, incident learning, mentoring, and investment choices.
 - Show judgment about what not to build.
 
-## Advancement Rule
+## Advancement rule
 
 Update [PROGRESS.md](PROGRESS.md) only from evidence:
 
 - “I read it” supports **Learning**.
-- A repeatable Tiny Proof plus an accurate explain-back supports **Minimum Competency**.
+- A repeatable demonstration plus an accurate explanation supports **Minimum Competency**.
 - An independent build and diagnosed controlled failure support **Practicing**.
 - Independent operation and defensible routine design support **Competent**.
 - Novel failure reasoning, quantified tradeoffs, and successful teaching support **Deep Understanding**.

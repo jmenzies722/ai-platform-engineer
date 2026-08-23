@@ -1,74 +1,27 @@
 # 21 — Platform Engineering
 
-> **Status:** Scaffolded · Detailed lessons are intentionally not yet published.
+Platform engineering treats shared delivery capabilities as an internal product whose value is safer autonomy and lower cognitive load.
 
-## 5-Minute Orientation
+## What you will learn
 
-### What is this?
+- Discover developer problems before choosing platform technology.
+- Design paved roads with clear contracts and escape hatches.
+- Measure adoption, outcomes, reliability, and platform cost.
 
-Build internal platforms as products that reduce cognitive load through reliable, secure self-service capabilities. Focus on user discovery, paved roads, contracts, adoption, governance, and measurable outcomes.
+## Lessons
 
-### Why does it matter?
+1. [Platforms as products](01-platform-as-product.md)
+2. [Paved roads and capability contracts](02-paved-roads.md)
+3. [Adoption, governance, and measurement](03-adoption-and-governance.md)
 
-This layer exists because the previous layer alone cannot make production systems understandable, dependable, and evolvable at scale. The module will teach the mechanism before the product vocabulary and connect every abstraction to observable behavior.
+## Practice
 
-### Where does it fit?
+Interview one service team about a repeated delivery task. Write the current journey, evidence of friction, a proposed capability contract, and a success measure.
 
-This is Module 21 of 35. It follows [Security](../20-security/README.md) and provides foundations used by later modules. See the [Curriculum](../CURRICULUM.md) for the complete dependency path.
+## Ready to continue
 
-### What do I need first?
-
-Complete or demonstrate Minimum Competency in [DevOps](../13-devops/README.md), [Kubernetes](../16-kubernetes/README.md), [Observability](../18-observability/README.md), and [Security](../20-security/README.md). These are mechanism prerequisites, not merely earlier module numbers.
-
-### What will I be able to explain afterward?
-
-- the everyday problems this domain solves, before using specialized vocabulary;
-- the relationships among internal platforms as products that reduce cognitive load through reliable, secure self-service capabilities;
-- where the abstraction appears in production and which lower-layer details can leak through it;
-- one common failure, the evidence that distinguishes it, and a defensible design tradeoff.
-
-## Competency Tiers
-
-### Minimum Competency
-
-Explain the module’s central mental model, complete guided proofs, and solve the designated No-AI challenge. This is enough for a first pass when the domain is not yet on your critical path.
-
-### Strong Engineer
-
-Build a representative system, break it safely, diagnose it from evidence, and operate it under realistic constraints. Explain the mechanism to both a new learner and a working engineer.
-
-### Deep Dive
-
-Inspect internals and primary sources, quantify reliability/security/cost tradeoffs, and make a design decision that accounts for adjacent layers.
-
-Go deep when this domain blocks a current project, recurs in incidents, or underpins a decision you own. Otherwise earn Minimum Competency and continue.
-
-## AI Learning Policy
-
-### AI Tutor
-
-Use AI for Socratic questions, prerequisite refreshers, and alternative analogies. Verify technical claims against canonical sources.
-
-### AI Pair
-
-Write your prediction and plan first. Read every generated command, state its expected effect, and keep ownership of tests and safety.
-
-### AI Review
-
-Ask AI to challenge assumptions, identify missing failure modes, and point out claims unsupported by evidence.
-
-### No-AI Challenge
-
-Complete the designated retrieval/build/debug task using your own model, local tools, and official documentation before consulting AI.
-
-### Explain Back
-
-Explain the concept without notes to a smart non-engineer, a junior engineer, and an interviewer. If one version collapses into jargon, revisit the intuition and mechanism.
-
-## Planned Scope
-
-No empty lesson files are created for this module. When authored, each lesson must satisfy [the lesson contract](../templates/LESSON.md), include a narratable Mermaid diagram, and end with an exact next path.
+You can define a platform user and problem, separate a capability from its interface, design an escape hatch, and measure outcomes beyond portal logins.
 
 ## Next
 
-This scaffold is orientation, not completion. If you are following the active path, return to [START-HERE.md](../START-HERE.md). To preview the dependency that follows this module, open [Developer Platforms](../22-developer-platforms/README.md).
+Continue to [Developer Platforms](../22-developer-platforms/README.md).
