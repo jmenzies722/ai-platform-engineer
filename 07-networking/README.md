@@ -18,7 +18,7 @@ This is Module 07 of 35. It follows [Data Structures and Algorithms](../06-data-
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [Data Structures and Algorithms](../06-data-structures-algorithms/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Computer Systems](../03-computer-systems/README.md) and [Linux](../04-linux/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

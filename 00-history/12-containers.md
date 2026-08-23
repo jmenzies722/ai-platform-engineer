@@ -50,14 +50,21 @@ Namespaces isolate views; cgroups account and limit resources. Images are immuta
 
 ## Tiny Proof
 
+On Linux, inspect the isolation and resource-control identities of the process running this command:
+
 ```bash
-docker build -t lesson:local .
-docker inspect lesson:local
-docker run --rm --memory=256m --cpus=0.5 --read-only lesson:local
-docker image inspect --format '{{.RepoDigests}}' lesson:local
+python3 - <<'PY'
+from pathlib import Path
+
+for name in ("pid", "mnt", "net", "uts", "user"):
+    print(f"{name:>4} namespace -> {Path(f'/proc/self/ns/{name}').readlink()}")
+
+print("cgroup membership:")
+print(Path("/proc/self/cgroup").read_text().strip())
+PY
 ```
 
-Before running it, predict the result. Afterward, explain which part of the definition the observation proves—and which parts it does not.
+Predict whether every namespace line will have the same identifier. The output proves that an ordinary Linux process belongs to kernel namespaces and a cgroup hierarchy—the primitives a container runtime configures. It does **not** prove that this process is strongly isolated, resource-limited, or launched from a container image. Those claims require comparing processes across configured boundaries.
 
 ## In Production
 

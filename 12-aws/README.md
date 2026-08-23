@@ -18,7 +18,7 @@ This is Module 12 of 35. It follows [Software Architecture](../11-software-archi
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [Software Architecture](../11-software-architecture/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Networking](../07-networking/README.md) and [Backend Engineering](../09-backend-engineering/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

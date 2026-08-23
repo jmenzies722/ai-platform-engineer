@@ -48,14 +48,23 @@ Data parallelism replicates weights and synchronizes gradients; tensor/pipeline 
 
 ## Tiny Proof
 
-```bash
-nvidia-smi
-nvidia-smi topo -m
-nvidia-smi dmon -s pucvmet
-python -m torch.distributed.run --nproc_per_node=4 train.py
+Use a capacity model to see why more accelerators do not guarantee a proportional speedup:
+
+```python
+single_device_compute_ms = 100
+gradient_gib = 8
+link_gib_per_second = 50
+
+for devices in (1, 2, 4, 8):
+    compute_ms = single_device_compute_ms / devices
+    # Simplified ring all-reduce traffic per device.
+    communication_ms = 0 if devices == 1 else (
+        2 * (devices - 1) / devices * gradient_gib / link_gib_per_second * 1000
+    )
+    print(devices, round(compute_ms + communication_ms, 1))
 ```
 
-Before running it, predict the result. Afterward, explain which part of the definition the observation proves—and which parts it does not.
+Predict whether elapsed time falls as devices increase, then run the code with Python 3. Under these assumptions, communication overwhelms the saved compute. The model proves no benchmark result; it makes the tradeoff explicit. Real systems overlap work and depend on topology, algorithms, tensor sizes, software, and hardware measurements.
 
 ## In Production
 

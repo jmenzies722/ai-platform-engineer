@@ -18,7 +18,7 @@ This is Module 34 of 35. It follows [Agentic Infrastructure](../33-agentic-infra
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [Agentic Infrastructure](../33-agentic-infrastructure/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Distributed Systems](../17-distributed-systems/README.md), [Site Reliability Engineering](../19-sre/README.md), and [AI Platform Engineering](../32-ai-platform-engineering/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

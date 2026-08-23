@@ -18,7 +18,7 @@ This is Module 33 of 35. It follows [AI Platform Engineering](../32-ai-platform-
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [AI Platform Engineering](../32-ai-platform-engineering/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [LLM Engineering](../27-llm-engineering/README.md) and [AI Platform Engineering](../32-ai-platform-engineering/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

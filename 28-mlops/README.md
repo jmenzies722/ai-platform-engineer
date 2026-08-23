@@ -18,7 +18,7 @@ This is Module 28 of 35. It follows [LLM Engineering](../27-llm-engineering/READ
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [LLM Engineering](../27-llm-engineering/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Machine Learning and Deep Learning](../25-ml-deep-learning/README.md), [DevOps](../13-devops/README.md), and [Observability](../18-observability/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

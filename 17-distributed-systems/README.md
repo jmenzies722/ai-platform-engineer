@@ -18,7 +18,7 @@ This is Module 17 of 35. It follows [Kubernetes](../16-kubernetes/README.md) and
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [Kubernetes](../16-kubernetes/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Networking](../07-networking/README.md), [Databases](../08-databases/README.md), and [Software Architecture](../11-software-architecture/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

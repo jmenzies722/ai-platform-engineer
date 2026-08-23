@@ -18,7 +18,7 @@ This is Module 19 of 35. It follows [Observability](../18-observability/README.m
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [Observability](../18-observability/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Observability](../18-observability/README.md) and [Distributed Systems](../17-distributed-systems/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

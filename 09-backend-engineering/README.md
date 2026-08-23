@@ -18,7 +18,7 @@ This is Module 09 of 35. It follows [Databases](../08-databases/README.md) and p
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [Databases](../08-databases/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Python](../02-python/README.md), [Networking](../07-networking/README.md), and [Databases](../08-databases/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

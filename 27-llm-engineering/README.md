@@ -18,7 +18,7 @@ This is Module 27 of 35. It follows [Transformers and LLMs](../26-transformers-l
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [Transformers and LLMs](../26-transformers-llms/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Transformers and LLMs](../26-transformers-llms/README.md) and [Backend Engineering](../09-backend-engineering/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

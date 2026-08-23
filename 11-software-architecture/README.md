@@ -18,7 +18,7 @@ This is Module 11 of 35. It follows [Go](../10-go/README.md) and provides founda
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [Go](../10-go/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Backend Engineering](../09-backend-engineering/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

@@ -18,7 +18,7 @@ This is Module 24 of 35. It follows [Control Planes](../23-control-planes/README
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [Control Planes](../23-control-planes/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Python](../02-python/README.md) and [Data Structures and Algorithms](../06-data-structures-algorithms/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

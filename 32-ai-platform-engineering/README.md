@@ -18,7 +18,7 @@ This is Module 32 of 35. It follows [Model Serving](../31-model-serving/README.m
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [Model Serving](../31-model-serving/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Platform Engineering](../21-platform-engineering/README.md), [MLOps](../28-mlops/README.md), and [Model Serving](../31-model-serving/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

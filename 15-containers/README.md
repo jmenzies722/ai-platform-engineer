@@ -18,7 +18,7 @@ This is Module 15 of 35. It follows [Terraform](../14-terraform/README.md) and p
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [Terraform](../14-terraform/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Linux](../04-linux/README.md) and [Networking](../07-networking/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

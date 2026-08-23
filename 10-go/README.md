@@ -18,7 +18,7 @@ This is Module 10 of 35. It follows [Backend Engineering](../09-backend-engineer
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [Backend Engineering](../09-backend-engineering/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Software Foundations](../01-software-foundations/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

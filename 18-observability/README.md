@@ -18,7 +18,7 @@ This is Module 18 of 35. It follows [Distributed Systems](../17-distributed-syst
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [Distributed Systems](../17-distributed-systems/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Backend Engineering](../09-backend-engineering/README.md) and [Distributed Systems](../17-distributed-systems/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

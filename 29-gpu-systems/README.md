@@ -18,7 +18,7 @@ This is Module 29 of 35. It follows [MLOps](../28-mlops/README.md) and provides 
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [MLOps](../28-mlops/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Computer Systems](../03-computer-systems/README.md) and [Machine Learning and Deep Learning](../25-ml-deep-learning/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

@@ -18,7 +18,7 @@ This is Module 23 of 35. It follows [Developer Platforms](../22-developer-platfo
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [Developer Platforms](../22-developer-platforms/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Kubernetes](../16-kubernetes/README.md) and [Distributed Systems](../17-distributed-systems/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

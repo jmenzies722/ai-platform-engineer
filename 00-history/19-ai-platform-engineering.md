@@ -143,7 +143,7 @@ Use each term only after you can explain the underlying idea without it. See the
 ## References
 
 - **REQUIRED** — “Hidden Technical Debt in Machine Learning Systems” — Sculley et al., Google. [Google Research](https://research.google/pubs/hidden-technical-debt-in-machine-learning-systems/). Defines the systems pressures an AI platform must absorb.
-- **RECOMMENDED** — “Machine Learning: The High Interest Credit Card of Technical Debt” — D. Sculley et al. [Google Research PDF](https://research.google/pubs/pub43146/). Connects ML experimentation to long-term operational cost.
+- **RECOMMENDED** — “The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction” — Breck et al., Google. [Google Research](https://research.google/pubs/the-ml-test-score-a-rubric-for-ml-production-readiness-and-technical-debt-reduction/). Turns production-readiness concerns into concrete tests and release evidence.
 - **DEEP DIVE** — “vLLM: Easy, Fast, and Cheap LLM Serving with PagedAttention” — Kwon et al. [arXiv](https://arxiv.org/abs/2309.06180). Shows how serving internals shape platform capability.
 
 ## Next

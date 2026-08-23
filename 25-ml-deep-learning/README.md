@@ -18,7 +18,7 @@ This is Module 25 of 35. It follows [AI Foundations](../24-ai-foundations/README
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [AI Foundations](../24-ai-foundations/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [AI Foundations](../24-ai-foundations/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

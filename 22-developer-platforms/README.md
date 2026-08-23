@@ -18,7 +18,7 @@ This is Module 22 of 35. It follows [Platform Engineering](../21-platform-engine
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [Platform Engineering](../21-platform-engineering/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Platform Engineering](../21-platform-engineering/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

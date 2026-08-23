@@ -18,7 +18,7 @@ This is Module 21 of 35. It follows [Security](../20-security/README.md) and pro
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [Security](../20-security/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [DevOps](../13-devops/README.md), [Kubernetes](../16-kubernetes/README.md), [Observability](../18-observability/README.md), and [Security](../20-security/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

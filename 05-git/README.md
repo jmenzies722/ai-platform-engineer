@@ -18,7 +18,7 @@ This is Module 05 of 35. It follows [Linux](../04-linux/README.md) and provides 
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [Linux](../04-linux/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [Software Foundations](../01-software-foundations/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

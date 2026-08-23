@@ -122,6 +122,8 @@ Narrate the main path as:
 
 **Source → Runtime/Compiler → OS → Process → Memory → CPU → Output**
 
+This is a **layer-ownership map**, not startup chronology. It tells you which boundary owns each kind of behavior. In time order, the shell first asks the OS to start the Python executable; the process and runtime initialize; CPython then reads and compiles the source; execution repeatedly uses memory and CPU and may produce output.
+
 Do not picture a one-way conveyor belt. While the program runs, the runtime repeatedly touches memory, the OS pauses and resumes threads, the CPU crosses into kernel code for protected operations, and output may wait in buffers.
 
 ## How It Actually Works

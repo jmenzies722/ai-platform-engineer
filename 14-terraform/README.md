@@ -18,7 +18,7 @@ This is Module 14 of 35. It follows [DevOps](../13-devops/README.md) and provide
 
 ### What do I need first?
 
-Complete the Minimum Competency tier for [DevOps](../13-devops/README.md), or demonstrate the same capability with build and debugging evidence. Follow any additional prerequisites when this module’s lessons are published.
+Complete or demonstrate Minimum Competency in [AWS](../12-aws/README.md) and [DevOps](../13-devops/README.md). These are mechanism prerequisites, not merely earlier module numbers.
 
 ### What will I be able to explain afterward?
 

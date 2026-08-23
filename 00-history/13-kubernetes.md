@@ -50,15 +50,27 @@ Reconciliation is level-based and must be idempotent. Scheduling filters infeasi
 
 ## Tiny Proof
 
-```bash
-kubectl apply -f deployment.yaml
-kubectl get pods -o wide
-kubectl describe pod POD
-kubectl get events --sort-by=.metadata.creationTimestamp
-kubectl logs POD --previous
+This tiny controller makes reconciliation visible without requiring a Kubernetes cluster:
+
+```python
+desired = 3
+actual = {"pod-a"}
+
+def reconcile():
+    while len(actual) < desired:
+        actual.add(f"pod-{len(actual) + 1}")
+    while len(actual) > desired:
+        actual.pop()
+
+reconcile()
+print(sorted(actual))
+
+actual.remove("pod-a")  # a running instance disappears
+reconcile()
+print(sorted(actual))   # the controller restores the count
 ```
 
-Before running it, predict the result. Afterward, explain which part of the definition the observation proves—and which parts it does not.
+Run it with Python 3 after predicting both lines. It proves the central control-loop idea: compare desired with observed state and act until they agree. It does not model asynchronous APIs, unique Pod identities, scheduling, failures, or safe deletion; Kubernetes adds those distributed-system mechanisms around the loop.
 
 ## In Production
 
