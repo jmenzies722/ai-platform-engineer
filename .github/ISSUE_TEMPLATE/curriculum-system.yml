@@ -1,0 +1,83 @@
+name: Curriculum system proposal or correction
+description: Change a role track, assessment gate, certification overlay, or case study
+title: "[Curriculum system] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: "Read CONTRIBUTING.md and QUALITY.md first. These systems compose, assess, or apply canonical curriculum; they must not duplicate it."
+  - type: dropdown
+    id: system
+    attributes:
+      label: System
+      options:
+        - Role track
+        - Assessment gate or rubric
+        - Certification overlay
+        - Case study
+        - Cross-system navigation or quality
+    validations:
+      required: true
+  - type: input
+    id: artifact
+    attributes:
+      label: Artifact and canonical path
+      placeholder: "tracks/backend-engineer.md"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Learner problem and evidence
+      description: Describe the incorrect, missing, stale, duplicated, unsafe, or undiscoverable behavior and provide current evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope, non-goals, and affected contracts
+      description: Name affected modules, lessons, labs, incidents, projects, gates, tracks, overlays, cases, indexes, and explicit exclusions.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Authority and source integrity
+      description: Map important claims to primary sources, repository evidence, or labeled synthetic evidence. Include versions, dates, uncertainty, and licensing limits.
+    validations:
+      required: true
+  - type: textarea
+    id: system_contract
+    attributes:
+      label: System-specific contract
+      description: For a track, define role outcome and gates. For an assessment, define fresh challenge and scoring. For an overlay, map the current official blueprint and gaps. For a case, define staged evidence and decision boundaries.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance and discoverability
+      description: Give observable quality criteria, required key files, parent and root navigation, local links and fragments, diagram rendering, and substantive review checks.
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Safety, integrity, and cost
+      description: Define authority, data provenance, assessment leakage controls, privileges, side effects, resource and spend bounds, stop conditions, rollback, and cleanup.
+    validations:
+      required: true
+  - type: textarea
+    id: ownership
+    attributes:
+      label: Review ownership and maintenance
+      description: Name the content owner, independent domain or role reviewer, required specialist review, upstream change triggers, and planned review date.
+    validations:
+      required: true
+  - type: checkboxes
+    id: integrity
+    attributes:
+      label: Contribution integrity
+      options:
+        - label: "This proposal does not include leaked exam material, invented user research, private data, fabricated evidence, or duplicated canonical lessons."
+          required: true

@@ -12,8 +12,10 @@ Search this file with your browser’s Find command.
 | Attention | How can a model weigh which other tokens matter for each token? | [Transformers and LLMs](00-history/17-transformers-and-llms.md) | [Transformers and LLMs](26-transformers-llms/README.md) |
 | Backpressure | What should a system do when work arrives faster than it can finish? | [Distributed Systems](00-history/09-distributed-systems.md) | [Distributed Systems](17-distributed-systems/README.md), [Model Serving](31-model-serving/README.md) |
 | Bytecode | What intermediate instructions does CPython execute? | [How Software Executes](01-software-foundations/01-how-software-actually-executes.md) | [Python](02-python/README.md) |
+| Certification overlay | How can an exam blueprint organize review without becoming a separate course? | [Certification overlays](certs/README.md) | [AWS DOP-C02 overlay](certs/aws-dop-c02.md) |
 | Cloud computing | How did compute become a programmable, metered service? | [Virtualization and Cloud](00-history/10-virtualization-and-cloud.md) | [AWS](12-aws/README.md) |
 | Compiler | How does one program representation become another? | [Machine Code to Assembly](00-history/03-machine-code-assembly-high-level-languages.md) | [How Software Executes](01-software-foundations/01-how-software-actually-executes.md) |
+| Competency gate | How is capability assessed across explanation, implementation, diagnosis, operation, and design? | [Assessment gates](assessments/README.md) | [Assessment rubric](assessments/rubric.md), [Progress record](PROGRESS.md) |
 | Container | How can an application carry its environment while sharing a host kernel? | [Containers](00-history/12-containers.md) | [Linux](04-linux/README.md), [Containers](15-containers/README.md) |
 | Control plane | How does a system turn declared intent into ongoing action? | [Kubernetes](00-history/13-kubernetes.md) | [Control Planes](23-control-planes/README.md) |
 | CPU | What physically performs a program’s instructions? | [Origins of Computing](00-history/01-origins-of-computing.md) | [Computer Systems](03-computer-systems/README.md) |
@@ -51,5 +53,7 @@ Search this file with your browser’s Find command.
 - **Observability vs monitoring:** ability to investigate internal behavior vs checking known conditions.
 - **Platform vs portal:** a reliable set of capabilities and contracts vs one possible interface.
 - **Model vs agent:** a parameterized prediction system vs a bounded execution loop that may use a model and tools.
+- **Module vs role track:** canonical lesson content vs a role-shaped composition of modules and practice.
+- **Curriculum gate vs certification overlay:** reviewed engineering evidence vs an optional index aligned to an exam blueprint.
 
 For concise definitions, use [GLOSSARY.md](GLOSSARY.md).

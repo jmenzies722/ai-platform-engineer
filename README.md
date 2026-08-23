@@ -41,13 +41,17 @@ These viewpoints are expressed in lessons and exercises, not as a memorized slog
 ## Navigate
 
 - [CURRICULUM.md](CURRICULUM.md) lists the complete module path.
+- [tracks/README.md](tracks/README.md) composes those modules into role paths.
 - [ROADMAP.md](ROADMAP.md) groups modules by capability.
+- [assessments/README.md](assessments/README.md) defines competency gates across Explain, Build, Debug, Operate, and Design.
 - [CONCEPT-INDEX.md](CONCEPT-INDEX.md) finds the best entry point for a concept.
 - [GLOSSARY.md](GLOSSARY.md) defines recurring terms.
 - [labs/README.md](labs/README.md) indexes guided engineering labs.
 - [incidents/README.md](incidents/README.md) contains production incident drills with separate solutions.
+- [case-studies/README.md](case-studies/README.md) provides staged decisions from incomplete evidence.
 - [projects/README.md](projects/README.md) contains portfolio-grade integration briefs.
 - [interview/README.md](interview/README.md) turns demonstrated competence into interview practice.
+- [certs/README.md](certs/README.md) contains optional certification overlays, not separate courses.
 - [cheatsheets/README.md](cheatsheets/README.md) provides high-signal operator aids.
 - [architecture/README.md](architecture/README.md) collects system views and design review prompts.
 - [REFERENCES.md](REFERENCES.md) is the authoritative source shelf.

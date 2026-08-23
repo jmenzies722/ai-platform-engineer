@@ -6,6 +6,26 @@ Stages 1 through 6 build the software, infrastructure, reliability, and platform
 
 Use [HOW-TO-LEARN.md](HOW-TO-LEARN.md) to structure practice and [PROGRESS.md](PROGRESS.md) to record evidence.
 
+## Select a role track
+
+The stages below remain the broad capability map and the numbered modules remain canonical. Select a role-shaped composition from [tracks/README.md](tracks/README.md) when you know the work you are targeting. A track identifies which stages and modules to emphasize; it does not duplicate or replace their content. Enter at the earliest prerequisite for which current evidence is missing.
+
+## Assessment gates
+
+Use the cumulative [assessment system](assessments/README.md) at these capability boundaries. Every gate requires independently reviewable Explain, Build, Debug, Operate, and Design evidence; passing is based on the required vector and critical conditions, not an average or reading completion.
+
+| Sequence | Gate |
+|---:|---|
+| 1 | [Foundations](assessments/gates/foundations.md) |
+| 2 | [Systems, Linux, and Networking](assessments/gates/systems-linux-networking.md) |
+| 3 | [Cloud Delivery](assessments/gates/cloud-delivery.md) |
+| 4 | [Kubernetes Reliability](assessments/gates/kubernetes-reliability.md) |
+| 5 | [Platform](assessments/gates/platform.md) |
+| 6 | [AI Platform](assessments/gates/ai-platform.md) |
+| 7 | [Staff](assessments/gates/staff.md) |
+
+Each gate file owns its exact prerequisites and scope, so this roadmap does not restate them. Record each outcome and dimension vector in [PROGRESS.md](PROGRESS.md). Certification plans in [certs/README.md](certs/README.md) are optional overlays and do not add or replace a gate.
+
 ## 1. Foundations
 
 **Modules:** [History](00-history/README.md), [Software Foundations](01-software-foundations/README.md), [Python](02-python/README.md), [Git](05-git/README.md), [Data Structures and Algorithms](06-data-structures-algorithms/README.md)
@@ -147,7 +167,7 @@ Use [HOW-TO-LEARN.md](HOW-TO-LEARN.md) to structure practice and [PROGRESS.md](P
 
 ## Advancement rule
 
-Update [PROGRESS.md](PROGRESS.md) only from evidence:
+Update [PROGRESS.md](PROGRESS.md) only from evidence. At formal boundaries, use the linked assessment gate and retain its outcome and dimension vector:
 
 - “I read it” supports **Learning**.
 - A repeatable demonstration plus an accurate explanation supports **Minimum Competency**.

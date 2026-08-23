@@ -3,6 +3,9 @@ description: Request primary-source research for a curriculum decision
 title: "[Research] "
 labels: []
 body:
+  - type: markdown
+    attributes:
+      value: "Read CONTRIBUTING.md and QUALITY.md first. Research must inform a bounded curriculum decision and preserve source provenance."
   - type: textarea
     id: question
     attributes:
@@ -21,14 +24,28 @@ body:
     id: sources
     attributes:
       label: Preferred primary sources
-      description: List maintainers, standards bodies, official documentation, or papers to prioritize.
+      description: List standards, maintainers, official documentation, source code, papers, or direct measurements. Include versions, dates, and known disagreements.
     validations:
       required: true
   - type: textarea
     id: output
     attributes:
       label: Required output and acceptance criteria
-      description: Define comparison, experiment, reference update, lesson change, or decision record expected.
+      description: Define the claim-to-source map, comparison, bounded experiment, reference update, curriculum change, uncertainty record, and review expected.
+    validations:
+      required: true
+  - type: textarea
+    id: downstream
+    attributes:
+      label: Affected curriculum and maintenance
+      description: Name lessons, practice, assessments, tracks, overlays, cases, links, diagrams, owners, and future change triggers that may be affected.
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Data, access, safety, and cost
+      description: State whether private data, credentials, paid services, scraping, experiments, or destructive actions are involved and how they remain authorized and bounded.
     validations:
       required: true
   - type: checkboxes
@@ -36,5 +53,5 @@ body:
     attributes:
       label: Source integrity
       options:
-        - label: "Claims must be traceable to real links; uncertainty and version dependence must be explicit."
+        - label: "Claims will be traceable to primary sources; quotations, uncertainty, version dependence, and synthetic evidence will be explicit."
           required: true

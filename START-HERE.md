@@ -37,6 +37,14 @@ You are ready to continue when you can do the following without a script:
 
 Record the evidence in [PROGRESS.md](PROGRESS.md), then continue with [00-history/README.md](00-history/README.md).
 
+## Choose a direction after the first evidence
+
+The numbered modules are canonical. If you have a target role, choose a composition in [tracks/README.md](tracks/README.md); the track selects modules and practice but does not replace their lesson order. Use [ROADMAP.md](ROADMAP.md) for the broad capability sequence.
+
+At each relevant [assessment gate](assessments/README.md), bring inspectable evidence across Explain, Build, Debug, Operate, and Design. Record the outcome and score vector in [PROGRESS.md](PROGRESS.md), including Rework or Stop rather than converting an attempt into a completion check. Use [TEACH-BACK.md](TEACH-BACK.md) during the gate's oral review.
+
+Certification plans in [certs/README.md](certs/README.md) are optional overlays on this same path. They organize review against an exam blueprint; they are not separate courses and do not replace gate evidence.
+
 ## If you are blocked
 
 Use [CONCEPT-INDEX.md](CONCEPT-INDEX.md) for unfamiliar terms. Preserve exact command errors and observations. If Linux is unavailable, complete the reading now and return to the lab in a Linux VM or other environment that exposes `/proc`.
